@@ -1,0 +1,16 @@
+﻿
+<ul class="tree">
+    <li *ngFor="let dir of treeViewList.childNodes" class="branch">
+        <i *ngIf="!dir.isLeaf && ( dir.childNodes != null || dir.childNodes.length>0 )"
+           (click)="clicked(dir)"
+           [ngClass]="dir.expanded ? 'fa fa-folder-open' : 'fa fa-folder'"></i>
+        <i *ngIf="dir.islocked" class="fa fa-lock"></i>
+        <input type="checkbox" [checked]="dir.checked" (click)="dir.check()" *ngIf="dir.showCheckBox" />
+        <span (click)="clicked(dir)" [class.ativeClass]="dir.isClicked">
+            {{ dir.nodeName }}
+        </span>
+        <div *ngIf="!dir.isLeaf && dir.childNodes != null && dir.expanded">
+            <directory-view [treeViewList]="dir" [eventemiter]="editSelectedRow" [isCheckboxEnabled]="isCheckboxEnabled"></directory-view>
+        </div>
+    </li>
+</ul>

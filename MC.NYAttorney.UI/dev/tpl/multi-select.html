@@ -1,0 +1,80 @@
+﻿<div class="col-lg-5 col-md-5 col-sm-5 pL0">
+    <a class="list-group-item active">
+        {{lstATitle}}
+        <input title="Select all" #selectall [checked]="lstASelectAll" (click)="selectAllListA(selectall.checked)" type="checkbox" class="pull-right">
+    </a> 
+    <div class="list-group clear multip-select" id="list1">
+      
+        
+        <span *ngFor="let a of listA" class="list-group-item">
+            <span *ngFor="let col of columns">
+                                                
+                    <span *ngIf="col.abbr!='Email'" class="covAndFeeMulti">{{a[col.abbr]}}-{{a[col.name]}}</span>
+                    <span *ngIf="col.abbr=='Email'" class="covAndFeeMulti">{{a[col.abbr]}}</span>
+                    
+                <input #lstA (click)="selectA(a[col.code],lstA.checked,col.code)" [checked]="lstASelectAll" name="selectedA[]" value="{{a[col.code]}}" type="checkbox" class="pull-right covAndFeeCheckbox">
+
+            </span>
+         </span>
+    </div>
+</div>
+<div class="col-md-2 v-center text-center">
+    <div class="btn-group">
+        <button type="button" title="Send to list 1" class="btn btn-default clear mB5" (click)="selectListA()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button type="button" title="Send to list 2" class="btn btn-default mB5" (click)="deSelectListB()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+    </div>
+</div>
+
+
+
+
+<div class="col-lg-5 col-md-5 col-sm-5 pL0">
+    <a class="list-group-item active">
+        {{lstBTitle}}
+        <input title="DeSelect all" #deSelectAll [checked]="lstBSelectAll" (click)="deSelectAllListA(deSelectAll.checked)" type="checkbox" class="pull-right">
+    </a>
+    <div class="list-group clear multip-select" id="list2">
+
+        <span *ngFor="let b of selectedStates">            
+            <span *ngFor="let col of columns" class="list-group-item">
+                 <span *ngIf="col.abbr!='Email'" class="covAndFeeMulti">{{b[col.abbr]}}-{{b[col.name]}}</span>
+                 <span *ngIf="col.abbr=='Email'" class="covAndFeeMulti">{{b[col.abbr]}}</span>
+                <input #lstB (click)="deSelectB(b[col.code],lstB.checked,col.code)" [checked]="lstBSelectAll" value="{{b[col.code]}}" type="checkbox" class="pull-right covAndFeeCheckbox">
+
+            </span>
+            
+        </span>
+    </div>
+</div>
+
+
+
+
+
+<!--<div class="col-sm-4 col-sm-offset-1">
+    <div class="list-group" id="list1">
+        <a href="#" class="list-group-item active">
+            Members
+            <input title="Toggle all" (click)="toggleA()" ng-model="toggle" value="{{toggle}}" type="checkbox" class="pull-right">
+        </a>
+        <span *ngFor="let user of listA">           
+                {{user.firstName}}
+                <input (click)="selectA(user.id,user.ischecked)" name="selectedA[]" value="{{user.id}}" [(checked)]="user.ischecked" type="checkbox" class="pull-right">
+        </span>        
+    </div>
+</div>
+
+<div class="col-sm-4">
+    <div class="list-group" id="list2">
+        <a href="#" class="list-group-item active">
+            Selected Members
+            <input title="Toggle all" type="checkbox" class="pull-right">
+        </a>
+        <span *ngFor="let user of selectedA">
+                {{user.firstName}}
+                <input name="selectedB[]" value="{{user.id}}" type="checkbox" class="pull-right">
+        </span>
+    </div>
+</div>-->
+
+

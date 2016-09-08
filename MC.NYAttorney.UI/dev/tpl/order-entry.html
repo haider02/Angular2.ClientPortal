@@ -1,0 +1,330 @@
+﻿<div class="content">
+    <notification-msg #notificationcomponent></notification-msg>
+    <h4 class="main-heading">Order Entry Form </h4>
+    <div class="row">
+        <div id="OrderEntryForm" class="col-md-12">
+            <form role="form" *ngIf="active" (ngSubmit)="onSave()" #orderEntryForm="ngForm">
+
+                <div class="panel-group" id="accordionOrderEntry" role="tablist" aria-multiselectable="true">
+                    <div id="BasicInfoSection" class="panel panel-default db-panel finished">
+                        <div class="panel-heading" role="tab" id="transactionType">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#transactionTypeD" aria-expanded="true" aria-controls="collapseOne">
+                                    Basic Info <span class=""></span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="transactionTypeD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="orderSearch">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div id="OrderEntryTransTypeCntrl" class="form-group">
+                                            <label>*Transaction Type</label>
+                                            <select id="ddlTranType" class="form-control" required
+                                                    [(ngModel)]="tranType"
+                                                    name="tranType" #transactionType="ngModel" (change)="tranType=$event.target.value">
+                                                <option *ngFor="let t of transactionTypes" [value]="t.cboEntry">{{t.cboEntry}}</option>
+                                            </select>
+                                            <div [hidden]="transactionType.valid || transactionType.pristine" class="alert alert-danger">
+                                                Select Transaction Type
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryLenderCntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>*Lender</label>
+                                            <select class="form-control" (change)="filterContacts($event)" name="lenderId"
+                                                    [(ngModel)]="lenderId">
+                                                <option [value]="0">Please Select</option>
+                                                <option *ngFor="let t of clientList" [value]="t.ClientId">{{t.Alias}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryLenderContacts" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>*Contacts</label>
+                                            <select class="form-control" required
+                                                    [(ngModel)]="contactName"
+                                                    name="contactName" #cName="ngModel" (change)="contactName=$event.target.value">
+                                                <option *ngFor="let t of contactNames" [value]="t.ContactId">{{t.FullName}}</option>
+                                            </select>
+                                            <div [hidden]="cName.valid || cName.pristine" class="alert alert-danger">
+                                                Select Contact Name
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="PropertyInformationSection" class="panel panel-default db-panel">
+                        <div class="panel-heading" role="tab" id="propertyInfo">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#propertyInfoD" aria-expanded="true" aria-controls="collapseOne">
+                                    Property Information <span class=""></span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="propertyInfoD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="orderSearch">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div id="OrderEntryPropertyTypeCntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>*Property Type</label>
+                                            <select class="form-control" required
+                                                    [(ngModel)]="propType"
+                                                    name="propType" #propertyType="ngModel" (change)="propType=$event.target.value">
+                                                <option *ngFor="let t of propertyTypes" [value]="t.cboEntry">{{t.cboEntry}}</option>
+                                            </select>
+                                            <div [hidden]="propertyType.valid || propertyType.pristine" class="alert alert-danger">
+                                                Select Property Type
+                                            </div>
+                                        </div>
+                                    </div><!-- col-md-4 -->
+
+                                    <div id="OrderEntryAddressCntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>*Street No</label>
+                                            <input type="text" class="form-control" required maxlength="32"
+                                                   [(ngModel)]="streetNo"
+                                                   name="streetNo" #stNo="ngModel">
+                                            <div [hidden]="stNo.valid || stNo.pristine" class="alert alert-danger">
+                                                Enter Street No
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryAddress1Cntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>*Street Name</label>
+                                            <input type="text" class="form-control" required maxlength="32"
+                                                   [(ngModel)]="streetName"
+                                                   name="streetName" #stName="ngModel">
+                                            <div [hidden]="stName.valid || stName.pristine" class="alert alert-danger">
+                                                Enter Street Name
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryAddress2Cntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Address 2</label>
+                                            <input type="text" class="form-control" maxlength="32"
+                                                   [(ngModel)]="Address2"
+                                                   name="Address2" #add2="ngModel">
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryZipCodeCntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Zip Code</label>
+                                            <input class="form-control" name="Zip" id="Zip" placeholder="Enter Zip Code" type="text" pattern="^\d*" [(ngModel)]="model.zip" (blur)="GetCityAndState(model.zip)" maxlength="5">
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryCityCntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input type="text" name="City" class="form-control" id="City" placeholder="City" [(ngModel)]="model.city" name="model.city" #type="ngModel" maxlength="32">
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryStateCntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <data-state [stateInput]="model.state" [zip]="model.zip" [model]="model" (StateSelectedOutput)="selectedStateValue($event)" (CityList)="GetCitiesbyState($event)" (CountyList)="GetCountybyState($event)"></data-state>
+                                        </div>
+                                    </div>
+                                    <div id="OrderEntryCountyCntrl" class="col-md-4">
+                                        <div class="form-group">
+                                            <data-county [countyInput]="model.county" [countiesList]="filtercounties" (CountySelectedOutput)="selectedCountyValue($event)"></data-county>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="LoanInformationSection" class="panel panel-default db-panel">
+                        <div class="panel-heading" role="tab" id="loanInfo">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#loanInfoD" aria-expanded="true" aria-controls="collapseOne">
+                                    Loan Information <span class=""></span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="loanInfoD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="orderSearch">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Loan Type</label>
+                                            <select class="form-control"
+                                                    [(ngModel)]="loanType"
+                                                    name="loanType" #lType="ngModel" (change)="loanType=$event.target.value">
+                                                <option *ngFor="let t of loanTypes" [value]="t.cboEntry">{{t.cboEntry}}</option>
+                                            </select>
+                                            <div [hidden]="lType.valid || lType.pristine" class="alert alert-danger">
+                                                Select Loan Type
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Loan Amount</label>
+                                            <input type="text" class="form-control" maxlength="62" [(ngModel)]="displayAmount" (focus)="focusLoanAmount($event)" (blur)="blurLoanAmount($event)"
+                                                   name="loanAmount" #loanAmount="ngModel">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Loan Number</label>
+                                            <input type="number" class="form-control" pattern="^\d*"
+                                                   [(ngModel)]="loanNumber"
+                                                   name="loanNumber" #lNumber="ngModel">
+                                            <div [hidden]="lNumber.valid || lNumber.pristine" class="alert alert-danger">
+                                                Enter Loan Number
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="BorrowerInformationSection" class="panel panel-default db-panel">
+                        <div class="panel-heading" role="tab" id="borrowerInfo">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#borrowerInfoD" aria-expanded="true" aria-controls="collapseOne">
+                                    Borrower Information <span class=""></span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="borrowerInfoD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="orderSearch">
+                            <div class="panel-body">
+
+                                <div class="grid-table mT0 clearfix">
+                                    <button type="button" class="btn btn-link pull-right" [disabled]="isAddBorrowerLink" (click)="ToggleAddBorrower(true)"><span class="fa fa-plus"></span> Add Borrower</button>
+                                    <div class="row" id="OrderEntryBorrowerGrid">
+                                        <data-grid [rows]="borrowerList" [columns]="borrowerGridColumns" [defaultSort]="defaultSort" (deleteSelectedRow)="deleteBorrowerRow($event)"
+                                                   (editSelectedRow)="editBorrowerRow($event)" (viewSelectedRow)="viewSelectedRow($event)">
+                                        </data-grid>
+                                    </div>
+
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="row inner-panel" *ngIf="isAddBorrowerPanel">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>*First Name</label>
+                                            <input type="text" class="form-control" required maxlength="62"
+                                                   [(ngModel)]="borrowerFirstName"
+                                                   name="borrowerFirstName" #bFirstName="ngModel">
+                                            <div [hidden]="bFirstName.valid || bFirstName.pristine" class="alert alert-danger">
+                                                Enter First Name
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>*Last Name</label>
+                                            <input type="text" class="form-control" required maxlength="62"
+                                                   [(ngModel)]="borrowerLastName"
+                                                   name="borrowerLastName" #bLastName="ngModel">
+                                            <div [hidden]="bLastName.valid || bLastName.pristine" class="alert alert-danger">
+                                                Enter Last Name
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Phone</label>
+                                            <input class="form-control" id="Phone" name="phone" type="tel" maxlength="62"
+                                                   (focus)="focusPhone($event)" data-mask="___-___-____" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="xxx-xxx-xxxx"
+                                                   (blur)="blurPhone($event)" [(ngModel)]="displayBorrowerPhone" name="phone" #phone="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Cell</label>
+                                            <input type="text" class="form-control" maxlength="62" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="xxx-xxx-xxxx"
+                                                   (focus)="focusCell($event)" data-mask="___-___-____" (blur)="blurCell($event)"
+                                                   [(ngModel)]="displayBorrowerCell" name="bCell" #bCell="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>SSN#</label>
+                                            <input type="text" class="form-control" maxlength="62" pattern="^\d{3}-\d{2}-\d{4}$" placeholder="xxx-xx-xxxx"
+                                                   (focus)="focusSSN($event)" data-mask="___-__-____" (blur)="blurSSN($event)"
+                                                   [(ngModel)]="displayBorrowerSSN" name="bSSN" #bSSN="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Martial Status</label>
+                                            <select class="form-control"
+                                                    [(ngModel)]="maritalStatus"
+                                                    name="maritalStatus" #mStatus="ngModel" (change)="maritalStatus=$event.target.value">
+                                                <option *ngFor="let t of maritalStatuses" [value]="t.Id">{{t.StatusCode}}</option>
+                                            </select>
+                                            <div [hidden]="mStatus.valid || mStatus.pristine" class="alert alert-danger">
+                                                Select Marital Status
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 clearL">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" maxlength="62"
+                                                   [(ngModel)]="borrowerEmail"
+                                                   name="bEmail" #bEmail="ngModel">
+                                            <div [hidden]="bEmail.valid || bEmail.pristine" class="alert alert-danger">
+                                                Enter Email
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-group text-right">
+                                        <button type="button" class="btn btn-default w80" (click)="ToggleAddBorrower(false)"> <span class="fa fa-close"></span> Cancel</button>
+                                        <button type="button" class="btn btn-primary w80" (click)="OnAddBorrower()" [disabled]="borrowerName == ''"><span class="fa fa-floppy-o"></span> Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="SpecialInstructionSection" class="panel panel-default db-panel">
+                        <div class="panel-heading" role="tab" id="SpecialInst">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#SpecialInstD" aria-expanded="true" aria-controls="collapseOne">
+                                    Special Instructions <span class=""></span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="SpecialInstD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="orderSearch">
+                            <div class="panel-body">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Special Instructions</label>
+                                            <textarea class="form-control" rows="4" cols="50" maxlength="4096" name="instructions" [(ngModel)]="instructions"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="button-group text-right">
+                        <div class="clearfix mB10"></div>
+                        <button type="button" class="btn btn-default w80" (click)="ConfirmCancel()"><span class="fa fa-close"></span> Cancel</button>
+                        <button type="submit" class="btn btn-primary w80" [disabled]="!orderEntryForm.form.valid"><span class="fa fa-floppy-o"></span> Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea51e27a6dc04c03bc344e2eb8e486e9" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="WebApiDataModel.Cities" Width="1.5" PointX="2.75" PointY="17.375" />
+        <EntityTypeShape EntityType="WebApiDataModel.ComboEntries" Width="1.5" PointX="10" PointY="6.625" />
+        <EntityTypeShape EntityType="WebApiDataModel.ComboIds" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="WebApiDataModel.Counties" Width="1.5" PointX="3.75" PointY="2" />
+        <EntityTypeShape EntityType="WebApiDataModel.Products" Width="1.5" PointX="13.75" PointY="6.375" />
+        <EntityTypeShape EntityType="WebApiDataModel.sysMenu" Width="1.5" PointX="2.75" PointY="20.375" />
+        <EntityTypeShape EntityType="WebApiDataModel.UserId" Width="1.5" PointX="15.75" PointY="6.375" />
+        <EntityTypeShape EntityType="WebApiDataModel.ZipCodes" Width="1.5" PointX="19.75" PointY="16.375" />
+        <AssociationConnector Association="WebApiDataModel.FK_ComboEntries_CBOID" />
+        <EntityTypeShape EntityType="WebApiDataModel.Notes" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WebApiDataModel.EmailType" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebApiDataModel.BundleDetails" Width="1.5" PointX="24.625" PointY="14.125" />
+        <EntityTypeShape EntityType="WebApiDataModel.Bundles" Width="1.5" PointX="22.375" PointY="16" />
+        <EntityTypeShape EntityType="WebApiDataModel.ClientBundles" Width="1.5" PointX="24.625" PointY="17.25" />
+        <EntityTypeShape EntityType="WebApiDataModel.OrderClientContacts" Width="1.5" PointX="10.625" PointY="16" />
+        <EntityTypeShape EntityType="WebApiDataModel.OrderDetails" Width="1.5" PointX="29.5" PointY="7.375" />
+        <EntityTypeShape EntityType="WebApiDataModel.OrderNotes" Width="1.5" PointX="23.75" PointY="25" />
+        <AssociationConnector Association="WebApiDataModel.FK_BundleDetails_Bundles" />
+        <AssociationConnector Association="WebApiDataModel.FK_ClientBundles_Bundles" />
+        <AssociationConnector Association="WebApiDataModel.FK_ON_OD_OrderItem" />
+        <EntityTypeShape EntityType="WebApiDataModel.Addresses" Width="1.5" PointX="19.375" PointY="22.375" />
+        <AssociationConnector Association="WebApiDataModel.FK_OrderDetails_Addresses_AddressId" />
+        <EntityTypeShape EntityType="WebApiDataModel.Documents" Width="1.5" PointX="24.375" PointY="5.75" />
+        <EntityTypeShape EntityType="WebApiDataModel.Borrowers" Width="1.5" PointX="9.875" PointY="24.625" />
+        <EntityTypeShape EntityType="WebApiDataModel.WebRoles" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WebApiDataModel.States" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="WebApiDataModel.FK_Counties_State" />
+        <EntityTypeShape EntityType="WebApiDataModel.OrderMaster" Width="1.5" PointX="6" PointY="0.75" />
+        <AssociationConnector Association="WebApiDataModel.FK_BRWR_OM_OrderNo" />
+        <AssociationConnector Association="WebApiDataModel.FK_OrderMaster_CountyCode" />
+        <AssociationConnector Association="WebApiDataModel.FK_OrderMaster_State" />
+        <EntityTypeShape EntityType="WebApiDataModel.SecurityControl" Width="1.5" PointX="12.375" PointY="1.375" />
+        <EntityTypeShape EntityType="WebApiDataModel.SecurityForm" Width="1.5" PointX="12.375" PointY="21.25" />
+        <EntityTypeShape EntityType="WebApiDataModel.SecurityFormControl" Width="1.5" PointX="14.625" PointY="1" />
+        <EntityTypeShape EntityType="WebApiDataModel.SecurityFormControlConfig" Width="1.5" PointX="16.875" PointY="1.125" />
+        <AssociationConnector Association="WebApiDataModel.FK_SecurityFormControl_SecurityControl" />
+        <AssociationConnector Association="WebApiDataModel.FK_SecurityFormControl_SecurityForm" />
+        <AssociationConnector Association="WebApiDataModel.FK_SecurityFormControlConfig_SecurityFormControl" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,107 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content pB30">
+            <div id="PostCloseForm">
+                <form role="form" *ngIf="active" (ngSubmit)="onSave()" #postCloseForm="ngForm">
+
+                    <div class="row">
+                        <div class="col-md-12" id="PostCloseSection">
+                            <div class="panel panel-default db-panel">
+                                <div class="panel-heading" role="tab" id="Close">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#CloseD" aria-expanded="true" aria-controls="collapseOne">
+                                            Close <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="CloseD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="Close">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="grid-table mT0">
+                                                <div id="PostCloseRecordingDetailGrid" class="table-responsive top-curve">
+
+                                                    <data-grid [rows]="model.RecordingDetailList" [columns]="recordingDetailGridColumns" [defaultSort]="defaultSort">
+                                                    </data-grid>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="LoanPolicySection">
+                            <div class="panel panel-default db-panel">
+                                <div class="panel-heading" role="tab" id="loanPolicy">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#loanPolicyD" aria-expanded="true" aria-controls="collapseOne">
+                                            Loan Policy<span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="loanPolicyD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="loanPolicy">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="mR10">Loan Policy Issue Date:</label>
+                                                <label>{{model.LoanPolicyIssueDate}}</label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="mR10">Policy Number:</label>
+                                                <label>{{model.PolicyNumber}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mT10">
+                        <div class="col-md-12" id="DocumentsSection">
+                            <div class="panel panel-default db-panel">
+                                <div class="panel-heading" role="tab" id="attorneyWorkflow">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#attorneyWorkflowD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            Documents <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="attorneyWorkflowD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="attorneyWorkflow">
+                                    <div class="panel-body">
+                                        <div>
+                                            <div class="col-md-3 document-tree-wrapper" *ngIf="!visibleMergeAllIcon">
+                                                <label *ngIf="!visibleMergeAllIcon"> No Documents Available</label>
+                                            </div>
+                                            <div class="col-md-3 document-tree-wrapper" *ngIf="visibleMergeAllIcon">
+                                                <div>
+                                                    <a (click)="docMerge_Click()" class="doc-print fa fa-print"></a>
+                                                    <a href="" download id="download" hidden></a>
+                                                </div>
+                                                <directory-view [treeViewList]="treeViewList"
+                                                                (editSelectedRow)="nodeSelection_Clicked($event)"
+                                                                [isCheckboxEnabled]="1"></directory-view>
+
+                                            </div>
+                                            <div class="col-md-9 document-view">
+                                                <div *ngIf="SelectedViewEnum==1">
+                                                    <pdf-viewer [pdfPath]="nodeSelected.FilePath"
+                                                                (ViewPDF)="ViewPDF($event)"></pdf-viewer>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿<div class="header-detail-wrapper clearfixDiv">
+    <div class="header-detail-inner">
+        <div class="summarylist clearfixDiv">
+            <div id="OrderNo" class="item">
+                <div class="heading">Order #</div>
+                {{orderNo}}
+            </div>
+            <div id="LoanNumber" class="item">
+                <div class="heading">Loan #</div>
+                {{loanNo}}
+            </div>
+            <div id="LoanAmount" class="item">
+                <div class="heading">Loan Amount</div>
+                {{loanAmount}}
+            </div>
+            <div id="OrderStatus" class="item">
+                <div class="heading">Status</div>
+                {{orderStatus}}
+            </div>
+            <div id="FullName" class="item">
+                <div class="heading">Name</div>
+                {{FullName}}
+            </div>
+            <div id="HomePhone" class="item">
+                <div class="heading">Phone</div>
+                {{HomePhone}}
+            </div>
+            <div id="CellPhone" class="item">
+                <div class="heading">Cell</div>
+                {{CellPhone}}
+            </div>
+            <div id="Email" class="item">
+                <div class="heading">Email</div>
+                {{Email}}
+            </div>
+            <div id="ProviderContact" class="item clearB">
+                <div class="heading">Provider Contact</div>
+                {{ProviderContact}}
+            </div>
+            <div id="Address" class="item">
+                <div class="heading">Address</div>
+                {{address}}
+            </div>
+        </div>
+        <div id="urgentNotes" class="clearfixDiv">
+            <a (click)="hideShowNotes()" title="Urgent Notes" data-toggle="tooltip" id="urgentNotesActivator">
+                <span class="fa  fa-file-text-o"></span>
+            </a>
+
+            <div class="urgent-notes-content">
+                <h5>Urgent Notes</h5>
+                <p>{{Note}}</p>
+            </div>
+        </div>
+    </div>
+    <a id="headerDetailToggle" (click)="onClose()"><span class="fa fa-caret-square-o-up"></span></a>
+</div>

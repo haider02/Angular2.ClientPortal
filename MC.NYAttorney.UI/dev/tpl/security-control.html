@@ -1,0 +1,63 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default db-panel">
+                        <div class="panel-heading" role="tab" id="formControConfig">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                    Control Types
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="odderDetailD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                            <div class="panel-body">
+                                <div class="clearB text-right">
+                                    <button type="button" class="btn btn-link pull-right" [disabled]="VisibleForm" (click)="displayForm()"><span class="fa fa-plus"></span> Add Control Type</button>
+                                </div>
+                                <div class="grid-table mT0 p0">
+                                    <data-grid [rows]="SecurityControlsList" [columns]="SecurityControlsColumns" (deleteSelectedRow)="deleteSecurityControl($event)"
+                                               (editSelectedRow)="editSecurityControl($event)">
+                                    </data-grid>
+                                </div>
+                                <div *ngIf="VisibleForm" class="row">
+                                    <form role="form" (ngSubmit)="onSave()" #controlTypeEntryForm="ngForm">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Control Type</label>
+                                                <input type="text" class="form-control" required maxlength="32"
+                                                       [(ngModel)]="model.ControlType"
+                                                       name="controlType" #controlType="ngModel">
+                                                <div [hidden]="controlType.valid || controlType.pristine" class="alert alert-danger">
+                                                    Enter Control Type
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <input type="text" class="form-control" required maxlength="32"
+                                                       [(ngModel)]="model.Description"
+                                                       name="description" #description="ngModel">
+                                                <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+                                                    Enter Description
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="button-group text-right col-md-12">
+                                            <button type="submit" [disabled]="!controlTypeEntryForm.form.valid" class="btn btn-primary w80"><span class="fa fa-floppy-o"></span> Save</button>
+
+                                            <button (click)="reset()" type="button" class="btn btn-default w80"> <span class="fa fa-close"></span> Cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

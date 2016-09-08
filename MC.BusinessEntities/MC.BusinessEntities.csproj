@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE2502A0-39D1-42F1-9530-2D19C970A670}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MC.BusinessEntities</RootNamespace>
+    <AssemblyName>MC.BusinessEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AuditableAttribute.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Models\AddressEntity.cs" />
+    <Compile Include="Models\DTO\AccountProfileDTO.cs" />
+    <Compile Include="Models\DTO\ChangePasswordDetail.cs" />
+    <Compile Include="Models\DTO\GenerateDocumentDTO.cs" />
+    <Compile Include="Models\DTO\LeinsDetailDTO.cs" />
+    <Compile Include="Models\DTO\MergeDocumentRequestDTO.cs" />
+    <Compile Include="Models\DTO\OrderDetailDTO.cs" />
+    <Compile Include="Models\DTO\OrderDetailRequestDTO.cs" />
+    <Compile Include="Models\DTO\OrderTitleDTO.cs" />
+    <Compile Include="Models\DTO\SecurityFormControlConfigGridDTO.cs" />
+    <Compile Include="Models\DTO\TitleClearanceDetailRequest.cs" />
+    <Compile Include="Models\DTO\PreCloseDetailRequest.cs" />
+    <Compile Include="Models\DTO\RegisterDetail.cs" />
+    <Compile Include="Models\DTO\RolePerimssionDTO.cs" />
+    <Compile Include="Models\DTO\SecurityFromControlGridDTO.cs" />
+    <Compile Include="Models\GetClientDetails_Entity.cs" />
+    <Compile Include="Models\GetCompanyDetails_Entity.cs" />
+    <Compile Include="Models\OrderNotesEntity.cs" />
+    <Compile Include="Models\GetOrderDetailsEntity.cs" />
+    <Compile Include="Models\GetOrderPartyDetailsEntity.cs" />
+    <Compile Include="Models\GetPropertyDetail_ResultEntity.cs" />
+    <Compile Include="Models\GetOrderHeader_ResultEntity.cs" />
+    <Compile Include="Models\PropertyDetailEntity.cs" />
+    <Compile Include="Models\CityEntity.cs" />
+    <Compile Include="Models\ComboEntryEntity.cs" />
+    <Compile Include="Models\CountyEntity.cs" />
+    <Compile Include="Models\DocumentEntity.cs" />
+    <Compile Include="Models\DocumentsSelectAll_ResultEntity.cs" />
+    <Compile Include="Models\DocumentTypesSelectAllByProdCat_ResultEntity.cs" />
+    <Compile Include="Models\DTO\DashBoardRequest.cs" />
+    <Compile Include="Models\DTO\PropertyDetailRequest.cs" />
+    <Compile Include="Models\DTO\PasswordResetDetail.cs" />
+    <Compile Include="Models\DTO\ClientIdNameDTO.cs" />
+    <Compile Include="Models\DTO\EmailDetailsDTO.cs" />
+    <Compile Include="Models\DTO\InternalContacts.cs" />
+    <Compile Include="Models\DTO\EmailMessage.cs" />
+    <Compile Include="Models\DTO\OrderEntryDetailRequest.cs" />
+    <Compile Include="Models\DTO\OrderEntryRequest.cs" />
+    <Compile Include="Models\DTO\OrderSearchRequest.cs" />
+    <Compile Include="Models\EmailTypeEntity.cs" />
+    <Compile Include="Models\GetAllBranches_ResultEntity.cs" />
+    <Compile Include="Models\GetOrderSummary_ResultEntity.cs" />
+    <Compile Include="Models\GetClientList_ResultEntity.cs" />
+    <Compile Include="Models\GetMaritalStatus_ResultEntity.cs" />
+    <Compile Include="Models\OrderSearchResultEntity.cs" />
+    <Compile Include="Models\SecurityControlEntity.cs" />
+    <Compile Include="Models\SecurityControlFormConfigEntity.cs" />
+    <Compile Include="Models\SecurityFormControlEntity.cs" />
+    <Compile Include="Models\SecurityFormEntity.cs" />
+    <Compile Include="Models\WebRolesEntity.cs" />
+    <Compile Include="Models\GetClientTransactionTypes_ResultEntity.cs" />
+    <Compile Include="Models\GetCompanyGroupCodes_ResultEntity.cs" />
+    <Compile Include="Models\GetClientContactNames_ResultEntity.cs" />
+    <Compile Include="Models\GetParentClients_ResultEntity.cs" />
+    <Compile Include="Models\BorrowersEntity.cs" />
+    <Compile Include="Models\MenuEntity.cs" />
+    <Compile Include="Models\NotesEntity.cs" />
+    <Compile Include="Models\OrderDetailEntity.cs" />
+    <Compile Include="Models\OrderDetailsItemsSelect_ResultEntity.cs" />
+    <Compile Include="Models\StateCountyFromZipResultEntity.cs" />
+    <Compile Include="Models\StatesEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MC.DataModel\MC.DataModel.csproj">
+      <Project>{E5E8C726-9EA3-4762-BC20-C6BA8DA9043D}</Project>
+      <Name>MC.DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

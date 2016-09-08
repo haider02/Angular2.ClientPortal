@@ -1,0 +1,259 @@
+2016-07-10 21:55:07.2853|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/DashBoard/GetLoadStarUrl
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : GetLoadStarUrl
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+
+2016-07-10 21:55:07.2853|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/DashBoard/OrderSearch
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : OrderSearch
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"request":{"OrderNo":0,"ClientId":1740,"Status":"","LoanNo":"","BorrowerName":"","LoanOfficer":"","TransactionType":"","ClientFilterVal":0,"ShowSubClients":true,"DefaultPastDays":0}}]}
+
+2016-07-10 21:55:07.2853|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/ReferenceData/GetComboEntitybyCode/TransactionType
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"TransactionType"}]}
+
+2016-07-10 21:55:07.2853|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/DashBoard/GetClientList/1740
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : GetClientList
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"parentId":1740}]}
+
+2016-07-10 21:55:07.2853|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Account/CPGetPermissionsAgainstRole/Dashboard
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"Dashboard"}]}
+
+2016-07-10 21:55:07.2853|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/ReferenceData/GetComboEntitybyCode/CPOrderStatus
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"CPOrderStatus"}]}
+
+2016-07-10 21:55:07.7703|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Account/CPGetPermissionsAgainstRole/HeaderMenu
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"HeaderMenu"}]}
+
+2016-07-10 21:55:07.8663|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/GenerateDocument/GetDownloadDocuments/
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.GenerateDocumentController
+Action : GetDownloadDocuments
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+
+2016-07-10 21:55:31.8493|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/DashBoard/GetOrderSummary/788221
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : GetOrderSummary
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788221}]}
+
+2016-07-10 21:55:35.9023|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/DashBoard/GetOrderSummary/788214
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : GetOrderSummary
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788214}]}
+
+2016-07-10 21:55:40.1723|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Account/CPGetPermissionsAgainstRole/OrderSummary
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"OrderSummary"}]}
+
+2016-07-10 21:55:40.1723|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Account/CPGetPermissionsAgainstRole/OrderHeader
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"OrderHeader"}]}
+
+2016-07-10 21:55:40.1723|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Account/CPGetPermissionsAgainstRole/LeftNavigation
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"LeftNavigation"}]}
+
+2016-07-10 21:55:40.1723|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderSummary/GetOrderHeader/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderSummaryController
+Action : GetOrderHeader
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:40.1723|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderSummary/GetProductCodeByOrder/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderSummaryController
+Action : GetProductCodeByOrder
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:41.3283|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderSummary/GetCheckList/788224/COOP
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderSummaryController
+Action : GetCheckList
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224,"productCode":"COOP"}]}
+
+2016-07-10 21:55:41.3283|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderSummary/GetMileStoneTracker/788224/COOP
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderSummaryController
+Action : GetMileStoneTracker
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224,"productCode":"COOP"}]}
+
+2016-07-10 21:55:41.3693|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Menu/GetAllMenus
+Controller : MC.ClientPortal.WebApi.Controllers.MenuController
+Action : GetAllMenus
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+
+2016-07-10 21:55:43.6553|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Menu/GetAllMenus
+Controller : MC.ClientPortal.WebApi.Controllers.MenuController
+Action : GetAllMenus
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+
+2016-07-10 21:55:43.6553|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderSummary/GetOrderHeader/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderSummaryController
+Action : GetOrderHeader
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:43.6903|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/ReferenceData/GetComboEntitybyCode/ResidenceType
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"ResidenceType"}]}
+
+2016-07-10 21:55:43.6973|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/ReferenceData/GetComboEntitybyCode/PartyType
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"PartyType"}]}
+
+2016-07-10 21:55:43.6973|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderDetail/GetMaritalStatus
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderDetailController
+Action : GetMaritalStatus
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+
+2016-07-10 21:55:43.6973|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/ReferenceData/GetComboEntitybyCode/LoanProductType
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"LoanProductType"}]}
+
+2016-07-10 21:55:43.6973|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/ReferenceData/GetComboEntitybyCode/LenderLoanType
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"LenderLoanType"}]}
+
+2016-07-10 21:55:43.6973|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/ReferenceData/GetComboEntitybyCode/HUDLoanType
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"HUDLoanType"}]}
+
+2016-07-10 21:55:43.7463|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderDetail/GetOrderDetails/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderDetailController
+Action : GetOrderDetails
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":"788224"}]}
+
+2016-07-10 21:55:43.8083|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Account/CPGetPermissionsAgainstRole/OrderDetail
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"OrderDetail"}]}
+
+2016-07-10 21:55:47.6203|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderSummary/GetOrderHeader/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderSummaryController
+Action : GetOrderHeader
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:47.6203|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Menu/GetAllMenus
+Controller : MC.ClientPortal.WebApi.Controllers.MenuController
+Action : GetAllMenus
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+
+2016-07-10 21:55:47.6273|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderTitle/GetOrderTitleDetail/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderTitleController
+Action : GetOrderTitleDetail
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:47.6273|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/Account/CPGetPermissionsAgainstRole/OrderTitle
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"OrderTitle"}]}
+
+2016-07-10 21:55:47.6273|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderTitle/CPGetTitleDocumentsSelectAll/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderTitleController
+Action : CPGetTitleDocumentsSelectAll
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:51.0533|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderTitle/CPAddTitleRequestEvent/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderTitleController
+Action : CPAddTitleRequestEvent
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:51.1233|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderTitle/GetOrderTitleDetail/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderTitleController
+Action : GetOrderTitleDetail
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:53.5063|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderTitle/CPAddTitleProduct/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderTitleController
+Action : CPAddTitleProduct
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+
+2016-07-10 21:55:54.8843|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:59292/MC.ClientPortal.WebApi/api/OrderTitle/CPAddTitleProduct/788224
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.OrderTitleController
+Action : CPAddTitleProduct
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"orderNo":788224}]}
+

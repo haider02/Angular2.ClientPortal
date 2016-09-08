@@ -1,0 +1,4 @@
+﻿<label for="County">County</label>
+<select class="form-control" (change)="onCountyChange($event)" [(ngModel)]="countyInput">
+    <option *ngFor="let t of counties" [value]="t.CountyName">{{t.CountyName}}</option>
+</select>

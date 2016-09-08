@@ -1,0 +1,85 @@
+﻿<html>
+<head>
+    <title>MC - NY Attorney Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+
+    <script>
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: { emitDecoratorMetadata: true },
+            packages: {
+                'app': { defaultExtension: 'js' },
+                'ng2-idle': { defaultExtension: 'js' },
+                'ng2-idle-keepalive': { defaultExtension: 'js' },
+                'angular2-jwt': { defaultExtension: 'js' }
+            },
+            map: {
+                "ng2-idle": "node_modules/ng2-idle",
+                "ng2-idle-keepalive": "node_modules/ng2-idle-keepalive",
+                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js"
+            }
+        });
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+
+    <script src="src/js/jquery-2.1.4.min.js"></script>
+    <script src="src/js/Libs/pdf.compat.js"></script>
+    <script src="src/js/Libs/pdf.js"></script>
+    <script src="src/js/Libs/moment.min.js"></script>
+    <script src="src/css/dist/js/validator.js"></script>
+    <script src="src/js/script.js"></script>
+    <script src="src/css/dist/js/mc_custom.js"></script>
+    <script src="src/js/bootstrap.min.js"></script>
+    <script src="src/css/dist/js/jquery-ui.min.js"></script>
+
+    <style type="text/css" media="print">
+        .no-print {
+            display: none;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link href="src/css/font-awesome.min.css" rel="stylesheet">
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="src/css/style.css" rel="stylesheet">
+    <link href="src/css/responsive.css" rel="stylesheet">
+    <link href="src/css/jquery-ui.css" rel="stylesheet">
+    <link href="src/css/jquery-ui.theme.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="modal fade" id="SessionTimeOutModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Your session is about to end.</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="SessionTimeOutText"></p>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group clearfixDiv">
+                                <button type="button" id="staySignInBtn" class="btn btn-primary pull-right" data-dismiss="modal"> Stay Signed In</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dashboard" class="container">
+        <div class="dashboard-wrapper main">
+            <main-app>Contents are loading...</main-app>
+            <footer class="main-footer">Copyright &copy; 2016 <a href="#">Mortgage Connect</a>. All rights reserved.</footer>
+        </div>
+    </div>
+</body>
+</html>

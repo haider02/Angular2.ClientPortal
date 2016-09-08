@@ -1,0 +1,71 @@
+﻿<div class="table-responsive">
+    <notification-msg #notificationcomponent></notification-msg>
+    <table class="attorney-workflow-list">
+
+        <tr>
+            <td><input type="checkbox" disabled checked /> <span>{{model.OpenedItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.OpenedItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.OpenedItemDate}}</span></td>
+        </tr>
+
+        <tr class="departmentalItem">
+            <td><input type="checkbox" disabled [checked]="model.DepartmentalItemStatus == 'Complete'" /> <span>{{model.DepartmentalItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.DepartmentalItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.DepartmentalItemDate}}</span></td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" disabled [checked]="model.TitleItemStatus == 'Complete'" /> <span>{{model.TitleItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.TitleItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.TitleItemDate}}</span></td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" disabled [checked]="model.CollateralItemStatus == 'Complete'" /> <span>{{model.CollateralItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.CollateralItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.CollateralItemDate}}</span></td>
+        </tr>
+
+        <tr class="AttorneyItem">
+            <td><input type="checkbox" [disabled]="!isAttorneyEnable" [checked]="model.AttorneyItemStatus == 'Complete'" /> <span>{{model.AttorneyItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.AttorneyItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.AttorneyItemDate}}</span></td>
+        </tr>
+
+        <tr class="MortgageConnectItem">
+            <td><input type="checkbox" disabled [checked]="model.MortgageConnectItemStatus == 'Complete'" /> <span>{{model.MortgageConnectItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.MortgageConnectItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.MortgageConnectItemDate}}</span></td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" disabled [checked]="model.TitleBillItemStatus == 'Complete'" /> <span>{{model.TitleBillItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.TitleBillItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.TitleBillItemDate}}</span></td>
+        </tr>
+
+        <tr class="recordingItem">
+            <td><input type="checkbox" disabled [checked]="model.RecordingItemStatus == 'Complete'" /> <span>{{model.RecordingItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.RecordingItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.RecordingItemDate}}</span></td>
+        </tr>
+
+        <tr class="policyItem">
+            <td><input type="checkbox" disabled [checked]="model.PolicyItemStatus == 'Complete'" /> <span>{{model.PolicyItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.PolicyItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.PolicyItemDate}}</span></td>
+        </tr>
+
+        <tr class="titleUpdateItem">
+            <td><input type="checkbox" disabled [checked]="model.TitleUpdateItemStatus == 'Complete'" /> <span>{{model.TitleUpdateItemText}}</span></td>
+            <td width="20%" class="text-right"><span class="status">{{model.TitleUpdateItemStatus}}</span></td>
+            <td width="30%" class="text-right"><span class="datetime">{{model.TitleUpdateItemDate}}</span></td>
+        </tr>
+
+    </table>
+
+    <div class="button-group text-right" [hidden]="!isAttorneyEnable">
+        <button type="button" (click)="onSave()" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Save</button>
+    </div>
+
+</div>

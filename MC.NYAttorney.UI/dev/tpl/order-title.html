@@ -1,0 +1,104 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content">
+
+            <div class="order-notes-detail">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row order-notes-detail-items">
+                            <div class="col-md-4">
+                                <label>Title Order Date</label>
+                                {{model.TitleOrderDate}}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Title Expected Date</label>
+                                {{model.TitleExpectedDate}}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Title Completion Date</label>
+                                {{model.TitleCompletionDate}}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Title Effective Date</label>
+                                {{model.TitleEffectiveDate}}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Signature Requirement</label>
+                                {{model.SignatureRequirement}}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Proposed Insured</label>
+                                {{model.ProposedInsured}}
+                            </div>
+                            <div class="col-md-4 clearB">
+                                <label>Number of Open Mortgages</label>
+                                {{model.NumberofOpenMortgages}}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Number of Open Judgments</label>
+                                {{model.NumberofOpenJudgments}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="emails">
+                            <label>Mortgage Connect has delivered Title Report via Email to:</label>
+                            <div id="emails">
+                                <div><p>{{formatEmails(model.Emails)}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button id="AddBillRequestBtn" class="btn btn-primary" (click)="addTitleBillRequestEvent()" type="button"><span class="fa fa-list-alt"></span> Request Title Bill</button>
+                        <button id="AddTitleProductBtn" class="btn btn-primary" (click)="addTitleProduct()" type="button"><span class="fa fa-dot-circle-o"></span> Request Order Update</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="DocumentsSection">
+                <div class="col-md-12">
+                    <div class="panel panel-default db-panel">
+                        <div class="panel-heading" role="tab" id="attorneyWorkflow">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#attorneyWorkflowD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                    Documents <span></span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="attorneyWorkflowD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="attorneyWorkflow">
+                            <div class="panel-body">
+                                <div>
+                                    <div class="col-md-3 document-tree-wrapper" *ngIf="!visibleMergeAllIcon">
+                                        <label *ngIf="!visibleMergeAllIcon"> No Documents Available</label>
+                                    </div>
+                                    <div class="col-md-3 document-tree-wrapper" *ngIf="visibleMergeAllIcon">
+                                        <div id="OrderTitleMergeCntrl">
+                                            <a (click)="docMerge_Click()" class="doc-print fa fa-print"></a>
+                                            <a href="" download id="download" hidden></a>
+                                        </div>
+                                        <div id="OrderTitleDocumentTree" class="document-tree">
+                                            <directory-view [treeViewList]="treeViewList"
+                                                            (editSelectedRow)="nodeSelection_Clicked($event)"
+                                                            [isCheckboxEnabled]="1"></directory-view>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 document-view">
+                                        <div id="OrderTitlePdfViewer" *ngIf="SelectedViewEnum==1">
+                                            <pdf-viewer [pdfPath]="nodeSelected.FilePath"
+                                                        (ViewPDF)="ViewPDF($event)"></pdf-viewer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{47E3CA22-4E70-4351-9167-979AD436F3E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MC.BusinessServices</RootNamespace>
+    <AssemblyName>MC.BusinessServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MC.Common.Encryption, Version=1.0.0.0, Culture=neutral, PublicKeyToken=41caad1b045e004f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\MC.Common.Encryption\v4.0_1.0.0.0__41caad1b045e004f\MC.Common.Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountServices.cs" />
+    <Compile Include="AddressesServices.cs" />
+    <Compile Include="CityServices.cs" />
+    <Compile Include="ClientPortal\ForgotPasswordService.cs" />
+    <Compile Include="ClientPortal\GenerateDocumentService.cs" />
+    <Compile Include="ClientPortal\IDashBoardService.cs" />
+    <Compile Include="ClientPortal\IForgotPasswordService.cs" />
+    <Compile Include="ClientPortal\IGenerateDocumentService.cs" />
+    <Compile Include="ClientPortal\IOrderDetailService.cs" />
+    <Compile Include="ClientPortal\ISecurityFormControlControlConfigService.cs" />
+    <Compile Include="ClientPortal\ITitleClearanceService.cs" />
+    <Compile Include="ClientPortal\IPreCloseService.cs" />
+    <Compile Include="ClientPortal\IPostCloseService.cs" />
+    <Compile Include="ClientPortal\IOrderSummaryService.cs" />
+    <Compile Include="ClientPortal\IOrderTitleService.cs" />
+    <Compile Include="ClientPortal\IPropertyDetailService.cs" />
+    <Compile Include="ClientPortal\IOrderEntryService.cs" />
+    <Compile Include="ClientPortal\DashBoardService.cs" />
+    <Compile Include="ClientPortal\IRegisterService.cs" />
+    <Compile Include="ClientPortal\ISecurityControlService.cs" />
+    <Compile Include="ClientPortal\ISecurityFormControlService.cs" />
+    <Compile Include="ClientPortal\ISecurityFormService.cs" />
+    <Compile Include="ClientPortal\OrderDetailService.cs" />
+    <Compile Include="ClientPortal\SecurityFormControlControlConfigService.cs" />
+    <Compile Include="ClientPortal\TitleClearanceService.cs" />
+    <Compile Include="ClientPortal\PreCloseService.cs" />
+    <Compile Include="ClientPortal\PostCloseService.cs" />
+    <Compile Include="ClientPortal\OrderTitleService.cs" />
+    <Compile Include="ClientPortal\OrderSummaryService.cs" />
+    <Compile Include="ClientPortal\PropertyDetailService.cs" />
+    <Compile Include="ClientPortal\RegisterService.cs" />
+    <Compile Include="ClientPortal\OrderEntryService.cs" />
+    <Compile Include="ClientPortal\SecurityControlService.cs" />
+    <Compile Include="ClientPortal\SecurityFormControlService.cs" />
+    <Compile Include="ClientPortal\SecurityFormService.cs" />
+    <Compile Include="CountyServices.cs" />
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="DocumentServices.cs" />
+    <Compile Include="IAccountServices.cs" />
+    <Compile Include="IAddressService.cs" />
+    <Compile Include="ICityServices.cs" />
+    <Compile Include="ICountyServices.cs" />
+    <Compile Include="IDocumentServices.cs" />
+    <Compile Include="IMenuServices.cs" />
+    <Compile Include="IOrderNotesService.cs" />
+    <Compile Include="IReferenceDataServices.cs" />
+    <Compile Include="IStateServices.cs" />
+    <Compile Include="MenuServices.cs" />
+    <Compile Include="OrderNotesService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReferenceDataServices.cs" />
+    <Compile Include="StateServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MC.BusinessEntities\MC.BusinessEntities.csproj">
+      <Project>{ae2502a0-39d1-42f1-9530-2d19c970a670}</Project>
+      <Name>MC.BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MC.DataModel\MC.DataModel.csproj">
+      <Project>{e5e8c726-9ea3-4762-bc20-c6ba8da9043d}</Project>
+      <Name>MC.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MC.DIResolver\MC.DIResolver.csproj">
+      <Project>{67c206c2-1f73-40c0-a27a-c5e142452ce1}</Project>
+      <Name>MC.DIResolver</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

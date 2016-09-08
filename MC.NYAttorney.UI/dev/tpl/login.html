@@ -1,0 +1,49 @@
+﻿<notification-msg #notificationcomponent></notification-msg>
+<section id="loginContainer" class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="login-wrapper">
+                <div class="login-header">
+                    <img src="../../src/images/logo.svg">
+                </div>
+                <form role="form" id="loginForm" (ngSubmit)="onLogin()" #LoginForm="ngForm">
+                    <div class="login-body clearfixDiv">
+                        <div class="form-group">
+                            <label class="control-label" for="UserName">User Name:</label>
+                            <div>
+                                <input type="text" class="form-control" maxlength="50" required (change)="isValidUser = true;"
+                                       name="uName" [(ngModel)]="model.username" #uName="ngModel" />
+                            </div>
+                            <div [hidden]="uName.valid || uName.pristine" class="alert alert-danger">Enter User Name</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Password">Password:</label>
+                            <div>
+                                <input type="password" class="form-control" maxlength="50" required name="pWord"
+                                       [(ngModel)]="model.password" #pWord="ngModel" />
+                                <div [hidden]="pWord.valid || pWord.pristine" class="alert alert-danger">Enter Password</div>
+
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" [(ngModel)]="model.rememberMe" name="remMe" #remMe="ngModel" /> Remember me
+                                </label>
+                            </div>
+
+                        </div>
+                        <div [hidden]="isValidUser" class="alert alert-danger">
+                            {{model.errorMessage}}
+                        </div>
+                    </div>
+                    <div class="login-footer clearfixDiv">
+                        <a href="#" [routerLink]="['Register']" class="btn btn-link btn-register"><span class="fa fa-bookmark-o"></span> Register Here</a>
+                        <a href="#" [routerLink]="['ForgotPassword']" class="btn btn-link  btn-forgotp"><span class="fa fa-lock"></span> Forgot Password</a>
+                        <button type="submit" class="btn btn-primary" [disabled]="!LoginForm.form.valid" id="btnSubmit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

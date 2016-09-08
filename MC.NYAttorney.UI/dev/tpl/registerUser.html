@@ -1,0 +1,69 @@
+﻿ <!-- Main content -->
+<section class="content clearfixDiv" id="loginContainer">
+    <notification-msg #notificationcomponent></notification-msg>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="register-wrapper">
+                <form role="form" class="form-horizontal" (ngSubmit)="onRegister()" #registerForm="ngForm" *ngIf="active">
+                    <div class="login-header">
+                        <img src="../../src/images/logo.svg" />
+                    </div>
+                    <div class="login-body">
+                        <div class="clearB">
+                            <p>
+                                Please enter your registration information below, including an invitation code
+                                supplied by Mortgage Connect; if you do not have an invitation code, please email
+                                <a href="mailto:info@mortgageconnectlp.com">info@mortgageconnectlp.com</a>
+                            </p>
+                            <p>
+                                Please click Submit to register once all data is entered.
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="InvitationCode">Invitation Code:</label>
+                            <input type="text" class="form-control" maxlength="50" required
+                                   [(ngModel)]="model.InvitationCode" name="InvitationCode" #invCode="ngModel" />
+                            <div [hidden]="invCode.valid || invCode.pristine" class="alert alert-danger">Enter Invitation Code</div>
+                        </div>
+                        <div class="form-group form-control-group">
+                            <label class="" for="FirstName">First Name:</label>
+                            <input type="text" class="form-control" maxlength="50" required
+                                   [(ngModel)]="model.FirstName" name="FirstName" #fName="ngModel" />
+
+                            <div [hidden]="fName.valid || fName.pristine" class="alert alert-danger">Enter First Name</div>
+                        </div>
+
+                        <div class="form-group form-control-group">
+                            <label for="LastName">Last Name:</label>
+
+                            <input type="text" class="form-control" maxlength="50" required
+                                   [(ngModel)]="model.LastName" name="LastName" #lName="ngModel" />
+                            <div [hidden]="lName.valid || lName.pristine" class="alert alert-danger">Enter Last Name</div>
+
+                        </div>
+                        <div class="form-group form-control-group">
+                            <label for="borrowerEmail">Email:</label>
+
+                            <input type="Email" class="form-control" maxlength="50" required
+                                   [(ngModel)]="model.Email" name="Email" #email="ngModel">
+
+                            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Enter Email</div>
+                        </div>
+                        <div class="checkbox-inline">
+
+                            <label>
+                                <input type="checkbox" name="isAgreeCheck" required>By checking this box you agree to the
+                                <a target="_blank" href="http://www2.mortgageconnectlp.com/privacy/">Privacy Policy</a> and
+                                <a target="_blank" href="http://www2.mortgageconnectlp.com/terms/">Terms of Use</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="login-footer clearfixDiv">
+                        <a href="#" (click)="routetoLogin()" class="btn btn-link btn-register"><span class="fa fa-sign-in"></span> Login</a>
+                        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid" id="btnSubmit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,248 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content pB30" id="TitleClearanceForm">
+            <form role="form" *ngIf="active" (ngSubmit)="onSave()" #titleClearanceForm="ngForm">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="clearance">
+                            <div class="panel panel-default db-panel" id="SummaryOfClearanceSection">
+                                <div class="panel-heading" role="tab" id="clearanceDetail">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#clearanceDetailD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            Summary of Clearance Items<span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="clearanceDetailD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="clearanceDetail">
+                                    <div class="panel-body">
+
+                                        <h5 class="main-heading mBm10 sub-header">Mortgage Connect Title Clearance Items</h5>
+                                        <div class="grid-table mT0">
+                                            <div class="row">
+                                                <div id="MortgageConnectGrid" class="table-responsive top-curve">
+
+                                                    <data-grid [rows]="model.MortgageConnectList" [columns]="mortgageConnectGridColumns" [defaultSort]="defaultSort">
+                                                    </data-grid>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="grid-table mT0">
+                                            <h5 class="main-heading mBm10 sub-header">New York Attorney Clearance Items</h5>
+                                            <div class="row">
+                                                <div id="NewYorkGrid" class="table-responsive top-curve">
+
+                                                    <data-grid [rows]="model.NewYorkList" [columns]="newYorkGridColumns" [defaultSort]="defaultSort" (editSelectedRow)="editNewYorkRow($event)">
+                                                    </data-grid>
+
+                                                </div>
+                                            </div>
+                                            <div class="clearB" *ngIf="viewDetail">
+
+                                                <div class="col-md-3">
+                                                    <label>Item: </label>
+                                                    <label>{{model.ItemName}}</label>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label>Item Attorney Cleared</label>
+                                                    <input type="checkbox" class="common-checkbox" [(ngModel)]="model.ItemAttorneyCleared" #ItemAttorneyCleared name="ItemAttorneyCleared"
+                                                           (click)="ItemAttorneyClearedChecked(ItemAttorneyCleared.checked)" [disabled]="model.isSelectedCheckbox">
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label>By: </label>
+                                                    <label>{{model.ClearedBy}}</label>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label>Date: </label>
+                                                    <label>{{model.ClearedDate}}</label>
+                                                </div>
+
+                                                <div class="col-md-12 mB10 text-right" [hidden]="model.isSelectedCheckbox">
+                                                    <button type="button" class="btn btn-primary" [disabled]="model.isSelectedCheckbox"
+                                                            (click)="onSaveClearanceItem()">
+                                                        <span class="fa fa-floppy-o"></span> Save
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default db-panel" id="ClearanceTrackingSection" [hidden]="true">
+                                <div class="panel-heading" role="tab" id="ClearanceTracking">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#ClearanceTrackingD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            Clearance Tracking <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="ClearanceTrackingD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="ClearanceTracking">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                Borrower Name
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control-small">
+                                            </div>
+                                            <div class="col-2">
+                                                Fee Received Method:
+                                            </div>
+                                        </div><!-- row -->
+                                        <div class="row mT10">
+                                            <div class="col-md-8">
+                                                <div class="checkbox-inline">
+                                                    <label class="inline"><input type="radio"> Upfront Fee Received</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">Date: 4/22/2016</div>
+                                            <div class="col-md-2">By: 4/22/2016</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="checkbox-inline">
+                                                    <label class="inline"><input type="checkbox"> Upfront Fee Received</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">Date: 4/22/2016</div>
+                                            <div class="col-md-2">By: 4/22/2016</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="checkbox-inline">
+                                                    <label class="inline"><input type="checkbox"> Upfront Fee Received</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">Date: 4/22/2016</div>
+                                            <div class="col-md-2">By: 4/22/2016</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default db-panel mT10" id="CEMACollateralSection" *ngIf="model.CEMACollateralList.length > 0">
+                                <div class="panel-heading" role="tab" id="cemaCollateral">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#cemaCollateralD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            CEMA Collateral <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="cemaCollateralD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                                    <div class="panel-body">
+
+                                        <div class="row" *ngFor="let cemaRow of model.CEMACollateralList">
+                                            <div class="col-md-6">
+                                                <input type="checkbox" class="common-checkbox" disabled [checked]="cemaRow.Answer == 1">
+                                                <label class="inline">{{cemaRow.QuestionText}}</label>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label>Date: </label>
+                                                <label>{{utility.getDateTime(cemaRow.AnswerDate)}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default db-panel mT10" id="COOPCollateralSection" *ngIf="model.COOPCollateralList.length > 0">
+                                <div class="panel-heading" role="tab" id="coopCollateral">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#coopCollateralD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            COOP Collateral <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="coopCollateralD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                                    <div class="panel-body">
+
+                                        <div class="row" *ngFor="let coopRow of model.COOPCollateralList">
+                                            <div class="col-md-6">
+                                                <input type="checkbox" class="common-checkbox" disabled [checked]="coopRow.Answer == 1">
+                                                <label class="inline">{{coopRow.QuestionText}}</label>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label>Date: </label>
+                                                <label>{{utility.getDateTime(coopRow.AnswerDate)}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="FileClearanceSection" class="panel panel-default db-panel mT10">
+                                <div class="panel-heading" role="tab" id="ctcStatus">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#ctcStatusD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            File Clearance <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="ctcStatusD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                                    <div class="panel-body">
+
+                                        <div id="FileClearanceRequested" class="row">
+                                            <div class="col-md-4">
+                                                <input type="checkbox" class="common-checkbox" [(ngModel)]="model.FileClearanceRequested" #FileClearanceRequested name="FileClearanceRequested"
+                                                       (click)="FileClearanceRequestedChecked(FileClearanceRequested.checked)" [disabled]="model.isRequestedCheckbox">
+                                                <label class="inline">File Clearance Requested </label>
+
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>By: </label>
+                                                <label>{{model.FileClearanceRequestedBy}}</label>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Date: </label>
+                                                <label>{{model.FileClearanceRequestedDate}}</label>
+
+                                                <div class="col-md-12 mT10" *ngIf="saveDetail">
+                                                    <div class="button-group text-right" [hidden]="model.isRequestedCheckbox">
+                                                        <button type="button" class="btn btn-primary" (click)="onSaveCleartoClose()"
+                                                                [disabled]="model.isRequestedCheckbox">
+                                                            <span class="fa fa-floppy-o"></span> Save
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="FileClearanceApproved" class="row">
+                                            <div class="col-md-4">
+                                                <input type="checkbox" class="common-checkbox" [(ngModel)]="model.FileClearanceApproved" name="FileClearanceApproved"
+                                                       #FileClearanceApproved disabled>
+                                                <label class="inline">File Clearance Approved</label>
+
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>By: </label>
+                                                <label>{{model.FileClearanceApprovedBy}}</label>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Date: </label>
+                                                <label>{{model.FileClearanceApprovedDate}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

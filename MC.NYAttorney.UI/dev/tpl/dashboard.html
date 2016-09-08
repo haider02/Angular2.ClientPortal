@@ -1,0 +1,259 @@
+﻿<notification-msg #notificationcomponent></notification-msg>
+<div class="content clearfix" id="dashboardSlider">
+    <div class="caption">
+        <h3>New York Solution</h3>
+        <p>
+            "Unique, Innovative Solutions Addressing the <br />
+            New York Market Challenges"
+        </p>
+    </div>
+    <div id="dbActionLinks">
+        <a [routerLink]="['OrderEntry']" id="CreateOrderBtn" class="create-orders">
+            <span class="fa fa-pencil-square-o"></span>
+            Create Orders
+        </a>
+        <a href={{loadStarUrl}} class="calculate-cost" id="CalculateCostBtn" target="_blank">
+            <span class="fa fa fa-calculator"></span>
+            Calculate Cost
+        </a>
+        <a id="GenerateDocumentBtn" class="generate-documents" data-toggle="modal" data-target="#DownloadDocModel" (click)="DownloadDocFormVisible = true;">
+            <span class="fa fa-file-text-o"></span>
+            Generate Document
+        </a>
+    </div>
+    <div id="satatusBar">
+        <div class="item status-inprogress" (click)="FilterGridByStatus('In Progress')">
+            <label>{{inProgressCount}}</label>
+            <span>In Progress</span>
+        </div>
+        <div class="item status-titlecomplete" (click)="FilterGridByStatus('Title Completed')">
+            <label>{{titleCompleteCount}}</label>
+            <span>Title Completed</span>
+        </div>
+        <div class="item status-cleartoclose" (click)="FilterGridByStatus('Clear to Close')">
+            <label>{{clearToCloseCount}}</label>
+            <span>Clear To Close</span>
+        </div>
+        <div class="item status-postclosetocomplete" (click)="FilterGridByStatus('Post Close')">
+            <label>{{postCompleteCount}}</label>
+            <span>Post Close</span>
+        </div>
+    </div>
+</div>
+<section class="content">
+    <div class="row no-print">
+        <div class="col-md-12" id="OrderSearchSection">
+            <div class="panel panel-default db-panel">
+                <div class="panel-heading" role="tab" id="orderSearch">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                            Order Search <span class="fa fa-chevron-down"></span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="orderSearchDiv" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="orderSearch">
+                    <div class="panel-body">
+                        <div id="DashboardSearchForm" class="row">
+                            <form role="form" *ngIf="active" (ngSubmit)="onSearch(false)" #orderSearchForm="ngForm">
+
+                                <div id="BorrowerNameSearch" class="col-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label>Borrower Name</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"
+                                                   [(ngModel)]="model.BorrowerName" name="BorrowerName" #BorrowerName="ngModel" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="LoanNumberSearch" class="col-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label>Loan Number</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"
+                                                   [(ngModel)]="model.LoanNo" name="LoanNo" #LoanNo="ngModel" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="OrderNumberSearch" class="col-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label>Order Number</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"
+                                                   [(ngModel)]="model.OrderNo" name="OrderNo" #OrderNo="ngModel" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="LoanOfficerSearch" class="col-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label>Loan Officer</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"
+                                                   [(ngModel)]="model.LoanOfficer" name="LoanOfficer" #LoanOfficer="ngModel" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="TransactionTypeSearch" class="col-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label>Transaction Type</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" name="TransactionType"
+                                                    [(ngModel)]="model.TransactionType" (change)="model.TransactionType=$event.target.value">
+                                                <option *ngFor="let t of productList" [value]="t.cboEntry">{{t.cboEntry}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="ClientSearch" class="col-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label>Client</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" name="ClientFilterVal"
+                                                    [(ngModel)]="model.ClientFilterVal" (change)="model.ClientFilterVal=$event.target.value">
+                                                <option [value]="0">Please Select</option>
+                                                <option *ngFor="let t of clientList" [value]="t.ClientId">{{t.Alias}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="StatusSearch" class="col-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <label>Status</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" name="Status"
+                                                    [(ngModel)]="model.Status" (change)="model.Status=$event.target.value">
+                                                <option *ngFor="let t of statusList" [value]="t.cboEntry">{{t.cboEntry}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8 text-right pull-right">
+                                    <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span> Search</button>
+                                    <button class="btn btn-register" type="button" [disabled]="orderList.length == 0" (click)="onExport()"><span class="fa fa-share-square-o"></span> Export</button>
+                                </div>
+
+                                <div id="DashboardGrid" *ngIf="isSearchClicked">
+                                    <data-grid [rows]="orderList" [columns]="orderGridColumns" [defaultSort]="defaultSort" (deleteSelectedRow)="deleteSelectedRow($event)"
+                                               (editSelectedRow)="editSelectedRow($event)" (viewSelectedRow)="viewSelectedRow($event)" (clickedRow)="rowClicked($event)"
+                                               (summarySelectedRow)="summarySelectedRow($event)" (detailSelectedRow)="detailSelectedRow($event)">
+                                    </data-grid>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div *ngIf="DownloadDocFormVisible">
+                            <div class="modal fade" id="DownloadDocModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div id="DownloadDocForm">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="myModalLabel">Generate Documents</h5>
+                                            </div>
+                                            <form role="form" (ngSubmit)="onDownloadDocumentSubmit()" #notesForm="ngForm">
+                                                <div class="modal-body">
+                                                    <div id="OrderNotesText">
+                                                        <p>Document Type:</p>
+
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <select name="ddlDocuments" #ddlDocuments="ngModel" [(ngModel)]="documentID" class="form-control" (change)="documentID=$event.target.value">
+                                                                    <option value="Please Select">Please Select</option>
+                                                                    <option *ngFor="let d of documentList" [value]="d.ID">{{d.DisplayName}}</option>
+                                                                </select>
+                                                                <div [hidden]="ddlDocuments.value != 'Please Select' || ddlDocuments.pristine " class="alert alert-danger">Please Select Document</div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group clearfixDiv">
+                                                                    <input type="submit" class="btn btn-primary " value="Download" [disabled]="ddlDocuments.value == 'Please Select'" />
+                                                                    <button type="button" id="cancelBtn" (click)="cancelDownloadDocument()" class="btn btn-secondary-outline pull-right" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="DashboardOrderSummary" class="order-summary clearfix" *ngIf="isViewClicked">
+                            <h5 class="inner-heading">Order Summary</h5>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+
+                                    <label class="mR10"><b>Borrower Name:</b></label>
+                                    <span>{{selectedBorrowerName}}</span>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+
+                                    <label class="mR10"><b>Phone:</b></label>
+                                    <span>{{selectedPhone}}</span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mR10"><b>Cell:</b></label>
+                                    <span>{{selectedCell}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mR10"><b>Email:</b></label>
+                                    <span>{{selectedEmail}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mR10"><b>Provider Contact:</b></label>
+                                    <span>{{selectedProviderContact}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mR10"><b>Loan Amount:</b></label>
+                                    <span>{{selectedLoanAmount}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="mR10"><b>Address:</b></label>
+                                    <span>{{selectedAddress}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="mR10"><b>Notes:</b></label>
+                                    <span>{{selectedNote}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

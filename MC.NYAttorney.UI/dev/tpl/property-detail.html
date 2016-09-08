@@ -1,0 +1,379 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content">
+            <div class="row" id="PropertyDetailForm">
+                <form role="form" *ngIf="active" (ngSubmit)="onSave()" #propertyDetailForm="ngForm">
+                    <div class="col-md-12">
+                        <div class="property-detail">
+                            <div class="panel panel-default db-panel" id="PropertyInformationSection">
+
+                                <div class="panel-heading" role="tab" id="propertyDetail">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#propertyDetailD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            Property Information <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+
+                                <div id="propertyDetailD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                                    <div class="panel-body">
+                                        <div class="row">
+
+                                            <div id="PropertyDetailPropTypeCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Property Type</label>
+                                                    <select class="form-control" required (change)="filterPropertyDetails($event.target.value)"
+                                                            [(ngModel)]="model.PropertyType"
+                                                            name="propType" #propType="ngModel">
+                                                        <option *ngFor="let t of propertyTypes" [value]="t.cboEntry">{{t.cboEntry}}</option>
+                                                    </select>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailAddress1Cntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Street No</label>
+                                                    <input type="text" class="form-control" required maxlength="32"
+                                                           [(ngModel)]="model.Address1"
+                                                           name="stno" #stno="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailAddress11Cntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Street Name</label>
+                                                    <input type="text" class="form-control" required maxlength="32"
+                                                           [(ngModel)]="model.Address1Name"
+                                                           name="stname" #stname="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailAddress2Cntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Address 2</label>
+                                                    <input type="text" class="form-control" maxlength="32"
+                                                           [(ngModel)]="model.Address2"
+                                                           name="add2" #add2="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailZipCodeCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Zip Code</label>
+                                                    <input class="form-control" id="Zip" name="Zip" placeholder="Enter Zip Code" type="text" pattern="^\d*" [(ngModel)]="model.zip" (blur)="GetCityAndState(model.zip)" maxlength="5" required>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailCityCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*City</label>
+                                                    <input type="text" class="form-control" id="City" name="City" placeholder="City" [(ngModel)]="model.city"  #type="ngModel" maxlength="32" required>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailStateCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <data-state [stateInput]="model.state" [zip]="model.zip" [model]="model" (StateSelectedOutput)="selectedStateValue($event)" (CityList)="GetCitiesbyState($event)" (CountyList)="GetCountybyState($event)"></data-state>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailCountyCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <data-county [countyInput]="model.county" [countiesList]="filtercounties" (CountySelectedOutput)="selectedCountyValue($event)"></data-county>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div class="col-md-8 text-only text-right">
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="grid-table mT0">
+                                            <div id="PropertyDetailGrid" class="row">
+                                                <div class="table-responsive top-curve">
+                                                    <div class="col-xs-12">
+                                                        <button class="btn btn-link pull-right mBm20" type="button" [disabled]="isAddPropertyLink" (click)="onAddPropertyLink()">+ Add Property Detail</button>
+                                                    </div>
+                                                    <data-grid [rows]="propertyDetailList" [columns]="propertyDetailGridColumns" [defaultSort]="defaultSort" (deleteSelectedRow)="deletePropertyDetailRow($event)"
+                                                               (editSelectedRow)="editPropertyDetailRow($event)" (viewSelectedRow)="viewPropertyDetailRow($event)">
+                                                    </data-grid>
+                                                </div><!-- table-responsive -->
+                                            </div><!-- row -->
+                                        </div><!-- grid-table -->
+
+                                        <div id="PropertyDetailPanel" *ngIf="isPropertyDetailVisible" class="row inner-panel">
+
+                                            <div id="PropertyDetailsPropDetCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Property Detail</label>
+                                                    <select class="form-control"
+                                                            [(ngModel)]="model.PropertyDetail" [disabled]="isEditMode"
+                                                            name="propDetail" #propDetail="ngModel" (change)="clearPropertyDetailSection($event.target.value)">
+                                                        <option *ngFor="let t of propertyDetails" [value]="t.cboEntry">{{t.cboEntry}}</option>
+                                                    </select>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailsCOOPCntrl" *ngIf="propDetail.value == 'CO-OP Information' || propDetail.value == 'CONDO/PUD Information'" class="col-md-4 clearB">
+                                                <div class="form-group">
+                                                    <label *ngIf="propDetail.value == 'CO-OP Information'">*CO-OP Name</label>
+                                                    <label *ngIf="propDetail.value == 'CONDO/PUD Information'">*Association Name</label>
+                                                    <input type="text" class="form-control" required maxlength="32"
+                                                           [(ngModel)]="model.InformationName"
+                                                           name="infoName" #infoName="ngModel">
+                                                </div>
+                                            </div>
+
+                                            <div id="PropertyDetailsManagingAgentCntrl" *ngIf="propDetail.value == 'CO-OP Information' || propDetail.value == 'CONDO/PUD Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Managing Agent's Name</label>
+                                                    <input type="text" class="form-control" required maxlength="32"
+                                                           [(ngModel)]="model.ManagingAgentName"
+                                                           name="agentName" #agentName="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailsPhoneCntrl" *ngIf="propDetail.value == 'CO-OP Information' || propDetail.value == 'CONDO/PUD Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Phone</label>
+                                                    <input class="form-control" id="Phone" name="phone" type="tel" maxlength="62"
+                                                           (focus)="focusPhone($event)" data-mask="___-___-____" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="xxx-xxx-xxxx"
+                                                           (blur)="blurPhone($event)" [(ngModel)]="displayBorrowerPhone" #phone="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailsCellCntrl" *ngIf="propDetail.value == 'CO-OP Information' || propDetail.value == 'CONDO/PUD Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Cell</label>
+                                                    <input type="text" class="form-control" maxlength="62" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="xxx-xxx-xxxx"
+                                                           (focus)="focusCell($event)" data-mask="___-___-____" (blur)="blurCell($event)"
+                                                           [(ngModel)]="displayBorrowerCell" name="cell" #cell="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailsStockCertNumberCntrl" *ngIf="propDetail.value == 'CO-OP Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Stock Certificate Number</label>
+                                                    <input type="number" class="form-control"
+                                                           [(ngModel)]="model.StockCertificateNumber"
+                                                           name="stockCertNo" #stockCertNo="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailsSharesCntrl" *ngIf="propDetail.value == 'CO-OP Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>No of Shares</label>
+                                                    <input type="number" class="form-control"
+                                                           [(ngModel)]="model.SharesCount"
+                                                           name="sharesCount" #sharesCount="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailEmailCntrl" *ngIf="propDetail.value == 'CO-OP Information' || propDetail.value == 'CONDO/PUD Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Email</label>
+                                                    <input type="email" class="form-control" maxlength="62"
+                                                           [(ngModel)]="model.Email"
+                                                           name="email" #email="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailLeaseDateCntrl" *ngIf="propDetail.value == 'CO-OP Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Lease Date</label>
+                                                    <input type="date" class="form-control"
+                                                           [(ngModel)]="model.LeaseDate"
+                                                           name="leaseDate" #leaseDate="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailExpirationCntrl" *ngIf="propDetail.value == 'CO-OP Information'" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Expiration Date</label>
+                                                    <input type="date" class="form-control"
+                                                           [(ngModel)]="model.ExpirationDate"
+                                                           name="expirationDate" #expirationDate="ngModel">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+
+                                            <div id="PropertyDetailExpirationCntrl" *ngIf="propDetail.value == 'CO-OP Information'" class="col-md-4 text-only">
+                                                <div class="form-group">
+                                                    <div class="checkbox-inline">
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                   [(ngModel)]="model.IsLeaseAssigned" name="isLeaseAssigned" #isLeaseAssigned="ngModel">
+                                                            Is Lease Assigned
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="PropertyDetailPropAddress1Cntrl" *ngIf="propDetail.value == 'Address Information'" class="clearB">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">*Address1:</label>
+                                                        <input type="text" class="form-control"
+                                                               [(ngModel)]="model.PropertyAddress1" name="propertyAddress1" #propertyAddress1="ngModel" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailPropAddress2Cntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">Address2:</label>
+                                                        <input type="text" class="form-control"
+                                                               [(ngModel)]="model.PropertyAddress2" name="propertyAddress2" #propertyAddress2="ngModel" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailPropZipCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">*Zip:</label>
+                                                        <input class="form-control" placeholder="Enter Zip Code" type="text" pattern="^\d*" name="PropertyZip"
+                                                               [(ngModel)]="model.PropertyZip" (blur)="GetPropertyCityAndState(model.PropertyZip)" maxlength="5">
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailPropCityCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">*City:</label>
+                                                        <input type="text" class="form-control" placeholder="City" name="PropertyCity"
+                                                               [(ngModel)]="model.PropertyCity" maxlength="32">
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailPropStateCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <data-state [stateInput]="model.PropertyState" [zip]="model.PropertyZip" [model]="model" (StateSelectedOutput)="selectedPropertyStateValue($event)"
+                                                                    (CityList)="GetPropertyCitiesbyState($event)" (CountyList)="GetPropertyCountybyState($event)"></data-state>
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailPropCountyCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <data-county [countyInput]="model.PropertyCounty" [countiesList]="propertyFiltercounties"
+                                                                     (CountySelectedOutput)="selectedPropertyCountyValue($event)"></data-county>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="clearB darkHr" />
+                                            <div *ngIf="propDetail.value == 'Address Information'" class="clearB">
+                                                <div id="PropertyDetailBuyerAdress1Cntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">Buyer Address1:</label>
+                                                        <input type="text" class="form-control" placeholder=""
+                                                               [(ngModel)]="model.BuyerAddress1" name="buyerAddress1" #buyerAddress1="ngModel" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailBuyerAdress2Cntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">Buyer Address2:</label>
+                                                        <input type="text" class="form-control" placeholder=""
+                                                               [(ngModel)]="model.BuyerAddress2" name="buyerAddress2" #buyerAddress2="ngModel" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailBuyerZipCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">Zip:</label>
+                                                        <input class="form-control" placeholder="Enter Zip Code" type="text" pattern="^\d*" name="BuyerZip"
+                                                               [(ngModel)]="model.BuyerZip" (blur)="GetBuyerCityAndState(model.BuyerZip)" maxlength="5">
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailBuyerCityCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">City:</label>
+                                                        <input type="text" class="form-control" placeholder="City" name="BuyerCity"
+                                                               [(ngModel)]="model.BuyerCity" maxlength="32">
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailBuyerStateCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <data-state [stateInput]="model.BuyerState" [zip]="model.BuyerZip" [model]="model" (StateSelectedOutput)="selectedBuyerStateValue($event)"
+                                                                    (CityList)="GetBuyerCitiesbyState($event)" (CountyList)="GetBuyerCountybyState($event)"></data-state>
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailBuyerCountyCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <data-county [countyInput]="model.BuyerCounty" [countiesList]="buyerFiltercounties"
+                                                                     (CountySelectedOutput)="selectedBuyerCountyValue($event)"></data-county>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="clearB darkHr" />
+                                            <div *ngIf="propDetail.value == 'Address Information'" class="clear">
+                                                <div id="PropertyDetailSellerAddress1Cntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">Seller Address1:</label>
+                                                        <input type="text" class="form-control" placeholder=""
+                                                               [(ngModel)]="model.SellerAddress1" name="sellerAddress1" #sellerAddress1="ngModel" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailSellerAddress2Cntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">Seller Address2:</label>
+                                                        <input type="text" class="form-control" placeholder=""
+                                                               [(ngModel)]="model.SellerAddress2" name="sellerAddress2" #sellerAddress2="ngModel" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailSellerZipCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">Zip:</label>
+                                                        <input class="form-control" placeholder="Enter Zip Code" type="text" pattern="^\d*" name="SellerZip"
+                                                               [(ngModel)]="model.SellerZip" (blur)="GetSellerCityAndState(model.SellerZip)" maxlength="5">
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailSellerCityCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="">City:</label>
+                                                        <input type="text" class="form-control" placeholder="City" name="SellerCity"
+                                                               [(ngModel)]="model.SellerCity" maxlength="32">
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailSellerStateCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <data-state [stateInput]="model.SellerState" [zip]="model.SellerZip" [model]="model" (StateSelectedOutput)="selectedSellerStateValue($event)"
+                                                                    (CityList)="GetSellerCitiesbyState($event)" (CountyList)="GetSellerCountybyState($event)"></data-state>
+                                                    </div>
+                                                </div>
+
+                                                <div id="PropertyDetailSellerCountyCntrl" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <data-county [countyInput]="model.SellerCounty" [countiesList]="sellerFiltercounties"
+                                                                     (CountySelectedOutput)="selectedSellerCountyValue($event)"></data-county>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="button-group text-right">
+                                                <button type="button" class="btn btn-primary" (click)="onSavePropertyDetail()"><span class="fa fa-floppy-o"></span> Add</button>
+                                                <button type="button" class="btn btn-secondary-outline" (click)="onCancelPropertyDetail()"><span class="fa fa-close"></span> Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="button-group text-right" *ngIf="!isAddPropertyLink">
+                            <button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Save</button>
+                            <button type="button" class="btn btn-secondary-outline" (click)="onCancel()"><span class="fa fa-close"></span> Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

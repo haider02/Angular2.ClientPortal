@@ -1,0 +1,1727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebApiDataModelStoreContainer" CdmEntityContainer="WebApiDbEntities">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="WebApiDataModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="RateJurisdictionID" ColumnName="RateJurisdictionID" />
+          <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+          <ScalarProperty Name="CityType" ColumnName="CityType" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComboEntries">
+      <EntityTypeMapping TypeName="WebApiDataModel.ComboEntries">
+        <MappingFragment StoreEntitySet="ComboEntries">
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="Internal" ColumnName="Internal" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="cboBehavior" ColumnName="cboBehavior" />
+          <ScalarProperty Name="cboEntry" ColumnName="cboEntry" />
+          <ScalarProperty Name="cboId" ColumnName="cboId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComboIds">
+      <EntityTypeMapping TypeName="WebApiDataModel.ComboIds">
+        <MappingFragment StoreEntitySet="ComboIds">
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="BehaviorLabel" ColumnName="BehaviorLabel" />
+          <ScalarProperty Name="DefaultEntry" ColumnName="DefaultEntry" />
+          <ScalarProperty Name="entryLength" ColumnName="entryLength" />
+          <ScalarProperty Name="cboDesc" ColumnName="cboDesc" />
+          <ScalarProperty Name="cboId" ColumnName="cboId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Counties">
+      <EntityTypeMapping TypeName="WebApiDataModel.Counties">
+        <MappingFragment StoreEntitySet="Counties">
+          <ScalarProperty Name="CountySpecificInstructions" ColumnName="CountySpecificInstructions" />
+          <ScalarProperty Name="StateCountyCode" ColumnName="StateCountyCode" />
+          <ScalarProperty Name="ClosingLocRestriction" ColumnName="ClosingLocRestriction" />
+          <ScalarProperty Name="ERecordingSite" ColumnName="ERecordingSite" />
+          <ScalarProperty Name="IsModification" ColumnName="IsModification" />
+          <ScalarProperty Name="IsPOA" ColumnName="IsPOA" />
+          <ScalarProperty Name="IsAssignment" ColumnName="IsAssignment" />
+          <ScalarProperty Name="IsRelease" ColumnName="IsRelease" />
+          <ScalarProperty Name="IsSub" ColumnName="IsSub" />
+          <ScalarProperty Name="IsMtg_DOT" ColumnName="IsMtg_DOT" />
+          <ScalarProperty Name="IsDeed" ColumnName="IsDeed" />
+          <ScalarProperty Name="IsSimplifile" ColumnName="IsSimplifile" />
+          <ScalarProperty Name="TitleEscrowTemplate" ColumnName="TitleEscrowTemplate" />
+          <ScalarProperty Name="OtherTax" ColumnName="OtherTax" />
+          <ScalarProperty Name="RateJurisdictionID" ColumnName="RateJurisdictionID" />
+          <ScalarProperty Name="MortTax" ColumnName="MortTax" />
+          <ScalarProperty Name="TransTaxAmt2" ColumnName="TransTaxAmt2" />
+          <ScalarProperty Name="TransTaxAmt1" ColumnName="TransTaxAmt1" />
+          <ScalarProperty Name="DeedXtraAmt2" ColumnName="DeedXtraAmt2" />
+          <ScalarProperty Name="DeedXtraAmt1" ColumnName="DeedXtraAmt1" />
+          <ScalarProperty Name="DeedBasePages" ColumnName="DeedBasePages" />
+          <ScalarProperty Name="DeedBaseAmt" ColumnName="DeedBaseAmt" />
+          <ScalarProperty Name="MortXtraAmt2" ColumnName="MortXtraAmt2" />
+          <ScalarProperty Name="MortXtraAmt1" ColumnName="MortXtraAmt1" />
+          <ScalarProperty Name="MortBasePages" ColumnName="MortBasePages" />
+          <ScalarProperty Name="MortBaseAmt" ColumnName="MortBaseAmt" />
+          <ScalarProperty Name="OtherPrepAmt" ColumnName="OtherPrepAmt" />
+          <ScalarProperty Name="SatPrepAmt" ColumnName="SatPrepAmt" />
+          <ScalarProperty Name="SubPrepAmt" ColumnName="SubPrepAmt" />
+          <ScalarProperty Name="DeedPrepAmt" ColumnName="DeedPrepAmt" />
+          <ScalarProperty Name="ClosingArea" ColumnName="ClosingArea" />
+          <ScalarProperty Name="TitleArea" ColumnName="TitleArea" />
+          <ScalarProperty Name="AppraisalArea" ColumnName="AppraisalArea" />
+          <ScalarProperty Name="CountyName" ColumnName="CountyName" />
+          <ScalarProperty Name="CountyCode" ColumnName="CountyCode" />
+          <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="WebApiDataModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ExcludeFromAutoHold" ColumnName="ExcludeFromAutoHold" />
+          <ScalarProperty Name="IsCEMA" ColumnName="IsCEMA" />
+          <ScalarProperty Name="IsSchedulingProduct" ColumnName="IsSchedulingProduct" />
+          <ScalarProperty Name="IgnoreTitleClearance" ColumnName="IgnoreTitleClearance" />
+          <ScalarProperty Name="DefaultSearchType" ColumnName="DefaultSearchType" />
+          <ScalarProperty Name="VendorAssignAs" ColumnName="VendorAssignAs" />
+          <ScalarProperty Name="TitleDecision" ColumnName="TitleDecision" />
+          <ScalarProperty Name="PolicyProduct" ColumnName="PolicyProduct" />
+          <ScalarProperty Name="ReissueAvailable" ColumnName="ReissueAvailable" />
+          <ScalarProperty Name="AllowOwnerPolicyChange" ColumnName="AllowOwnerPolicyChange" />
+          <ScalarProperty Name="AllowLoanPolicyChange" ColumnName="AllowLoanPolicyChange" />
+          <ScalarProperty Name="ARClientId" ColumnName="ARClientId" />
+          <ScalarProperty Name="AssociatedECloseProd" ColumnName="AssociatedECloseProd" />
+          <ScalarProperty Name="EClosingProd" ColumnName="EClosingProd" />
+          <ScalarProperty Name="ExcludeFromHUD" ColumnName="ExcludeFromHUD" />
+          <ScalarProperty Name="SendNewOrderMsg" ColumnName="SendNewOrderMsg" />
+          <ScalarProperty Name="DisplayOnDashboard" ColumnName="DisplayOnDashboard" />
+          <ScalarProperty Name="TitleOnlyPropClsDate" ColumnName="TitleOnlyPropClsDate" />
+          <ScalarProperty Name="AutoSend" ColumnName="AutoSend" />
+          <ScalarProperty Name="AutoAssign" ColumnName="AutoAssign" />
+          <ScalarProperty Name="DisplayOnWeb" ColumnName="DisplayOnWeb" />
+          <ScalarProperty Name="BPO" ColumnName="BPO" />
+          <ScalarProperty Name="TitleEscrowCode" ColumnName="TitleEscrowCode" />
+          <ScalarProperty Name="Uninsured" ColumnName="Uninsured" />
+          <ScalarProperty Name="WeightQuality" ColumnName="WeightQuality" />
+          <ScalarProperty Name="WeightTurnTime" ColumnName="WeightTurnTime" />
+          <ScalarProperty Name="WeightPrice" ColumnName="WeightPrice" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="IncludeEndorsements" ColumnName="IncludeEndorsements" />
+          <ScalarProperty Name="TSEnforceReqFields" ColumnName="TSEnforceReqFields" />
+          <ScalarProperty Name="TSExceptsTab" ColumnName="TSExceptsTab" />
+          <ScalarProperty Name="TSReqsTab" ColumnName="TSReqsTab" />
+          <ScalarProperty Name="TSLegalTab" ColumnName="TSLegalTab" />
+          <ScalarProperty Name="TSLiensTab" ColumnName="TSLiensTab" />
+          <ScalarProperty Name="TSMtgsTab" ColumnName="TSMtgsTab" />
+          <ScalarProperty Name="TSDeedsTab" ColumnName="TSDeedsTab" />
+          <ScalarProperty Name="TSTaxTab" ColumnName="TSTaxTab" />
+          <ScalarProperty Name="TSFeesTab" ColumnName="TSFeesTab" />
+          <ScalarProperty Name="TSCommitTab" ColumnName="TSCommitTab" />
+          <ScalarProperty Name="TSMainTab" ColumnName="TSMainTab" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="DefaultClsPiggy" ColumnName="DefaultClsPiggy" />
+          <ScalarProperty Name="DefaultCls" ColumnName="DefaultCls" />
+          <ScalarProperty Name="DefaultProduct" ColumnName="DefaultProduct" />
+          <ScalarProperty Name="AccountingOnly" ColumnName="AccountingOnly" />
+          <ScalarProperty Name="TaskCode" ColumnName="TaskCode" />
+          <ScalarProperty Name="PayeeCode" ColumnName="PayeeCode" />
+          <ScalarProperty Name="HUDLine" ColumnName="HUDLine" />
+          <ScalarProperty Name="GLAccount2" ColumnName="GLAccount2" />
+          <ScalarProperty Name="GLAccount" ColumnName="GLAccount" />
+          <ScalarProperty Name="UsageNotes" ColumnName="UsageNotes" />
+          <ScalarProperty Name="Purchase" ColumnName="Purchase" />
+          <ScalarProperty Name="PiggyBack" ColumnName="PiggyBack" />
+          <ScalarProperty Name="GPMPercent" ColumnName="GPMPercent" />
+          <ScalarProperty Name="RecordingRequired" ColumnName="RecordingRequired" />
+          <ScalarProperty Name="Recording" ColumnName="Recording" />
+          <ScalarProperty Name="COD" ColumnName="COD" />
+          <ScalarProperty Name="ALTA" ColumnName="ALTA" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="Internal" ColumnName="Internal" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Service" ColumnName="Service" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysMenu">
+      <EntityTypeMapping TypeName="WebApiDataModel.sysMenu">
+        <MappingFragment StoreEntitySet="sysMenu">
+          <ScalarProperty Name="cssClass" ColumnName="cssClass" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+          <ScalarProperty Name="MenuRank" ColumnName="MenuRank" />
+          <ScalarProperty Name="RouterLink" ColumnName="RouterLink" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+          <ScalarProperty Name="RefDataId" ColumnName="RefDataId" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserId">
+      <EntityTypeMapping TypeName="WebApiDataModel.UserId">
+        <MappingFragment StoreEntitySet="UserId">
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="RREndTime" ColumnName="RREndTime" />
+          <ScalarProperty Name="RRStartTime" ColumnName="RRStartTime" />
+          <ScalarProperty Name="RRMaxOrders" ColumnName="RRMaxOrders" />
+          <ScalarProperty Name="RRAccept" ColumnName="RRAccept" />
+          <ScalarProperty Name="tsApprovalLimit" ColumnName="tsApprovalLimit" />
+          <ScalarProperty Name="FullNameCalc" ColumnName="FullNameCalc" />
+          <ScalarProperty Name="cdeAppServer" ColumnName="cdeAppServer" />
+          <ScalarProperty Name="txtAcctPermissions" ColumnName="txtAcctPermissions" />
+          <ScalarProperty Name="flgTemplate" ColumnName="flgTemplate" />
+          <ScalarProperty Name="txtHUDPermissions" ColumnName="txtHUDPermissions" />
+          <ScalarProperty Name="uidUser" ColumnName="uidUser" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="AccountRep" ColumnName="AccountRep" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="SMTPServer" ColumnName="SMTPServer" />
+          <ScalarProperty Name="EmailMethod" ColumnName="EmailMethod" />
+          <ScalarProperty Name="FaxServer" ColumnName="FaxServer" />
+          <ScalarProperty Name="ManagerNo" ColumnName="ManagerNo" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName2" ColumnName="LastName2" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="SysAdmin" ColumnName="SysAdmin" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserId1" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZipCodes">
+      <EntityTypeMapping TypeName="WebApiDataModel.ZipCodes">
+        <MappingFragment StoreEntitySet="ZipCodes">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="DST" ColumnName="DST" />
+          <ScalarProperty Name="GMTOffset" ColumnName="GMTOffset" />
+          <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+          <ScalarProperty Name="MSA" ColumnName="MSA" />
+          <ScalarProperty Name="CountyCode" ColumnName="CountyCode" />
+          <ScalarProperty Name="ZipCodeType" ColumnName="ZipCodeType" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ContactsSelectType" FunctionName="WebApiDataModel.Store.ContactsSelectType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.ContactsSelectType_Result">
+          <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DocumentTypesSelectAllByProdCat" FunctionName="WebApiDataModel.Store.DocumentTypesSelectAllByProdCat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.DocumentTypesSelectAllByProdCat_Result">
+          <ScalarProperty Name="RowID" ColumnName="RowID" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EvtCode" ColumnName="EvtCode" />
+          <ScalarProperty Name="DocCode" ColumnName="DocCode" />
+          <ScalarProperty Name="Uploads_DefaultClientViewable" ColumnName="Uploads_DefaultClientViewable" />
+          <ScalarProperty Name="Uploads_DefaultVendorViewable" ColumnName="Uploads_DefaultVendorViewable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetStateCountyFromZip" FunctionName="WebApiDataModel.Store.GetStateCountyFromZip">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.GetStateCountyFromZip_Result">
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+          <ScalarProperty Name="CountyName" ColumnName="CountyName" />
+          <ScalarProperty Name="CountyCode" ColumnName="CountyCode" />
+          <ScalarProperty Name="RateJurisdictionId" ColumnName="RateJurisdictionId" />
+          <ScalarProperty Name="RefinancePrevAmtsNeeded" ColumnName="RefinancePrevAmtsNeeded" />
+          <ScalarProperty Name="RefinanceOrigAmtsNeeded" ColumnName="RefinanceOrigAmtsNeeded" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="WebApiDataModel.Notes">
+        <MappingFragment StoreEntitySet="Notes">
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="SentTo" ColumnName="SentTo" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="NoteType" ColumnName="NoteType" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="XRefId" ColumnName="XRefId" />
+          <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddressesDelete" FunctionName="WebApiDataModel.Store.AddressesDelete" />
+    <FunctionImportMapping FunctionImportName="ImagingSystemSelect" FunctionName="WebApiDataModel.Store.ImagingSystemSelect" />
+    <EntitySetMapping Name="EmailType">
+      <EntityTypeMapping TypeName="WebApiDataModel.EmailType">
+        <MappingFragment StoreEntitySet="EmailType">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="FromEmailOther" ColumnName="FromEmailOther" />
+          <ScalarProperty Name="FromEmailType" ColumnName="FromEmailType" />
+          <ScalarProperty Name="EmailName" ColumnName="EmailName" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FeedbackPartySelectAll" FunctionName="WebApiDataModel.Store.FeedbackPartySelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.FeedbackPartySelectAll_Result">
+          <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+          <ScalarProperty Name="PartyText" ColumnName="PartyText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DocumentsDelete" FunctionName="WebApiDataModel.Store.DocumentsDelete" />
+    <FunctionImportMapping FunctionImportName="DocumentsLock" FunctionName="WebApiDataModel.Store.DocumentsLock" />
+    <FunctionImportMapping FunctionImportName="InterfaceInsertRequest" FunctionName="WebApiDataModel.Store.InterfaceInsertRequest" />
+    <FunctionImportMapping FunctionImportName="PasswordResetGetThemeUrl" FunctionName="WebApiDataModel.Store.PasswordResetGetThemeUrl" />
+    <FunctionImportMapping FunctionImportName="ClientBundlesSelectOE" FunctionName="WebApiDataModel.Store.ClientBundlesSelectOE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.ClientBundlesSelectOE_Result">
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Lockout" ColumnName="Lockout" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ContactsSelectAll" FunctionName="WebApiDataModel.Store.ContactsSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.ContactsSelectAll_Result">
+          <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="XRefID" ColumnName="XRefID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OrderDetailsInsertAppraisal" FunctionName="WebApiDataModel.Store.OrderDetailsInsertAppraisal" />
+    <FunctionImportMapping FunctionImportName="OrderDetailsInsertClosing" FunctionName="WebApiDataModel.Store.OrderDetailsInsertClosing" />
+    <FunctionImportMapping FunctionImportName="OrderDetailsInsertOther" FunctionName="WebApiDataModel.Store.OrderDetailsInsertOther" />
+    <FunctionImportMapping FunctionImportName="OrderDetailsInsertTitle" FunctionName="WebApiDataModel.Store.OrderDetailsInsertTitle" />
+    <FunctionImportMapping FunctionImportName="webLoginGet" FunctionName="WebApiDataModel.Store.webLoginGet" />
+    <FunctionImportMapping FunctionImportName="BorrowersInsert" FunctionName="WebApiDataModel.Store.BorrowersInsert" />
+    <FunctionImportMapping FunctionImportName="MaritalStatusCodesSelect" FunctionName="WebApiDataModel.Store.MaritalStatusCodesSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.MaritalStatusCodesSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OrderEntryComplete" FunctionName="WebApiDataModel.Store.OrderEntryComplete" />
+    <FunctionImportMapping FunctionImportName="OrderMasterInsert" FunctionName="WebApiDataModel.Store.OrderMasterInsert" />
+    <EntitySetMapping Name="BundleDetails">
+      <EntityTypeMapping TypeName="WebApiDataModel.BundleDetails">
+        <MappingFragment StoreEntitySet="BundleDetails">
+          <ScalarProperty Name="DiscountPct" ColumnName="DiscountPct" />
+          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+          <ScalarProperty Name="StandardPrice" ColumnName="StandardPrice" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="BundleID" ColumnName="BundleID" />
+          <ScalarProperty Name="BundleDetailID" ColumnName="BundleDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bundles">
+      <EntityTypeMapping TypeName="WebApiDataModel.Bundles">
+        <MappingFragment StoreEntitySet="Bundles">
+          <ScalarProperty Name="BundleDescription" ColumnName="BundleDescription" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="BundleID" ColumnName="BundleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientBundles">
+      <EntityTypeMapping TypeName="WebApiDataModel.ClientBundles">
+        <MappingFragment StoreEntitySet="ClientBundles">
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="BundleID" ColumnName="BundleID" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Rowid" ColumnName="Rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderClientContacts">
+      <EntityTypeMapping TypeName="WebApiDataModel.OrderClientContacts">
+        <MappingFragment StoreEntitySet="OrderClientContacts">
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+          <ScalarProperty Name="ContactCategory" ColumnName="ContactCategory" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="WebApiDataModel.OrderDetails">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+          <ScalarProperty Name="InstantTitle" ColumnName="InstantTitle" />
+          <ScalarProperty Name="AltAddressId" ColumnName="AltAddressId" />
+          <ScalarProperty Name="ttlAltAddress" ColumnName="ttlAltAddress" />
+          <ScalarProperty Name="GfeId" ColumnName="GfeId" />
+          <ScalarProperty Name="ProposedClsDate" ColumnName="ProposedClsDate" />
+          <ScalarProperty Name="PiggyInterestRate" ColumnName="PiggyInterestRate" />
+          <ScalarProperty Name="PiggyLoanType" ColumnName="PiggyLoanType" />
+          <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="UpgradeDowngrade" ColumnName="UpgradeDowngrade" />
+          <ScalarProperty Name="BundleDetailsID" ColumnName="BundleDetailsID" />
+          <ScalarProperty Name="ClientBundleID" ColumnName="ClientBundleID" />
+          <ScalarProperty Name="ShowOnOrderWIP" ColumnName="ShowOnOrderWIP" />
+          <ScalarProperty Name="VendorOrderNo" ColumnName="VendorOrderNo" />
+          <ScalarProperty Name="MIS_XWingID" ColumnName="MIS_XWingID" />
+          <ScalarProperty Name="MIS_TeamID" ColumnName="MIS_TeamID" />
+          <ScalarProperty Name="MIS_DeptID" ColumnName="MIS_DeptID" />
+          <ScalarProperty Name="MIS_Branch" ColumnName="MIS_Branch" />
+          <ScalarProperty Name="MIS_OrderNo" ColumnName="MIS_OrderNo" />
+          <ScalarProperty Name="ManualAssignEnabled" ColumnName="ManualAssignEnabled" />
+          <ScalarProperty Name="CalendarTurnTime" ColumnName="CalendarTurnTime" />
+          <ScalarProperty Name="BusinessTurnTime" ColumnName="BusinessTurnTime" />
+          <ScalarProperty Name="EDIReference" ColumnName="EDIReference" />
+          <ScalarProperty Name="PiggyBackOverride" ColumnName="PiggyBackOverride" />
+          <ScalarProperty Name="PiggybackCode" ColumnName="PiggybackCode" />
+          <ScalarProperty Name="LastDelay_RowId" ColumnName="LastDelay_RowId" />
+          <ScalarProperty Name="TaxesInEscrow" ColumnName="TaxesInEscrow" />
+          <ScalarProperty Name="LienPosition" ColumnName="LienPosition" />
+          <ScalarProperty Name="InitSchedReq" ColumnName="InitSchedReq" />
+          <ScalarProperty Name="InitClsLoc" ColumnName="InitClsLoc" />
+          <ScalarProperty Name="Accomodation" ColumnName="Accomodation" />
+          <ScalarProperty Name="DisburseFunds" ColumnName="DisburseFunds" />
+          <ScalarProperty Name="ClsAddresses" ColumnName="ClsAddresses" />
+          <ScalarProperty Name="DocPrepOther" ColumnName="DocPrepOther" />
+          <ScalarProperty Name="DocPrepSub" ColumnName="DocPrepSub" />
+          <ScalarProperty Name="DocPrepDeed" ColumnName="DocPrepDeed" />
+          <ScalarProperty Name="DocPrepReq" ColumnName="DocPrepReq" />
+          <ScalarProperty Name="NoOfClosings" ColumnName="NoOfClosings" />
+          <ScalarProperty Name="LegalDesc" ColumnName="LegalDesc" />
+          <ScalarProperty Name="MtgHolder" ColumnName="MtgHolder" />
+          <ScalarProperty Name="YearsLived" ColumnName="YearsLived" />
+          <ScalarProperty Name="DeedXfer" ColumnName="DeedXfer" />
+          <ScalarProperty Name="PayOffRecv" ColumnName="PayOffRecv" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AcresAbove5" ColumnName="AcresAbove5" />
+          <ScalarProperty Name="HardcopyDlvyMtd" ColumnName="HardcopyDlvyMtd" />
+          <ScalarProperty Name="HardcopyCnt" ColumnName="HardcopyCnt" />
+          <ScalarProperty Name="DigitalPhotos" ColumnName="DigitalPhotos" />
+          <ScalarProperty Name="InteriorPhotos" ColumnName="InteriorPhotos" />
+          <ScalarProperty Name="CompPhotos" ColumnName="CompPhotos" />
+          <ScalarProperty Name="ResponseTo" ColumnName="ResponseTo" />
+          <ScalarProperty Name="ResponseMtd" ColumnName="ResponseMtd" />
+          <ScalarProperty Name="CODAmtDue" ColumnName="CODAmtDue" />
+          <ScalarProperty Name="PaymentMtd" ColumnName="PaymentMtd" />
+          <ScalarProperty Name="InternalInstructions" ColumnName="InternalInstructions" />
+          <ScalarProperty Name="VendorInstructions" ColumnName="VendorInstructions" />
+          <ScalarProperty Name="ClientContactId" ColumnName="ClientContactId" />
+          <ScalarProperty Name="ContactExt" ColumnName="ContactExt" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="HcopySentDays" ColumnName="HcopySentDays" />
+          <ScalarProperty Name="FollowUpDate" ColumnName="FollowUpDate" />
+          <ScalarProperty Name="Assigned" ColumnName="Assigned" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GPMPercentage" ColumnName="GPMPercentage" />
+          <ScalarProperty Name="GPM" ColumnName="GPM" />
+          <ScalarProperty Name="ClientAR_RowId" ColumnName="ClientAR_RowId" />
+          <ScalarProperty Name="ClientPrice" ColumnName="ClientPrice" />
+          <ScalarProperty Name="CancelledDate" ColumnName="CancelledDate" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="ClientRefNo" ColumnName="ClientRefNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="LockOverride" ColumnName="LockOverride" />
+          <ScalarProperty Name="GPMLockout" ColumnName="GPMLockout" />
+          <ScalarProperty Name="DelayLockout" ColumnName="DelayLockout" />
+          <ScalarProperty Name="Lockout" ColumnName="Lockout" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="ProcessRowId" ColumnName="ProcessRowId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderNotes">
+      <EntityTypeMapping TypeName="WebApiDataModel.OrderNotes">
+        <MappingFragment StoreEntitySet="OrderNotes">
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="ClientActionReq" ColumnName="ClientActionReq" />
+          <ScalarProperty Name="BorrowerViewable" ColumnName="BorrowerViewable" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="SentTo" ColumnName="SentTo" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="NoteType" ColumnName="NoteType" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="NoteSource" ColumnName="NoteSource" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Xref_RowId" ColumnName="Xref_RowId" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ContactsSetRequireUserToChangePassword" FunctionName="WebApiDataModel.Store.ContactsSetRequireUserToChangePassword" />
+    <FunctionImportMapping FunctionImportName="webChangePassword" FunctionName="WebApiDataModel.Store.webChangePassword" />
+    <FunctionImportMapping FunctionImportName="webChangeSecretQuestion" FunctionName="WebApiDataModel.Store.webChangeSecretQuestion" />
+    <FunctionImportMapping FunctionImportName="webSecretQuestionGetAll" FunctionName="WebApiDataModel.Store.webSecretQuestionGetAll" />
+    <FunctionImportMapping FunctionImportName="EventTrackingDelaysCausedBySelectAll" FunctionName="WebApiDataModel.Store.EventTrackingDelaysCausedBySelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.EventTrackingDelaysCausedBySelectAll_Result">
+          <ScalarProperty Name="CausedById" ColumnName="CausedById" />
+          <ScalarProperty Name="CausedByText" ColumnName="CausedByText" />
+          <ScalarProperty Name="Selected" ColumnName="Selected" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OrderSearch" FunctionName="WebApiDataModel.Store.OrderSearch" />
+    <FunctionImportMapping FunctionImportName="CPGetClientList" FunctionName="WebApiDataModel.Store.CPGetClientList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetClientList_Result">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="NameAliasCalc" ColumnName="NameAliasCalc" />
+          <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="MainAddressId" ColumnName="MainAddressId" />
+          <ScalarProperty Name="SvcAppraisals" ColumnName="SvcAppraisals" />
+          <ScalarProperty Name="SvcTitles" ColumnName="SvcTitles" />
+          <ScalarProperty Name="SvcClosings" ColumnName="SvcClosings" />
+          <ScalarProperty Name="SvcOther" ColumnName="SvcOther" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="InactiveDate" ColumnName="InactiveDate" />
+          <ScalarProperty Name="OutOfBusiness" ColumnName="OutOfBusiness" />
+          <ScalarProperty Name="BoughtByAnother" ColumnName="BoughtByAnother" />
+          <ScalarProperty Name="NewLenderName" ColumnName="NewLenderName" />
+          <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+          <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+          <ScalarProperty Name="PurchaseTotalDue" ColumnName="PurchaseTotalDue" />
+          <ScalarProperty Name="CollectionStatus" ColumnName="CollectionStatus" />
+          <ScalarProperty Name="BillingMethod" ColumnName="BillingMethod" />
+          <ScalarProperty Name="StatementDelivery" ColumnName="StatementDelivery" />
+          <ScalarProperty Name="LastPurchaseDate" ColumnName="LastPurchaseDate" />
+          <ScalarProperty Name="LastPurchaseAmount" ColumnName="LastPurchaseAmount" />
+          <ScalarProperty Name="YTDPurchases" ColumnName="YTDPurchases" />
+          <ScalarProperty Name="PurchaseCheckNo" ColumnName="PurchaseCheckNo" />
+          <ScalarProperty Name="PurchaseInvoiceNo" ColumnName="PurchaseInvoiceNo" />
+          <ScalarProperty Name="LastPaymentDate" ColumnName="LastPaymentDate" />
+          <ScalarProperty Name="LastPaymentAmount" ColumnName="LastPaymentAmount" />
+          <ScalarProperty Name="YTDPayments" ColumnName="YTDPayments" />
+          <ScalarProperty Name="PaymentCheckNo" ColumnName="PaymentCheckNo" />
+          <ScalarProperty Name="PaymentInvoiceNo" ColumnName="PaymentInvoiceNo" />
+          <ScalarProperty Name="WebURL" ColumnName="WebURL" />
+          <ScalarProperty Name="RoleLender" ColumnName="RoleLender" />
+          <ScalarProperty Name="RoleBroker" ColumnName="RoleBroker" />
+          <ScalarProperty Name="RoleOther" ColumnName="RoleOther" />
+          <ScalarProperty Name="ECommerce" ColumnName="ECommerce" />
+          <ScalarProperty Name="AppFull" ColumnName="AppFull" />
+          <ScalarProperty Name="AppOnTheFly" ColumnName="AppOnTheFly" />
+          <ScalarProperty Name="AppWorkFlow" ColumnName="AppWorkFlow" />
+          <ScalarProperty Name="TtlFull" ColumnName="TtlFull" />
+          <ScalarProperty Name="TtlOnTheFly" ColumnName="TtlOnTheFly" />
+          <ScalarProperty Name="TtlWorkFlow" ColumnName="TtlWorkFlow" />
+          <ScalarProperty Name="ClsFull" ColumnName="ClsFull" />
+          <ScalarProperty Name="ClsOnTheFly" ColumnName="ClsOnTheFly" />
+          <ScalarProperty Name="ClsWorkFlow" ColumnName="ClsWorkFlow" />
+          <ScalarProperty Name="MIS_BranchId" ColumnName="MIS_BranchId" />
+          <ScalarProperty Name="MIS_Dept" ColumnName="MIS_Dept" />
+          <ScalarProperty Name="MIS_ClientId" ColumnName="MIS_ClientId" />
+          <ScalarProperty Name="DefAppProcId" ColumnName="DefAppProcId" />
+          <ScalarProperty Name="DefTtlProcId" ColumnName="DefTtlProcId" />
+          <ScalarProperty Name="DefClsProcId" ColumnName="DefClsProcId" />
+          <ScalarProperty Name="DefOthProcId" ColumnName="DefOthProcId" />
+          <ScalarProperty Name="TransferredToOracle" ColumnName="TransferredToOracle" />
+          <ScalarProperty Name="AutoAssign" ColumnName="AutoAssign" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="TitleEscrowId" ColumnName="TitleEscrowId" />
+          <ScalarProperty Name="TitleEscrowTemplate" ColumnName="TitleEscrowTemplate" />
+          <ScalarProperty Name="DefaultHUDTemplateID" ColumnName="DefaultHUDTemplateID" />
+          <ScalarProperty Name="IsIsolated" ColumnName="IsIsolated" />
+          <ScalarProperty Name="PreviousYearPurchases" ColumnName="PreviousYearPurchases" />
+          <ScalarProperty Name="PreviousYearPayments" ColumnName="PreviousYearPayments" />
+          <ScalarProperty Name="AllowOnlineUserRegistration" ColumnName="AllowOnlineUserRegistration" />
+          <ScalarProperty Name="UserRegistrationRoleId" ColumnName="UserRegistrationRoleId" />
+          <ScalarProperty Name="PreferredPasswordLength" ColumnName="PreferredPasswordLength" />
+          <ScalarProperty Name="MinimumNumericCharacters" ColumnName="MinimumNumericCharacters" />
+          <ScalarProperty Name="MinimumSymbolCharacters" ColumnName="MinimumSymbolCharacters" />
+          <ScalarProperty Name="MinimumSymbolOrNumericCharacters" ColumnName="MinimumSymbolOrNumericCharacters" />
+          <ScalarProperty Name="RequiresUpperAndLowerCaseCharacters" ColumnName="RequiresUpperAndLowerCaseCharacters" />
+          <ScalarProperty Name="FailedLoginAttemptsAllowed" ColumnName="FailedLoginAttemptsAllowed" />
+          <ScalarProperty Name="PasswordExpireDays" ColumnName="PasswordExpireDays" />
+          <ScalarProperty Name="RptTypeSchedConfirmation" ColumnName="RptTypeSchedConfirmation" />
+          <ScalarProperty Name="FlgReportToAccounting" ColumnName="FlgReportToAccounting" />
+          <ScalarProperty Name="PageTheme" ColumnName="PageTheme" />
+          <ScalarProperty Name="DefaultSubject" ColumnName="DefaultSubject" />
+          <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+          <ScalarProperty Name="IntegrationProvider" ColumnName="IntegrationProvider" />
+          <ScalarProperty Name="IntegrationIsPrimary" ColumnName="IntegrationIsPrimary" />
+          <ScalarProperty Name="OpenTime" ColumnName="OpenTime" />
+          <ScalarProperty Name="CloseTime" ColumnName="CloseTime" />
+          <ScalarProperty Name="InheritTimesFromParent" ColumnName="InheritTimesFromParent" />
+          <ScalarProperty Name="CompanyGroupCode" ColumnName="CompanyGroupCode" />
+          <ScalarProperty Name="LOB" ColumnName="LOB" />
+          <ScalarProperty Name="Sage_Key" ColumnName="Sage_Key" />
+          <ScalarProperty Name="AutoClear" ColumnName="AutoClear" />
+          <ScalarProperty Name="AutoClearEntireOrder" ColumnName="AutoClearEntireOrder" />
+          <ScalarProperty Name="AutoClearFamilyPayoffOnly" ColumnName="AutoClearFamilyPayoffOnly" />
+          <ScalarProperty Name="AutoClearanceNote" ColumnName="AutoClearanceNote" />
+          <ScalarProperty Name="SageSegmentCode" ColumnName="SageSegmentCode" />
+          <ScalarProperty Name="PlatinumLoan" ColumnName="PlatinumLoan" />
+          <ScalarProperty Name="SchedulingSLA" ColumnName="SchedulingSLA" />
+          <ScalarProperty Name="IntegratedScheduling" ColumnName="IntegratedScheduling" />
+          <ScalarProperty Name="IsPlatinumClient" ColumnName="IsPlatinumClient" />
+          <ScalarProperty Name="isModulePermission" ColumnName="isModulePermission" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="WebApiDataModel.Addresses">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Cell" ColumnName="Cell" />
+          <ScalarProperty Name="cdfAddressID" ColumnName="cdfAddressID" />
+          <ScalarProperty Name="AutoAttendant" ColumnName="AutoAttendant" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Attention" ColumnName="Attention" />
+          <ScalarProperty Name="ZipPlusFour" ColumnName="ZipPlusFour" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="CountyCode" ColumnName="CountyCode" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="Line2" ColumnName="Line2" />
+          <ScalarProperty Name="Line1" ColumnName="Line1" />
+          <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="XRefId" ColumnName="XRefId" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="WebApiDataModel.Documents">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+          <ScalarProperty Name="UploadfromWeb" ColumnName="UploadfromWeb" />
+          <ScalarProperty Name="DisbursementID" ColumnName="DisbursementID" />
+          <ScalarProperty Name="TCD_RowId" ColumnName="TCD_RowId" />
+          <ScalarProperty Name="S3eTag" ColumnName="S3eTag" />
+          <ScalarProperty Name="S3KeyName" ColumnName="S3KeyName" />
+          <ScalarProperty Name="uidDisbursement" ColumnName="uidDisbursement" />
+          <ScalarProperty Name="uidHUDLine" ColumnName="uidHUDLine" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="LockedBy" ColumnName="LockedBy" />
+          <ScalarProperty Name="LockedDate" ColumnName="LockedDate" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="DocumentFolder" ColumnName="DocumentFolder" />
+          <ScalarProperty Name="LastAccessDate" ColumnName="LastAccessDate" />
+          <ScalarProperty Name="LastAccessBy" ColumnName="LastAccessBy" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+          <ScalarProperty Name="DocTypeID" ColumnName="DocTypeID" />
+          <ScalarProperty Name="DocSource" ColumnName="DocSource" />
+          <ScalarProperty Name="AccessCounter" ColumnName="AccessCounter" />
+          <ScalarProperty Name="BorrowerViewable" ColumnName="BorrowerViewable" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="DiscRefNo" ColumnName="DiscRefNo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="ID2" ColumnName="ID2" />
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="RowID" ColumnName="RowID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CPDocumentsInsert" FunctionName="WebApiDataModel.Store.CPDocumentsInsert" />
+    <FunctionImportMapping FunctionImportName="CPSaveOrderDetails" FunctionName="WebApiDataModel.Store.CPSaveOrderDetails" />
+    <FunctionImportMapping FunctionImportName="CPGetCOOPMileStone" FunctionName="WebApiDataModel.Store.CPGetCOOPMileStone">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetCOOPMileStone_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="LienSearchExists" ColumnName="LienSearchExists" />
+          <ScalarProperty Name="LienSearch" ColumnName="LienSearch" />
+          <ScalarProperty Name="UCC1RequestedExists" ColumnName="UCC1RequestedExists" />
+          <ScalarProperty Name="UCC1Requested" ColumnName="UCC1Requested" />
+          <ScalarProperty Name="UCC1RecordedExists" ColumnName="UCC1RecordedExists" />
+          <ScalarProperty Name="UCC1Recorded" ColumnName="UCC1Recorded" />
+          <ScalarProperty Name="UCC3RequestedExists" ColumnName="UCC3RequestedExists" />
+          <ScalarProperty Name="UCC3Requested" ColumnName="UCC3Requested" />
+          <ScalarProperty Name="UCC3RecordedExists" ColumnName="UCC3RecordedExists" />
+          <ScalarProperty Name="UCC3Recorded" ColumnName="UCC3Recorded" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetProductCodeByOrder" FunctionName="WebApiDataModel.Store.CPGetProductCodeByOrder" />
+    <FunctionImportMapping FunctionImportName="CPGetPurchaseMileStone" FunctionName="WebApiDataModel.Store.CPGetPurchaseMileStone">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetPurchaseMileStone_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="TitleCompleteExists" ColumnName="TitleCompleteExists" />
+          <ScalarProperty Name="TitleComplete" ColumnName="TitleComplete" />
+          <ScalarProperty Name="DepartmentalCompleteExists" ColumnName="DepartmentalCompleteExists" />
+          <ScalarProperty Name="DepartmentalComplete" ColumnName="DepartmentalComplete" />
+          <ScalarProperty Name="TitleClearedExists" ColumnName="TitleClearedExists" />
+          <ScalarProperty Name="TitleCleared" ColumnName="TitleCleared" />
+          <ScalarProperty Name="TitleBillUpdatedExists" ColumnName="TitleBillUpdatedExists" />
+          <ScalarProperty Name="TitleBillUpdated" ColumnName="TitleBillUpdated" />
+          <ScalarProperty Name="DocumentRecordedExists" ColumnName="DocumentRecordedExists" />
+          <ScalarProperty Name="DocumentRecorded" ColumnName="DocumentRecorded" />
+          <ScalarProperty Name="FinalPolicyIssuedExists" ColumnName="FinalPolicyIssuedExists" />
+          <ScalarProperty Name="FinalPolicyIssued" ColumnName="FinalPolicyIssued" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetTitleMileStone" FunctionName="WebApiDataModel.Store.CPGetTitleMileStone">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetTitleMileStone_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="TitleCompleteExists" ColumnName="TitleCompleteExists" />
+          <ScalarProperty Name="TitleComplete" ColumnName="TitleComplete" />
+          <ScalarProperty Name="DepartmentalCompleteExists" ColumnName="DepartmentalCompleteExists" />
+          <ScalarProperty Name="DepartmentalComplete" ColumnName="DepartmentalComplete" />
+          <ScalarProperty Name="TitleClearedExists" ColumnName="TitleClearedExists" />
+          <ScalarProperty Name="TitleCleared" ColumnName="TitleCleared" />
+          <ScalarProperty Name="TitleBillUpdatedExists" ColumnName="TitleBillUpdatedExists" />
+          <ScalarProperty Name="TitleBillUpdated" ColumnName="TitleBillUpdated" />
+          <ScalarProperty Name="DocumentRecordedExists" ColumnName="DocumentRecordedExists" />
+          <ScalarProperty Name="DocumentRecorded" ColumnName="DocumentRecorded" />
+          <ScalarProperty Name="FinalPolicyIssuedExists" ColumnName="FinalPolicyIssuedExists" />
+          <ScalarProperty Name="FinalPolicyIssued" ColumnName="FinalPolicyIssued" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetCOOPCheckList" FunctionName="WebApiDataModel.Store.CPGetCOOPCheckList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetCOOPCheckList_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="LienSearchExists" ColumnName="LienSearchExists" />
+          <ScalarProperty Name="LienSearch" ColumnName="LienSearch" />
+          <ScalarProperty Name="ContinUpdateExists" ColumnName="ContinUpdateExists" />
+          <ScalarProperty Name="ContinUpdate" ColumnName="ContinUpdate" />
+          <ScalarProperty Name="UCC1RequestedExists" ColumnName="UCC1RequestedExists" />
+          <ScalarProperty Name="UCC1Requested" ColumnName="UCC1Requested" />
+          <ScalarProperty Name="UCC1RecordedExists" ColumnName="UCC1RecordedExists" />
+          <ScalarProperty Name="UCC1Recorded" ColumnName="UCC1Recorded" />
+          <ScalarProperty Name="UCC3RequestedExists" ColumnName="UCC3RequestedExists" />
+          <ScalarProperty Name="UCC3Requested" ColumnName="UCC3Requested" />
+          <ScalarProperty Name="UCC3RecordedExists" ColumnName="UCC3RecordedExists" />
+          <ScalarProperty Name="UCC3Recorded" ColumnName="UCC3Recorded" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetPurchaseCheckList" FunctionName="WebApiDataModel.Store.CPGetPurchaseCheckList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetPurchaseCheckList_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="TitleCompleteExists" ColumnName="TitleCompleteExists" />
+          <ScalarProperty Name="TitleComplete" ColumnName="TitleComplete" />
+          <ScalarProperty Name="DepartmentalCompleteExists" ColumnName="DepartmentalCompleteExists" />
+          <ScalarProperty Name="DepartmentalComplete" ColumnName="DepartmentalComplete" />
+          <ScalarProperty Name="TitleClearedExists" ColumnName="TitleClearedExists" />
+          <ScalarProperty Name="TitleCleared" ColumnName="TitleCleared" />
+          <ScalarProperty Name="ClearedDate" ColumnName="ClearedDate" />
+          <ScalarProperty Name="TitleUpdateExists" ColumnName="TitleUpdateExists" />
+          <ScalarProperty Name="TitleUpdate" ColumnName="TitleUpdate" />
+          <ScalarProperty Name="TitleTaxUpdateExists" ColumnName="TitleTaxUpdateExists" />
+          <ScalarProperty Name="TitleTaxUpdate" ColumnName="TitleTaxUpdate" />
+          <ScalarProperty Name="TitleBillUpdatedExists" ColumnName="TitleBillUpdatedExists" />
+          <ScalarProperty Name="TitleBillUpdated" ColumnName="TitleBillUpdated" />
+          <ScalarProperty Name="ScheduledClosingExists" ColumnName="ScheduledClosingExists" />
+          <ScalarProperty Name="ScheduledClosing" ColumnName="ScheduledClosing" />
+          <ScalarProperty Name="ScheduledClosingEnteredDate" ColumnName="ScheduledClosingEnteredDate" />
+          <ScalarProperty Name="DocumentRecordedExists" ColumnName="DocumentRecordedExists" />
+          <ScalarProperty Name="DocumentRecorded" ColumnName="DocumentRecorded" />
+          <ScalarProperty Name="FinalPolicyIssuedExists" ColumnName="FinalPolicyIssuedExists" />
+          <ScalarProperty Name="FinalPolicyIssued" ColumnName="FinalPolicyIssued" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetTitleCheckList" FunctionName="WebApiDataModel.Store.CPGetTitleCheckList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetTitleCheckList_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="TitleCompleteExists" ColumnName="TitleCompleteExists" />
+          <ScalarProperty Name="TitleComplete" ColumnName="TitleComplete" />
+          <ScalarProperty Name="DepartmentalCompleteExists" ColumnName="DepartmentalCompleteExists" />
+          <ScalarProperty Name="DepartmentalComplete" ColumnName="DepartmentalComplete" />
+          <ScalarProperty Name="CollateralDocumentExists" ColumnName="CollateralDocumentExists" />
+          <ScalarProperty Name="CollateralDocument" ColumnName="CollateralDocument" />
+          <ScalarProperty Name="AttorneyCleartoCloseEnable" ColumnName="AttorneyCleartoCloseEnable" />
+          <ScalarProperty Name="AttorneyCleartoCloseDate" ColumnName="AttorneyCleartoCloseDate" />
+          <ScalarProperty Name="TitleClearedExists" ColumnName="TitleClearedExists" />
+          <ScalarProperty Name="TitleCleared" ColumnName="TitleCleared" />
+          <ScalarProperty Name="ClearedDate" ColumnName="ClearedDate" />
+          <ScalarProperty Name="TitleBillUpdatedExists" ColumnName="TitleBillUpdatedExists" />
+          <ScalarProperty Name="TitleBillUpdated" ColumnName="TitleBillUpdated" />
+          <ScalarProperty Name="DocumentRecordedExists" ColumnName="DocumentRecordedExists" />
+          <ScalarProperty Name="DocumentRecorded" ColumnName="DocumentRecorded" />
+          <ScalarProperty Name="FinalPolicyIssuedExists" ColumnName="FinalPolicyIssuedExists" />
+          <ScalarProperty Name="FinalPolicyIssued" ColumnName="FinalPolicyIssued" />
+          <ScalarProperty Name="TitleUpdateExists" ColumnName="TitleUpdateExists" />
+          <ScalarProperty Name="TitleUpdate" ColumnName="TitleUpdate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPSaveOrderStatus" FunctionName="WebApiDataModel.Store.CPSaveOrderStatus" />
+    <FunctionImportMapping FunctionImportName="CPGetLoanPolicyDetails" FunctionName="WebApiDataModel.Store.CPGetLoanPolicyDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetLoanPolicyDetails_Result">
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="LoanPolicyNo" ColumnName="LoanPolicyNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetRecordingDetails" FunctionName="WebApiDataModel.Store.CPGetRecordingDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetRecordingDetails_Result">
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RecordingDetails" ColumnName="RecordingDetails" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPAddTitleBillReqEvent" FunctionName="WebApiDataModel.Store.CPAddTitleBillReqEvent" />
+    <FunctionImportMapping FunctionImportName="CPAddTitleProduct" FunctionName="WebApiDataModel.Store.CPAddTitleProduct" />
+    <FunctionImportMapping FunctionImportName="CPGetLeinsDetail" FunctionName="WebApiDataModel.Store.CPGetLeinsDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetLeinsDetail_Result">
+          <ScalarProperty Name="Plaintiff" ColumnName="Plaintiff" />
+          <ScalarProperty Name="Defendant" ColumnName="Defendant" />
+          <ScalarProperty Name="RecordedDate" ColumnName="RecordedDate" />
+          <ScalarProperty Name="LienAmount" ColumnName="LienAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetTitleDocumentsSelectAll" FunctionName="WebApiDataModel.Store.CPGetTitleDocumentsSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetTitleDocumentsSelectAll_Result">
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="ID2" ColumnName="ID2" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="DocSource" ColumnName="DocSource" />
+          <ScalarProperty Name="DocumentFolder" ColumnName="DocumentFolder" />
+          <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+          <ScalarProperty Name="DocTypeId" ColumnName="DocTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="DocDescription" ColumnName="DocDescription" />
+          <ScalarProperty Name="RawDescription" ColumnName="RawDescription" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="BorrowerViewable" ColumnName="BorrowerViewable" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+          <ScalarProperty Name="uidHUDLine" ColumnName="uidHUDLine" />
+          <ScalarProperty Name="uidDisbursement" ColumnName="uidDisbursement" />
+          <ScalarProperty Name="DisbursementID" ColumnName="DisbursementID" />
+          <ScalarProperty Name="UploadfromWeb" ColumnName="UploadfromWeb" />
+          <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetTitleOrderDetails" FunctionName="WebApiDataModel.Store.CPGetTitleOrderDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetTitleOrderDetails_Result">
+          <ScalarProperty Name="TitleOrderDate" ColumnName="TitleOrderDate" />
+          <ScalarProperty Name="TitleExpectedDate" ColumnName="TitleExpectedDate" />
+          <ScalarProperty Name="TitleCompletionDate" ColumnName="TitleCompletionDate" />
+          <ScalarProperty Name="TitleEffectiveDate" ColumnName="TitleEffectiveDate" />
+          <ScalarProperty Name="SignatureRequirement" ColumnName="SignatureRequirement" />
+          <ScalarProperty Name="ProposedInsured" ColumnName="ProposedInsured" />
+          <ScalarProperty Name="NumberofOpenMortgages" ColumnName="NumberofOpenMortgages" />
+          <ScalarProperty Name="NumberofOpenJudgments" ColumnName="NumberofOpenJudgments" />
+          <ScalarProperty Name="Emails" ColumnName="Emails" />
+          <ScalarProperty Name="IsTitleBillRequestCompleteOrCancel" ColumnName="IsTitleBillRequestCompleteOrCancel" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Borrowers">
+      <EntityTypeMapping TypeName="WebApiDataModel.Borrowers">
+        <MappingFragment StoreEntitySet="Borrowers">
+          <ScalarProperty Name="CDFPartyID" ColumnName="CDFPartyID" />
+          <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+          <ScalarProperty Name="FullName2" ColumnName="FullName2" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="IntegrationUID" ColumnName="IntegrationUID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="OtherPhone" ColumnName="OtherPhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="BorrowerId" ColumnName="BorrowerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CPAddOrderNoteInEmailQueue" FunctionName="WebApiDataModel.Store.CPAddOrderNoteInEmailQueue" />
+    <FunctionImportMapping FunctionImportName="CPGetPreCloseDetails" FunctionName="WebApiDataModel.Store.CPGetPreCloseDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetPreCloseDetails_Result">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ScheduledCloseDate" ColumnName="ScheduledCloseDate" />
+          <ScalarProperty Name="CloserName" ColumnName="CloserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetPreCloseDocuments" FunctionName="WebApiDataModel.Store.CPGetPreCloseDocuments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetPreCloseDocuments_Result">
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="ID2" ColumnName="ID2" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="DocSource" ColumnName="DocSource" />
+          <ScalarProperty Name="DocumentFolder" ColumnName="DocumentFolder" />
+          <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+          <ScalarProperty Name="DocTypeId" ColumnName="DocTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="DocDescription" ColumnName="DocDescription" />
+          <ScalarProperty Name="RawDescription" ColumnName="RawDescription" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="BorrowerViewable" ColumnName="BorrowerViewable" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+          <ScalarProperty Name="uidHUDLine" ColumnName="uidHUDLine" />
+          <ScalarProperty Name="uidDisbursement" ColumnName="uidDisbursement" />
+          <ScalarProperty Name="DisbursementID" ColumnName="DisbursementID" />
+          <ScalarProperty Name="UploadfromWeb" ColumnName="UploadfromWeb" />
+          <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetSignatureRequirement" FunctionName="WebApiDataModel.Store.CPGetSignatureRequirement" />
+    <FunctionImportMapping FunctionImportName="CPGetPostCloseDocuments" FunctionName="WebApiDataModel.Store.CPGetPostCloseDocuments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetPostCloseDocuments_Result">
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="ID2" ColumnName="ID2" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="DocSource" ColumnName="DocSource" />
+          <ScalarProperty Name="DocumentFolder" ColumnName="DocumentFolder" />
+          <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+          <ScalarProperty Name="DocTypeId" ColumnName="DocTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="DocDescription" ColumnName="DocDescription" />
+          <ScalarProperty Name="RawDescription" ColumnName="RawDescription" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="BorrowerViewable" ColumnName="BorrowerViewable" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+          <ScalarProperty Name="uidHUDLine" ColumnName="uidHUDLine" />
+          <ScalarProperty Name="uidDisbursement" ColumnName="uidDisbursement" />
+          <ScalarProperty Name="DisbursementID" ColumnName="DisbursementID" />
+          <ScalarProperty Name="UploadfromWeb" ColumnName="UploadfromWeb" />
+          <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPSavePreCloseDetail" FunctionName="WebApiDataModel.Store.CPSavePreCloseDetail" />
+    <FunctionImportMapping FunctionImportName="TCDetailsSelectAll" FunctionName="WebApiDataModel.Store.TCDetailsSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.TCDetailsSelectAll_Result">
+          <ScalarProperty Name="ClearingType" ColumnName="ClearingType" />
+          <ScalarProperty Name="ClearingTypeName" ColumnName="ClearingTypeName" />
+          <ScalarProperty Name="DML_RowId" ColumnName="DML_RowId" />
+          <ScalarProperty Name="Name1" ColumnName="Name1" />
+          <ScalarProperty Name="Paragraph_RowId" ColumnName="Paragraph_RowId" />
+          <ScalarProperty Name="EL_RowId" ColumnName="EL_RowId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AttorneyApprovalStatus" ColumnName="AttorneyApprovalStatus" />
+          <ScalarProperty Name="DisplayAttorneyStatusColumn" ColumnName="DisplayAttorneyStatusColumn" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Cleared" ColumnName="Cleared" />
+          <ScalarProperty Name="ClearedBy" ColumnName="ClearedBy" />
+          <ScalarProperty Name="ClearedDate" ColumnName="ClearedDate" />
+          <ScalarProperty Name="TCD_RowId" ColumnName="TCD_RowId" />
+          <ScalarProperty Name="FollowUpDate" ColumnName="FollowUpDate" />
+          <ScalarProperty Name="FollowUpAction" ColumnName="FollowUpAction" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ExpectedDate" ColumnName="ExpectedDate" />
+          <ScalarProperty Name="RequestsTotal" ColumnName="RequestsTotal" />
+          <ScalarProperty Name="ReqApproval" ColumnName="ReqApproval" />
+          <ScalarProperty Name="RequestTypes" ColumnName="RequestTypes" />
+          <ScalarProperty Name="RequestOpen" ColumnName="RequestOpen" />
+          <ScalarProperty Name="TCMethod" ColumnName="TCMethod" />
+          <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+          <ScalarProperty Name="ExcludeAttorney" ColumnName="ExcludeAttorney" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetPermissionsAgainstRole" FunctionName="WebApiDataModel.Store.CPGetPermissionsAgainstRole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetPermissionsAgainstRole_Result">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="frmName" ColumnName="frmName" />
+          <ScalarProperty Name="CtrlName" ColumnName="CtrlName" />
+          <ScalarProperty Name="CtrlType" ColumnName="CtrlType" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="WebRoles">
+      <EntityTypeMapping TypeName="WebApiDataModel.WebRoles">
+        <MappingFragment StoreEntitySet="WebRoles">
+          <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CPSaveNewYorkAttorneyItem" FunctionName="WebApiDataModel.Store.CPSaveNewYorkAttorneyItem" />
+    <FunctionImportMapping FunctionImportName="CPGetTCCleartoCloseDetail" FunctionName="WebApiDataModel.Store.CPGetTCCleartoCloseDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetTCCleartoCloseDetail_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="Recv" ColumnName="Recv" />
+          <ScalarProperty Name="RecvBy" ColumnName="RecvBy" />
+          <ScalarProperty Name="RecvDate" ColumnName="RecvDate" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="Cleared" ColumnName="Cleared" />
+          <ScalarProperty Name="ClearedBy" ColumnName="ClearedBy" />
+          <ScalarProperty Name="ClearedDate" ColumnName="ClearedDate" />
+          <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+          <ScalarProperty Name="OnHoldBy" ColumnName="OnHoldBy" />
+          <ScalarProperty Name="OnHoldDate" ColumnName="OnHoldDate" />
+          <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+          <ScalarProperty Name="CancelledBy" ColumnName="CancelledBy" />
+          <ScalarProperty Name="CancelledDate" ColumnName="CancelledDate" />
+          <ScalarProperty Name="NotifyMethod" ColumnName="NotifyMethod" />
+          <ScalarProperty Name="FaxName" ColumnName="FaxName" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="RequestedClsDate" ColumnName="RequestedClsDate" />
+          <ScalarProperty Name="ItemNoRef" ColumnName="ItemNoRef" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="ShowOnWIP" ColumnName="ShowOnWIP" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="ReqApproval" ColumnName="ReqApproval" />
+          <ScalarProperty Name="ReqApprovalBy" ColumnName="ReqApprovalBy" />
+          <ScalarProperty Name="ReqApprovalDate" ColumnName="ReqApprovalDate" />
+          <ScalarProperty Name="DeedRequired" ColumnName="DeedRequired" />
+          <ScalarProperty Name="QuickClear" ColumnName="QuickClear" />
+          <ScalarProperty Name="IsVendorPayableonHUD" ColumnName="IsVendorPayableonHUD" />
+          <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+          <ScalarProperty Name="RejectedBy" ColumnName="RejectedBy" />
+          <ScalarProperty Name="RejectedDate" ColumnName="RejectedDate" />
+          <ScalarProperty Name="RejectedReason" ColumnName="RejectedReason" />
+          <ScalarProperty Name="AttorneyStatus" ColumnName="AttorneyStatus" />
+          <ScalarProperty Name="AttorneyRejectedReason" ColumnName="AttorneyRejectedReason" />
+          <ScalarProperty Name="AdditionalText" ColumnName="AdditionalText" />
+          <ScalarProperty Name="AttorneyStatusDate" ColumnName="AttorneyStatusDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetSecurityFormControls" FunctionName="WebApiDataModel.Store.CPGetSecurityFormControls">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetSecurityFormControls_Result">
+          <ScalarProperty Name="SecurityFormControlId" ColumnName="SecurityFormControlId" />
+          <ScalarProperty Name="SecurityControlId" ColumnName="SecurityControlId" />
+          <ScalarProperty Name="SecurityFormId" ColumnName="SecurityFormId" />
+          <ScalarProperty Name="SecurityFormControlName" ColumnName="SecurityFormControlName" />
+          <ScalarProperty Name="SecyrityControlType" ColumnName="SecyrityControlType" />
+          <ScalarProperty Name="SecurityControlDesc" ColumnName="SecurityControlDesc" />
+          <ScalarProperty Name="SecurityFormName" ColumnName="SecurityFormName" />
+          <ScalarProperty Name="SecurityFormDesc" ColumnName="SecurityFormDesc" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPDeleteSecurityControl" FunctionName="WebApiDataModel.Store.CPDeleteSecurityControl" />
+    <FunctionImportMapping FunctionImportName="CPDeleteSecurityForm" FunctionName="WebApiDataModel.Store.CPDeleteSecurityForm" />
+    <FunctionImportMapping FunctionImportName="CPDeleteSecurityFormControl" FunctionName="WebApiDataModel.Store.CPDeleteSecurityFormControl" />
+    <FunctionImportMapping FunctionImportName="CPGetDownloadDocumentList" FunctionName="WebApiDataModel.Store.CPGetDownloadDocumentList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetDownloadDocumentList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ImagingPath" ColumnName="ImagingPath" />
+          <ScalarProperty Name="ImagingURL" ColumnName="ImagingURL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EmailQueueInsert" FunctionName="WebApiDataModel.Store.EmailQueueInsert" />
+    <FunctionImportMapping FunctionImportName="webUserRolesUpdate" FunctionName="WebApiDataModel.Store.webUserRolesUpdate" />
+    <FunctionImportMapping FunctionImportName="CPGetRegisterUserDetails" FunctionName="WebApiDataModel.Store.CPGetRegisterUserDetails" />
+    <FunctionImportMapping FunctionImportName="CPVaidateUserEmail" FunctionName="WebApiDataModel.Store.CPVaidateUserEmail" />
+    <FunctionImportMapping FunctionImportName="CPSaveFileClearanceRequested" FunctionName="WebApiDataModel.Store.CPSaveFileClearanceRequested" />
+    <FunctionImportMapping FunctionImportName="OrderDetailsItemsSelect" FunctionName="WebApiDataModel.Store.OrderDetailsItemsSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.OrderDetailsItemsSelect_Result">
+          <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="LoanCategory" ColumnName="LoanCategory" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Lockout" ColumnName="Lockout" />
+          <ScalarProperty Name="Recording" ColumnName="Recording" />
+          <ScalarProperty Name="RecordingRequired" ColumnName="RecordingRequired" />
+          <ScalarProperty Name="Alta" ColumnName="Alta" />
+          <ScalarProperty Name="ClientRefNo" ColumnName="ClientRefNo" />
+          <ScalarProperty Name="COD" ColumnName="COD" />
+          <ScalarProperty Name="HasPiggyBack" ColumnName="HasPiggyBack" />
+          <ScalarProperty Name="ClientBundleID" ColumnName="ClientBundleID" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="DisburseDate" ColumnName="DisburseDate" />
+          <ScalarProperty Name="Processor" ColumnName="Processor" />
+          <ScalarProperty Name="AssignedTitleOps" ColumnName="AssignedTitleOps" />
+          <ScalarProperty Name="AssignedClosing" ColumnName="AssignedClosing" />
+          <ScalarProperty Name="AssignedTitleRec" ColumnName="AssignedTitleRec" />
+          <ScalarProperty Name="AssignedTyping" ColumnName="AssignedTyping" />
+          <ScalarProperty Name="AssignedTC" ColumnName="AssignedTC" />
+          <ScalarProperty Name="AssignedTaxes" ColumnName="AssignedTaxes" />
+          <ScalarProperty Name="AssignedAppraisal" ColumnName="AssignedAppraisal" />
+          <ScalarProperty Name="isClosingRequestIndicator" ColumnName="isClosingRequestIndicator" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPOrderSummary" FunctionName="WebApiDataModel.Store.CPOrderSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPOrderSummary_Result">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="ProviderContact" ColumnName="ProviderContact" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetOrderHeader" FunctionName="WebApiDataModel.Store.CPGetOrderHeader">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetOrderHeader_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="LoanNo" ColumnName="LoanNo" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ProviderContact" ColumnName="ProviderContact" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetAccountProfile" FunctionName="WebApiDataModel.Store.CPGetAccountProfile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetAccountProfile_Result">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MyRole" ColumnName="MyRole" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Line1" ColumnName="Line1" />
+          <ScalarProperty Name="Line2" ColumnName="Line2" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="MainContact" ColumnName="MainContact" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetOrderDetails" FunctionName="WebApiDataModel.Store.CPGetOrderDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetOrderDetails_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderSource" ColumnName="OrderSource" />
+          <ScalarProperty Name="LoanNo" ColumnName="LoanNo" />
+          <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+          <ScalarProperty Name="NonOwnerOccupied" ColumnName="NonOwnerOccupied" />
+          <ScalarProperty Name="NumberofUnits" ColumnName="NumberofUnits" />
+          <ScalarProperty Name="PropertyAcquiredDate" ColumnName="PropertyAcquiredDate" />
+          <ScalarProperty Name="LoanCategory" ColumnName="LoanCategory" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanRate" ColumnName="LoanRate" />
+          <ScalarProperty Name="LoanProductType" ColumnName="LoanProductType" />
+          <ScalarProperty Name="LoanTerm" ColumnName="LoanTerm" />
+          <ScalarProperty Name="LoanPurpose" ColumnName="LoanPurpose" />
+          <ScalarProperty Name="RateLockDate" ColumnName="RateLockDate" />
+          <ScalarProperty Name="AnticipatedSettlementDate" ColumnName="AnticipatedSettlementDate" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetOrderPartyDetails" FunctionName="WebApiDataModel.Store.CPGetOrderPartyDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetOrderPartyDetails_Result">
+          <ScalarProperty Name="BorrowerId" ColumnName="BorrowerId" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+          <ScalarProperty Name="MaritalStatusText" ColumnName="MaritalStatusText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPSearchOrderNotesByOrderNo" FunctionName="WebApiDataModel.Store.CPSearchOrderNotesByOrderNo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPSearchOrderNotesByOrderNo_Result">
+          <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="Xref_RowId" ColumnName="Xref_RowId" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="NoteSource" ColumnName="NoteSource" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="NoteType" ColumnName="NoteType" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="SentTo" ColumnName="SentTo" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="BorrowerViewable" ColumnName="BorrowerViewable" />
+          <ScalarProperty Name="ClientActionReq" ColumnName="ClientActionReq" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="WebApiDataModel.States">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="IsVendorDisburseState" ColumnName="IsVendorDisburseState" />
+          <ScalarProperty Name="AutoVendorId" ColumnName="AutoVendorId" />
+          <ScalarProperty Name="isAttorneyDisburseState" ColumnName="isAttorneyDisburseState" />
+          <ScalarProperty Name="TimezoneOffSetDST" ColumnName="TimezoneOffSetDST" />
+          <ScalarProperty Name="StateSpecificInstructions" ColumnName="StateSpecificInstructions" />
+          <ScalarProperty Name="BeingClause" ColumnName="BeingClause" />
+          <ScalarProperty Name="MCDeedPrep" ColumnName="MCDeedPrep" />
+          <ScalarProperty Name="HUDSignatureBy" ColumnName="HUDSignatureBy" />
+          <ScalarProperty Name="IsHUDSignatureRequired" ColumnName="IsHUDSignatureRequired" />
+          <ScalarProperty Name="InternalDeedPrep" ColumnName="InternalDeedPrep" />
+          <ScalarProperty Name="AttorneyDisburseState" ColumnName="AttorneyDisburseState" />
+          <ScalarProperty Name="RequiredRecToDisb" ColumnName="RequiredRecToDisb" />
+          <ScalarProperty Name="TimeZoneOffSet" ColumnName="TimeZoneOffSet" />
+          <ScalarProperty Name="IsQuickClose" ColumnName="IsQuickClose" />
+          <ScalarProperty Name="IsWorkshare" ColumnName="IsWorkshare" />
+          <ScalarProperty Name="Marital" ColumnName="Marital" />
+          <ScalarProperty Name="StateMessages" ColumnName="StateMessages" />
+          <ScalarProperty Name="EstimatedRecording" ColumnName="EstimatedRecording" />
+          <ScalarProperty Name="rcRefiOrigAmtsNeeded" ColumnName="rcRefiOrigAmtsNeeded" />
+          <ScalarProperty Name="rcRefiPrevAmtsNeeded" ColumnName="rcRefiPrevAmtsNeeded" />
+          <ScalarProperty Name="AdditionalInformation" ColumnName="AdditionalInformation" />
+          <ScalarProperty Name="IsRateCalcEnabled" ColumnName="IsRateCalcEnabled" />
+          <ScalarProperty Name="DefaultTaxPeriod" ColumnName="DefaultTaxPeriod" />
+          <ScalarProperty Name="DefaultTaxType" ColumnName="DefaultTaxType" />
+          <ScalarProperty Name="IsAttorneyClosingState" ColumnName="IsAttorneyClosingState" />
+          <ScalarProperty Name="WireAccountName" ColumnName="WireAccountName" />
+          <ScalarProperty Name="WireAccount" ColumnName="WireAccount" />
+          <ScalarProperty Name="WireABA" ColumnName="WireABA" />
+          <ScalarProperty Name="WireBankAddress" ColumnName="WireBankAddress" />
+          <ScalarProperty Name="WireBankName" ColumnName="WireBankName" />
+          <ScalarProperty Name="TitleEscrowTemplate" ColumnName="TitleEscrowTemplate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="IsLicensingByState" ColumnName="IsLicensingByState" />
+          <ScalarProperty Name="AllInclusive" ColumnName="AllInclusive" />
+          <ScalarProperty Name="RiskRate" ColumnName="RiskRate" />
+          <ScalarProperty Name="TT_FinalPolicy" ColumnName="TT_FinalPolicy" />
+          <ScalarProperty Name="TT_TitleCommit" ColumnName="TT_TitleCommit" />
+          <ScalarProperty Name="TT_PropertyRep" ColumnName="TT_PropertyRep" />
+          <ScalarProperty Name="TT_AppExterior" ColumnName="TT_AppExterior" />
+          <ScalarProperty Name="TT_AppInterior" ColumnName="TT_AppInterior" />
+          <ScalarProperty Name="RecordingName2" ColumnName="RecordingName2" />
+          <ScalarProperty Name="RecordingName1" ColumnName="RecordingName1" />
+          <ScalarProperty Name="SecurityInstrument" ColumnName="SecurityInstrument" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderMaster">
+      <EntityTypeMapping TypeName="WebApiDataModel.OrderMaster">
+        <MappingFragment StoreEntitySet="OrderMaster">
+          <ScalarProperty Name="LoanCategory" ColumnName="LoanCategory" />
+          <ScalarProperty Name="IntegrationClientId" ColumnName="IntegrationClientId" />
+          <ScalarProperty Name="IsClosingRequestIndicator" ColumnName="IsClosingRequestIndicator" />
+          <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+          <ScalarProperty Name="FHACaseNo" ColumnName="FHACaseNo" />
+          <ScalarProperty Name="IntegrationID" ColumnName="IntegrationID" />
+          <ScalarProperty Name="IntegrationTransaction" ColumnName="IntegrationTransaction" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="ClientOrderNo" ColumnName="ClientOrderNo" />
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="ZipPlusFour" ColumnName="ZipPlusFour" />
+          <ScalarProperty Name="CountyCode" ColumnName="CountyCode" />
+          <ScalarProperty Name="OwnerAddressId" ColumnName="OwnerAddressId" />
+          <ScalarProperty Name="NonOwnerOccupied" ColumnName="NonOwnerOccupied" />
+          <ScalarProperty Name="LenderId" ColumnName="LenderId" />
+          <ScalarProperty Name="ExternalLender" ColumnName="ExternalLender" />
+          <ScalarProperty Name="EstimatedValue" ColumnName="EstimatedValue" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PiggybackLoanAmt" ColumnName="PiggybackLoanAmt" />
+          <ScalarProperty Name="Piggyback" ColumnName="Piggyback" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanNo" ColumnName="LoanNo" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="StreetType" ColumnName="StreetType" />
+          <ScalarProperty Name="StreetName2" ColumnName="StreetName2" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="StreetNo" ColumnName="StreetNo" />
+          <ScalarProperty Name="HaveZip" ColumnName="HaveZip" />
+          <ScalarProperty Name="HaveAddress" ColumnName="HaveAddress" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="OrderOrigination" ColumnName="OrderOrigination" />
+          <ScalarProperty Name="OrderSource" ColumnName="OrderSource" />
+          <ScalarProperty Name="EDIReferenceNo" ColumnName="EDIReferenceNo" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="OE_RowId" ColumnName="OE_RowId" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecurityControl">
+      <EntityTypeMapping TypeName="WebApiDataModel.SecurityControl">
+        <MappingFragment StoreEntitySet="SecurityControl">
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ControlType" ColumnName="ControlType" />
+          <ScalarProperty Name="SecurityControlId" ColumnName="SecurityControlId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecurityForm">
+      <EntityTypeMapping TypeName="WebApiDataModel.SecurityForm">
+        <MappingFragment StoreEntitySet="SecurityForm">
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="SecurityFormId" ColumnName="SecurityFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecurityFormControl">
+      <EntityTypeMapping TypeName="WebApiDataModel.SecurityFormControl">
+        <MappingFragment StoreEntitySet="SecurityFormControl">
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="SecurityControlId" ColumnName="SecurityControlId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SecurityFormId" ColumnName="SecurityFormId" />
+          <ScalarProperty Name="SecurityFormControlId" ColumnName="SecurityFormControlId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecurityFormControlConfig">
+      <EntityTypeMapping TypeName="WebApiDataModel.SecurityFormControlConfig">
+        <MappingFragment StoreEntitySet="SecurityFormControlConfig">
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="IsAuditEnabled" ColumnName="IsAuditEnabled" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="SecurityFormControlId" ColumnName="SecurityFormControlId" />
+          <ScalarProperty Name="SecurityFormControlConfigId" ColumnName="SecurityFormControlConfigId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CPGetOrderAssignedUserDetails" FunctionName="WebApiDataModel.Store.CPGetOrderAssignedUserDetails" />
+    <FunctionImportMapping FunctionImportName="GetOrderDetailByOrderNo" FunctionName="WebApiDataModel.Store.GetOrderDetailByOrderNo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.GetOrderDetailByOrderNo_Result">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DocumentsSelectAll" FunctionName="WebApiDataModel.Store.DocumentsSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.DocumentsSelectAll_Result">
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="ID2" ColumnName="ID2" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="DocSource" ColumnName="DocSource" />
+          <ScalarProperty Name="DocumentFolder" ColumnName="DocumentFolder" />
+          <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+          <ScalarProperty Name="DocTypeId" ColumnName="DocTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="DocDescription" ColumnName="DocDescription" />
+          <ScalarProperty Name="RawDescription" ColumnName="RawDescription" />
+          <ScalarProperty Name="EnteredDate" ColumnName="EnteredDate" />
+          <ScalarProperty Name="ClientViewable" ColumnName="ClientViewable" />
+          <ScalarProperty Name="VendorViewable" ColumnName="VendorViewable" />
+          <ScalarProperty Name="BorrowerViewable" ColumnName="BorrowerViewable" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+          <ScalarProperty Name="uidHUDLine" ColumnName="uidHUDLine" />
+          <ScalarProperty Name="uidDisbursement" ColumnName="uidDisbursement" />
+          <ScalarProperty Name="DisbursementID" ColumnName="DisbursementID" />
+          <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+          <ScalarProperty Name="UploadfromWeb" ColumnName="UploadfromWeb" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetContactNames" FunctionName="WebApiDataModel.Store.CPGetContactNames">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetContactNames_Result">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="XRefId" ColumnName="XRefId" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+          <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleInit" ColumnName="MiddleInit" />
+          <ScalarProperty Name="Generation" ColumnName="Generation" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Pager" ColumnName="Pager" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="EOInsurance" ColumnName="EOInsurance" />
+          <ScalarProperty Name="EOExpiration" ColumnName="EOExpiration" />
+          <ScalarProperty Name="MPInsurance" ColumnName="MPInsurance" />
+          <ScalarProperty Name="MPExpiration" ColumnName="MPExpiration" />
+          <ScalarProperty Name="LicenseNo" ColumnName="LicenseNo" />
+          <ScalarProperty Name="LicenseExpiration" ColumnName="LicenseExpiration" />
+          <ScalarProperty Name="WrkSampReceived" ColumnName="WrkSampReceived" />
+          <ScalarProperty Name="WrkSampApproved" ColumnName="WrkSampApproved" />
+          <ScalarProperty Name="WrkSampExpiration" ColumnName="WrkSampExpiration" />
+          <ScalarProperty Name="FHAApproved" ColumnName="FHAApproved" />
+          <ScalarProperty Name="FHANo" ColumnName="FHANo" />
+          <ScalarProperty Name="AppStateCertified" ColumnName="AppStateCertified" />
+          <ScalarProperty Name="LastModDate" ColumnName="LastModDate" />
+          <ScalarProperty Name="LastModBy" ColumnName="LastModBy" />
+          <ScalarProperty Name="SysTimeStamp" ColumnName="SysTimeStamp" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullNameCalc" ColumnName="FullNameCalc" />
+          <ScalarProperty Name="EmailValidated" ColumnName="EmailValidated" />
+          <ScalarProperty Name="BackgroundCheckReceived" ColumnName="BackgroundCheckReceived" />
+          <ScalarProperty Name="BackgroundCheckExpiration" ColumnName="BackgroundCheckExpiration" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+          <ScalarProperty Name="TitleTeam" ColumnName="TitleTeam" />
+          <ScalarProperty Name="AppraisalTeam" ColumnName="AppraisalTeam" />
+          <ScalarProperty Name="ClosingTeam" ColumnName="ClosingTeam" />
+          <ScalarProperty Name="MailStop" ColumnName="MailStop" />
+          <ScalarProperty Name="ChangePasswordRequired" ColumnName="ChangePasswordRequired" />
+          <ScalarProperty Name="SecretQuestionId" ColumnName="SecretQuestionId" />
+          <ScalarProperty Name="SecretAnswer" ColumnName="SecretAnswer" />
+          <ScalarProperty Name="FailedLoginAttempts" ColumnName="FailedLoginAttempts" />
+          <ScalarProperty Name="PasswordLastChanged" ColumnName="PasswordLastChanged" />
+          <ScalarProperty Name="TitleProducer" ColumnName="TitleProducer" />
+          <ScalarProperty Name="TitleProducerNA" ColumnName="TitleProducerNA" />
+          <ScalarProperty Name="TitleProducerLicenseNo" ColumnName="TitleProducerLicenseNo" />
+          <ScalarProperty Name="TitleProducerLicenseExpiration" ColumnName="TitleProducerLicenseExpiration" />
+          <ScalarProperty Name="AcceptedTerms" ColumnName="AcceptedTerms" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="DoNotContact" ColumnName="DoNotContact" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="EliminatedDate" ColumnName="EliminatedDate" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="isMultiLingual" ColumnName="isMultiLingual" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CountyID" ColumnName="CountyID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPSavePropertyDetail" FunctionName="WebApiDataModel.Store.CPSavePropertyDetail" />
+    <FunctionImportMapping FunctionImportName="CPSaveOrderEntry" FunctionName="WebApiDataModel.Store.CPSaveOrderEntry" />
+    <FunctionImportMapping FunctionImportName="CPTCRequestQuestionsAnswered" FunctionName="WebApiDataModel.Store.CPTCRequestQuestionsAnswered">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPTCRequestQuestionsAnswered_Result">
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="AnswerDate" ColumnName="AnswerDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetSecurityFormControlsConfig" FunctionName="WebApiDataModel.Store.CPGetSecurityFormControlsConfig">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetSecurityFormControlsConfig_Result">
+          <ScalarProperty Name="SecurityFormControlId" ColumnName="SecurityFormControlId" />
+          <ScalarProperty Name="SecurityControlId" ColumnName="SecurityControlId" />
+          <ScalarProperty Name="SecurityFormId" ColumnName="SecurityFormId" />
+          <ScalarProperty Name="SecurityFormControlName" ColumnName="SecurityFormControlName" />
+          <ScalarProperty Name="SecyrityControlType" ColumnName="SecyrityControlType" />
+          <ScalarProperty Name="SecurityControlDesc" ColumnName="SecurityControlDesc" />
+          <ScalarProperty Name="SecurityFormName" ColumnName="SecurityFormName" />
+          <ScalarProperty Name="SecurityFormDesc" ColumnName="SecurityFormDesc" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="SecurityFormControlConfigId" ColumnName="SecurityFormControlConfigId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPOrderSearch" FunctionName="WebApiDataModel.Store.CPOrderSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPOrderSearch_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="BorrowerName" ColumnName="BorrowerName" />
+          <ScalarProperty Name="LoanNo" ColumnName="LoanNo" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="LoanOfficer" ColumnName="LoanOfficer" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderedBy" ColumnName="OrderedBy" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="ClosedBy" ColumnName="ClosedBy" />
+          <ScalarProperty Name="OrderReceived" ColumnName="OrderReceived" />
+          <ScalarProperty Name="TitleComplete" ColumnName="TitleComplete" />
+          <ScalarProperty Name="CleartoClose" ColumnName="CleartoClose" />
+          <ScalarProperty Name="PostClosetoComplete" ColumnName="PostClosetoComplete" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="IsCustomCss" ColumnName="IsCustomCss" />
+          <ScalarProperty Name="CustomCssName" ColumnName="CustomCssName" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CPGetPropertyDetail" FunctionName="WebApiDataModel.Store.CPGetPropertyDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebApiDataModel.CPGetPropertyDetail_Result">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PropertyDetail" ColumnName="PropertyDetail" />
+          <ScalarProperty Name="InformationName" ColumnName="InformationName" />
+          <ScalarProperty Name="ManagingAgentName" ColumnName="ManagingAgentName" />
+          <ScalarProperty Name="PhoneWithDash" ColumnName="PhoneWithDash" />
+          <ScalarProperty Name="CellWithDash" ColumnName="CellWithDash" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Cell" ColumnName="Cell" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="StockCertificateNumber" ColumnName="StockCertificateNumber" />
+          <ScalarProperty Name="SharesCount" ColumnName="SharesCount" />
+          <ScalarProperty Name="IsLeaseAssigned" ColumnName="IsLeaseAssigned" />
+          <ScalarProperty Name="LeaseDate" ColumnName="LeaseDate" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="PropertyAddressSuffix" ColumnName="PropertyAddressSuffix" />
+          <ScalarProperty Name="PropertyAddressType" ColumnName="PropertyAddressType" />
+          <ScalarProperty Name="PropertyAddress1" ColumnName="PropertyAddress1" />
+          <ScalarProperty Name="PropertyAddress1Name" ColumnName="PropertyAddress1Name" />
+          <ScalarProperty Name="PropertyAddress2" ColumnName="PropertyAddress2" />
+          <ScalarProperty Name="PropertyCity" ColumnName="PropertyCity" />
+          <ScalarProperty Name="PropertyState" ColumnName="PropertyState" />
+          <ScalarProperty Name="PropertyZip" ColumnName="PropertyZip" />
+          <ScalarProperty Name="PropertyCounty" ColumnName="PropertyCounty" />
+          <ScalarProperty Name="BuyerAddressSuffix" ColumnName="BuyerAddressSuffix" />
+          <ScalarProperty Name="BuyerAddressType" ColumnName="BuyerAddressType" />
+          <ScalarProperty Name="BuyerAddress1" ColumnName="BuyerAddress1" />
+          <ScalarProperty Name="BuyerAddress2" ColumnName="BuyerAddress2" />
+          <ScalarProperty Name="BuyerCity" ColumnName="BuyerCity" />
+          <ScalarProperty Name="BuyerState" ColumnName="BuyerState" />
+          <ScalarProperty Name="BuyerZip" ColumnName="BuyerZip" />
+          <ScalarProperty Name="BuyerCounty" ColumnName="BuyerCounty" />
+          <ScalarProperty Name="SellerAddressSuffix" ColumnName="SellerAddressSuffix" />
+          <ScalarProperty Name="SellerAddressType" ColumnName="SellerAddressType" />
+          <ScalarProperty Name="SellerAddress1" ColumnName="SellerAddress1" />
+          <ScalarProperty Name="SellerAddress2" ColumnName="SellerAddress2" />
+          <ScalarProperty Name="SellerCity" ColumnName="SellerCity" />
+          <ScalarProperty Name="SellerState" ColumnName="SellerState" />
+          <ScalarProperty Name="SellerZip" ColumnName="SellerZip" />
+          <ScalarProperty Name="SellerCounty" ColumnName="SellerCounty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

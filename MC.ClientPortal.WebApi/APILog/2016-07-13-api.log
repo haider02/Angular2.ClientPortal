@@ -1,0 +1,56 @@
+2016-07-13 00:00:44.2449|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:20888/api/Account/CPGetPermissionsAgainstRole/HeaderMenu_Encrypt
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"HeaderMenu_Encrypt"}]}
+
+2016-07-13 00:00:44.2449|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:20888/api/ReferenceData/GetComboEntitybyCode/CPOrderStatus
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"CPOrderStatus"}]}
+
+2016-07-13 00:00:44.2449|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:20888/api/DashBoard/GetClientList/1740
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : GetClientList
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"parentId":1740}]}
+
+2016-07-13 00:00:44.2449|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:20888/api/DashBoard/GetLoadStarUrl
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : GetLoadStarUrl
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+
+2016-07-13 00:00:45.3649|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:20888/api/ReferenceData/GetComboEntitybyCode/TransactionType
+Controller : MC.ClientPortal.WebApi.Controllers.ReferenceDataController
+Action : GetComboEntitybyCode
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"cboId":"TransactionType"}]}
+
+2016-07-13 00:00:45.4089|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:20888/api/Account/CPGetPermissionsAgainstRole/Dashboard_Encrypt
+Controller : MC.ClientPortal.WebApi.Controllers.AccountController
+Action : CpGetPermissionsAgainstRole
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"screenName":"Dashboard_Encrypt"}]}
+
+2016-07-13 00:00:45.4299|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:20888/api/DashBoard/OrderSearch
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.DashBoardController
+Action : OrderSearch
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{"request":{"OrderNo":0,"ClientId":1740,"Status":"","LoanNo":"","BorrowerName":"","LoanOfficer":"","TransactionType":"","ClientFilterVal":0,"ShowSubClients":true,"DefaultPastDays":0}}]}
+
+2016-07-13 00:00:45.4359|INFO|MC.ClientPortal.WebApi.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:20888/api/GenerateDocument/GetDownloadDocuments/
+Controller : MC.ClientPortal.WebApi.Controllers.ClientPortal.GenerateDocumentController
+Action : GetDownloadDocuments
+Action Parameters : {"messageFormat":"JSON","messageArguments":[{}]}
+

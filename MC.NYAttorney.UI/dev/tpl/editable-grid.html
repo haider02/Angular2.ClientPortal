@@ -1,0 +1,46 @@
+﻿<div class="tableGrid mT10">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <div class="table-responsive">
+                    <table class="table table-striped borderGray">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let col of columns">
+                                    <a (click)="sort(col.name)">{{col.desc}}</a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of rows">
+                                <td *ngFor="let col of columns">
+                                    <p *ngIf="col.name=='Action'" class="w70">                                        
+                                        <a data-toggle="tooltip" title="Delete" (click)="deleteRow(row)" class="actionbtn">
+                                            <i class="fa fa-remove"></i>
+                                        </a>
+                                    </p>                                   
+                                    <div *ngIf="col.name!='Action'"><input type="text" maxlength="4" #input (blur)="updateList(row,col.name,input.value)" [ngClass]="col.isEditable ? '' : 'w60p number'"  [disabled]="col.isEditable" class="form-control" value="{{row[col.name]}}" /></div>
+                                    
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pager">
+                        <li>
+                            <button type="button" (click)="First()" [disabled]="pageNumber==1" class="btn btn-default">First</button>
+                            <button type="button" (click)="Previous()" [disabled]="pageNumber<=1" class="btn btn-default">Previous</button>
+                        </li>
+                        <li>Page {{pageNumber}} of {{totalPages}}</li>
+                        <li>
+                            <button type="button" (click)="Next()" [disabled]="pageNumber==totalPages" class="btn btn-default">Next</button>
+                            <button type="button" (click)="Last()" [disabled]="pageNumber==totalPages" class="btn btn-default">Last</button>
+                        </li>
+                        <li class="pageCounter">Total Records {{totalRows}}</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,240 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <notification-msg #notificationcomponent></notification-msg>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content">
+            <div class="row" id="OrderDetailForm">
+
+                <div class="col-md-12">
+                    <div class="order-detail">
+                        <div id="PartyInformationSection" class="panel panel-default db-panel">
+                            <form role="form" #orderPartyForm="ngForm" (ngSubmit)="OnAddBorrower()">
+                                <div class="panel-heading" role="tab" id="odderDetail">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#odderDetailD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            Party Information <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="odderDetailD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                                    <div class="panel-body">
+
+                                        <div class="grid-table mT0 clearfix">
+                                            <div id="OrderDetailAddBorrowerCntrl">
+                                                <button type="button" class="btn btn-link pull-right mBm20" [disabled]="isAddBorrowerLink" (click)="ToggleAddBorrower(true)"><span class="fa fa-plus"></span> Add Party</button>
+                                            </div>
+                                            <div class="row" id="OrderDetailBorrowerGrid">
+                                                <data-grid [rows]="model.PartyList" [columns]="borrowerGridColumns" [defaultSort]="defaultSort" (editSelectedRow)="editPartyRow($event)" (deleteSelectedRow)="deleteBorrowerRow($event)">
+                                                </data-grid>
+                                            </div>
+
+                                        </div><!-- grid-table -->
+                                        <div class="row inner-panel" *ngIf="isAddBorrowerPanel">
+                                            <div class="col-md-12">
+                                                <div class="row" id="OrderDetailPartyTypeCntrl">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Party Type</label>
+                                                            <select class="form-control" #ddlPartyType="ngModel" name="ddlPartyType" [(ngModel)]="partyModel.Type"
+                                                                    (onchange)="PartyTypeChanged($event)" [disabled]="isRowEdited">
+                                                                <option *ngFor="let opt of partyTypes" [value]="opt.cboEntry">{{opt.cboEntry}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- row -->
+                                            </div>
+                                            <div id="OrderDetailBorrowerFNameCntrl" class="col-md-4" *ngIf="ddlPartyType.value == 'Borrower' || ddlPartyType.value == 'Condo Association'">
+                                                <div class="form-group">
+                                                    <label *ngIf="ddlPartyType.value == 'Borrower'">*First Name</label>
+                                                    <label *ngIf="ddlPartyType.value == 'Condo Association'">*Contact Name</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="partyModel.FirstName" name="FirstName" maxlength="20" required>
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailBorrowerLNameCntrl" class="col-md-4">
+                                                <div class="form-group" *ngIf="ddlPartyType.value != 'Please Select'">
+                                                    <label *ngIf="ddlPartyType.value == 'Borrower'">*Last Name</label>
+                                                    <label *ngIf="ddlPartyType.value == 'Condo Association'">*Condo Assoc. Name</label>
+                                                    <label *ngIf="ddlPartyType.value == 'Seller'">*Seller Name</label>
+                                                    <label *ngIf="ddlPartyType.value == 'Sellers Attorney'">*Seller Att. Name</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="partyModel.LastName" name="LastName" maxlength="255" required>
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailPhoneCntrl" class="col-md-4" *ngIf="ddlPartyType.value != 'Please Select'">
+                                                <div class="form-group">
+                                                    <label>Phone</label>
+                                                    <input id="homePhone" class="form-control" type="tel" [(ngModel)]="displayBorrowerPhone" placeholder="xxx-xxx-xxxx" (focus)="focusPhone($event)" data-mask="___-___-____"
+                                                           (blur)="blurPhone($event)" name="phone" #phone="ngModel">
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailCellCntrl" class="col-md-4" *ngIf="ddlPartyType.value != 'Please Select'">
+                                                <div class="form-group">
+                                                    <label>Cell</label>
+                                                    <input type="tel" class="form-control" [(ngModel)]="displayBorrowerCell" placeholder="xxx-xxx-xxxx" (focus)="focusCell($event)" data-mask="___-___-____"
+                                                           (blur)="blurCell($event)" name="cell" #cell="ngModel">
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailSSNCntrl" class="col-md-4" *ngIf="ddlPartyType.value == 'Borrower'">
+                                                <div class="form-group">
+                                                    <label>SSN#</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="displayBorrowerSSN" placeholder="xxx-xx-xxxx" (focus)="focusSSN($event)" data-mask="___-__-____"
+                                                           (blur)="blurSSN($event)" name="bSSN" #bSSN="ngModel">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" *ngIf="ddlPartyType.value == 'Borrower' || ddlPartyType.value == 'Seller'">
+                                                <div id="OrderDetailMaritalStatusCntrl" class="form-group">
+                                                    <label>Marital Status</label>
+                                                    <select class="form-control" [(ngModel)]="partyModel.MaritalStatusId"
+                                                            name="maritalStatus" #mStatus="ngModel" (change)="partyModel.MaritalStatusId=$event.target.value">
+                                                        <option *ngFor="let t of maritalStatuses" [value]="t.Id">{{t.StatusCode}}</option>
+                                                    </select>
+                                                    <div [hidden]="mStatus.valid || mStatus.pristine" class="alert alert-danger">
+                                                        Select Marital Status
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailEmailCntrl" class="col-md-4" *ngIf="ddlPartyType.value != 'Please Select'">
+                                                <div class="form-group">
+                                                    <label>*Email</label>
+                                                    <input type="email" class="form-control" [(ngModel)]="partyModel.Email" name="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="button-group text-right" *ngIf="ddlPartyType.value != 'Please Select'">
+                                                <button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Save</button>
+                                                <button type="button" class="btn btn-secondary-outline" (click)="CancelAddParty()"><span class="fa fa-close"></span> Cancel</button>
+                                            </div>
+                                        </div><!-- row inner-panel -->
+                                    </div><!-- panel-body -->
+                                </div><!-- panel-collapse addContactInfoD -->
+                            </form>
+                        </div><!-- panel panel-default db-panel -->
+                        <div id="LoanInformationSection" class="panel panel-default db-panel">
+                            <form role="form" #orderDetailForm="ngForm" (ngSubmit)="OnSaveClick()">
+                                <div class="panel-heading" role="tab" id="loanInfo">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#loanInfoD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                            Loan Information <span></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="loanInfoD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div id="OrderDetailLoanNumberCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Loan Number</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="model.OrderMaster.LoanNo" name="LoanNo" required maxlength="12">
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailResidentTypeCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Residence Type</label>
+                                                    <select class="form-control" [(ngModel)]="model.OrderMaster.NonOwnerOccupied"
+                                                            name="residentType" #resident="ngModel" required (change)="model.OrderMaster.NonOwnerOccupied=$event.target.value">
+                                                        <option *ngFor="let r of residentTypes" [value]="r.cboBehavior">{{r.cboEntry}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailMortgageTypeCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>*Mortgage Type</label>
+                                                    <select class="form-control" [(ngModel)]="model.OrderMaster.LoanCategory" #mortgage="ngModel" name="mortgageType" required (change)="model.OrderMaster.LoanCategory=$event.target.value">
+                                                        <option *ngFor="let mt of mortgageTypes" [value]="mt.cboBehavior">{{mt.cboEntry}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div id="OrderDetailUnitsCntrl" class="col-md-4 clearB">
+                                                <div class="form-group">
+                                                    <label>Number of Units</label>
+                                                    <input type="number" class="form-control" [(ngModel)]="model.OrderMaster.NumberofUnits" name="NumberofUnits" max="1000">
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailPropAcqDateCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Property Acquired Date</label>
+                                                    <input type="text" class="form-control date" id="PropertyAcquiredDate" [(ngModel)]="model.OrderMaster.PropertyAcquiredDate" name="PropertyAcquiredDate"
+                                                           placeholder="mm/dd/yyyy" data-mask="__/__/____" onfocus="ApplyDateMask()">
+                                                    <div [hidden]="isValidPropertyAcquiredDate" class="alert alert-danger">
+                                                        Enter valid date (mm/dd/yyyy)
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailLoanAmountCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Loan Amount</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="displayAmount" maxlength="12" name="LoanAmount"
+                                                           (focus)="focusLoanAmount($event)" (blur)="blurLoanAmount($event)">
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailLoanRateCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Loan Rate</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="model.OrderMaster.LoanRate" maxlength="12" name="LoanRate">
+                                                </div>
+                                            </div>
+                                            <div id="OrderDetailLoanTermsCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Loan Term</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="model.OrderMaster.LoanTerm" maxlength="30" name="LoanTerm">
+                                                </div>
+                                            </div><!-- col-md-4 -->
+                                            <div id="OrderDetailLoanPurposeCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Loan Purpose</label>
+                                                    <select class="form-control" [(ngModel)]="model.OrderMaster.LoanPurpose" #mortgage="ngModel" name="loanPurpose" 
+                                                            (change)="model.OrderMaster.LoanPurpose=$event.target.value">
+                                                        <option *ngFor="let lp of loanPurposes" [value]="lp.cboEntry">{{lp.cboEntry}}</option>
+                                                    </select>
+                                                </div>
+
+                                            </div><!-- col-md- 4 -->
+                                            <div id="OrderDetailLockDateCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Rate Lock Date</label>
+                                                    <input type="text" class="form-control date" id="RateLockDate" [(ngModel)]="model.OrderMaster.RateLockDate" name="RateLockDate"
+                                                           placeholder="mm/dd/yyyy" data-mask="__/__/____" onfocus="ApplyDateMask()">
+                                                    <div [hidden]="isValidRateLockDate" class="alert alert-danger">
+                                                        Enter valid date (mm/dd/yyyy)
+                                                    </div>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+                                            <div id="OrderDetailAntiSettDateCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Anticipated Settlement Date</label>
+                                                    <input type="text" class="form-control date" id="AnticipatedSettlementDate" name="AnticipatedSettlementDate" [(ngModel)]="model.OrderMaster.AnticipatedSettlementDate"
+                                                           placeholder="mm/dd/yyyy" data-mask="__/__/____" onfocus="ApplyDateMask()">
+                                                    <div [hidden]="isValidAnticipatedSettlementDate" class="alert alert-danger">
+                                                        Enter valid date (mm/dd/yyyy)
+                                                    </div>
+                                                </div>
+                                            </div><!-- col-md-4 -->
+                                            <div id="OrderDetailLoanProdTypeCntrl" class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Loan Product Type</label>
+                                                    <!--</div>-->
+                                                    <select class="form-control" [(ngModel)]="model.OrderMaster.LoanProductType" #mortgage="ngModel" name="loanProductType"
+                                                            (change)="model.OrderMaster.LoanProductType=$event.target.value">
+                                                        <option *ngFor="let lpt of loanProductTypes" [value]="lpt.RowId">{{lpt.cboEntry}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div><!-- row -->
+                                        <div class="">
+                                            <div class="button-group text-right">
+                                                <button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Save</button>
+                                                <button type="button" class="btn btn-secondary-outline" (click)="redirectToSummary()"><span class="fa fa-close"></span> Cancel</button>
+
+                                            </div>
+                                        </div>
+                                    </div><!-- panel-body -->
+                                </div><!-- panel-collapse addContactInfoD -->
+                            </form>
+                        </div><!-- panel panel-default db-panel -->
+                    </div><!-- order-detail -->
+                </div><!-- col-md-12 -->
+            </div><!-- row -->
+        </div><!-- content -->
+    </div><!-- rightContent -->
+</div>

@@ -1,0 +1,14 @@
+﻿<div (click)="toggle()" class="panel-group pL10 pR10 collapsible-container accordion">
+    <div class="panel panel-default panelbw">
+        <a class="panel-default " [ngClass]="!visible ? 'collapsed': 'expand'">
+            <div class="panel-heading head-border grayborderbottom mB10">
+                <h4 class="panel-title">
+                    <i [ngClass]="!visible ? 'fa fa-arrow-right' : 'fa fa-arrow-down'"></i>{{title}}
+                </h4>
+            </div>
+        </a>
+    </div>
+</div>
+<div [hidden]="!visible" class="panel-body">
+    <ng-content></ng-content>
+</div> 

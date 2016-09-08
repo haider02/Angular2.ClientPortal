@@ -1,0 +1,112 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content">
+            <div class="order-Notes">
+                <div class="panel panel-default db-panel" id="OrderNotesSection">
+
+                    <div class="panel-heading" role="tab" id="orderNotes">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" href="#orderNotesD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                Order Notes <span></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="orderNotesD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                        <div class="panel-body">
+                            <div class="notes-contents clearfixDiv">
+                                <div class="row">
+                                    <div id="OrderNoteTypeFiler" class="form-group col-md-5 col-sm-12 col-xs-12 notes-type" [hidden]=true>
+                                        <label class="mR10">Note Type</label>
+                                        <select (change)="filterNotes($event)" class="form-control">
+                                            <option *ngFor="let t of noteTypeList" value="{{t.cboEntry}}">{{t.cboEntry}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                        <a id="OrderNotesAddBtn" (click)="addBtnForm()" data-toggle="modal" title="Add Notes" data-target="#notesModel"
+                                           class="btn btn-sq-xs btn-primary">
+                                            <i class="fa fa-plus fa-1x"></i><br>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="OrderNotesList">
+                                        <div class="col-md-12">
+                                            <label *ngIf="isNoNoteFound"> No Notes Available</label>
+                                        </div>
+                                        <div class="col-sm-12 notes-item" *ngFor="let note of NotesModelList; let i= index">
+                                            <div class="clearfix notes-item-wrapper">
+                                                <div class="col-md-2 notes-icon">
+                                                    <div class="note-type {{' ' + addIcon(note.NoteType)}}">
+                                                        <div class="note-date">{{ note.LastModDate }}</div>
+                                                        <h5 class="note-type-heading">{{note.NoteType}}</h5>
+                                                        <p>{{note.LastModBy}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10 notes-text">
+                                                    <h5>{{note.SentTo}}</h5>
+                                                    <h5 *ngIf="note.VendorViewable">(Viewable By Vendor)</h5>
+                                                    <p id="{{'Note'+i}}">{{note.Note}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="pager">
+                                <li>
+                                    <button type="button" (click)="First()" [disabled]="pageNumber==1" class="btn btn-default paginationBtn"><span class="fa  fa-angle-double-left"></span></button>
+                                    <button type="button" (click)="Previous()" [disabled]="pageNumber<=1" class="btn btn-default paginationBtn"><span class="fa  fa-angle-left"></span></button>
+                                </li>
+                                <li>Page {{pageNumber}} of {{totalPages}}</li>
+                                <li>
+                                    <button type="button" (click)="Next()" [disabled]="pageNumber==totalPages" class="btn btn-default paginationBtn"><span class="fa  fa-angle-right"></span></button>
+                                    <button type="button" (click)="Last()" [disabled]="pageNumber==totalPages" class="btn btn-default paginationBtn"><span class="fa  fa-angle-double-right"></span></button>
+                                </li>
+                                <li class="pageCounter">Total Records {{totalRows}}</li>
+                            </ul>
+                        </div>
+                        <div *ngIf="noteFormVisible">
+                            <div class="modal fade" id="notesModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div id="OrderNotesForm">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="myModalLabel">Add Note</h5>
+                                            </div>
+                                            <form role="form" *ngIf="active" (ngSubmit)="onSubmit()" #notesForm="ngForm">
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <!-- new -->
+                                                        <div class="col-md-6">
+                                                        </div>
+                                                    </div>
+                                                    <div id="OrderNotesText">
+                                                        <p>Please enter your text</p>
+                                                        <textarea id="notesText" maxlength="900" rows="6" cols="50" style="resize:none" class="form-control" [(ngModel)]="model.Note" ngControl="note" #note="ngModel" name="note" required></textarea>
+                                                        <div [hidden]="note.valid || note.pristine" class="alert alert-danger">
+                                                            Note Is Required
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="submit" id="submitBtn" [disabled]="!notesForm.form.valid || noteType=='Please Select'" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Save </button>
+                                                    <button type="button" id="cancelBtn" class="btn btn-secondary-outline" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+    </div>
+</div>

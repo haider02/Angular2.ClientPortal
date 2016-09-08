@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{0CF85331-B1A5-4897-A94B-5E71C02E2F5A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dev\tpl\accordion.html" />
+    <Content Include="dev\tpl\change-password.html" />
+    <Content Include="dev\tpl\city.html" />
+    <Content Include="dev\tpl\forgot-password.html" />
+    <Content Include="dev\tpl\item-checklist.html" />
+    <Content Include="dev\tpl\milestone-tracker.html" />
+    <Content Include="dev\tpl\security-control-form-config.html" />
+    <Content Include="dev\tpl\security-control.html" />
+    <Content Include="dev\tpl\county.html" />
+    <Content Include="dev\tpl\dashboard.html" />
+    <Content Include="dev\tpl\editable-grid.html" />
+    <Content Include="dev\tpl\grid.html" />
+    <Content Include="dev\tpl\header-detail.html" />
+    <Content Include="dev\tpl\left-navigation.html" />
+    <Content Include="dev\tpl\login.html" />
+    <Content Include="dev\tpl\main-header.html" />
+    <Content Include="dev\tpl\multi-select.html" />
+    <Content Include="dev\tpl\notifications.html" />
+    <Content Include="dev\tpl\order-detail.html" />
+    <Content Include="dev\tpl\order-entry.html" />
+    <Content Include="dev\tpl\order-notes.html" />
+    <Content Include="dev\tpl\title-clearance.html" />
+    <Content Include="dev\tpl\pre-close.html" />
+    <Content Include="dev\tpl\post-close.html" />
+    <Content Include="dev\tpl\order-summary.html" />
+    <Content Include="dev\tpl\order-title.html" />
+    <Content Include="dev\tpl\password-reset.html" />
+    <Content Include="dev\tpl\pdf-viewer.html" />
+    <Content Include="dev\tpl\property-detail.html" />
+    <Content Include="dev\tpl\registerUser.html" />
+    <Content Include="dev\tpl\security-form-control.html" />
+    <Content Include="dev\tpl\security-form.html" />
+    <Content Include="dev\tpl\state.html" />
+    <Content Include="dev\tpl\tree-view.html" />
+    <Content Include="dev\tpl\order-document.html" />
+    <Content Include="dev\tpl\account-profile.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="index.html" />
+    <Content Include="src\css\bootstrap.min.css" />
+    <Content Include="src\css\dist\images\ui-icons_444444_256x240.png" />
+    <Content Include="src\css\dist\images\ui-icons_555555_256x240.png" />
+    <Content Include="src\css\dist\images\ui-icons_777620_256x240.png" />
+    <Content Include="src\css\dist\images\ui-icons_777777_256x240.png" />
+    <Content Include="src\css\dist\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="src\css\dist\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="src\css\dist\js\app.js" />
+    <Content Include="src\css\dist\js\app.min.js" />
+    <Content Include="src\css\dist\js\demo.js" />
+    <Content Include="src\css\dist\js\jquery-ui.min.js" />
+    <Content Include="src\css\dist\js\jquery.validate.js" />
+    <Content Include="src\css\dist\js\mc_custom.js" />
+    <Content Include="src\css\dist\js\responsive-tabs.js" />
+    <Content Include="src\css\dist\js\validator.js" />
+    <Content Include="src\css\font-awesome.min.css" />
+    <Content Include="src\css\jquery-ui.css" />
+    <Content Include="src\css\jquery-ui.theme.min.css" />
+    <Content Include="src\fonts\fontawesome-webfont.svg" />
+    <Content Include="src\css\normalize.css" />
+    <Content Include="src\css\responsive.css" />
+    <Content Include="src\css\style.css" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="src\fonts\opensans-regular-webfont.svg" />
+    <Content Include="src\fonts\roboto-light-webfont.svg" />
+    <Content Include="src\fonts\roboto-regular-webfont.svg" />
+    <Content Include="src\images\accounting-icon.gif" />
+    <Content Include="src\images\accountingIssue-icon.gif" />
+    <Content Include="src\images\body-bg.png" />
+    <Content Include="src\images\counceling-icon.gif" />
+    <Content Include="src\images\Coverage-icon.gif" />
+    <Content Include="src\images\dashboard-headerBack-bg.gif" />
+    <Content Include="src\images\dashboard-slider01.jpg" />
+    <Content Include="src\images\default-icon.gif" />
+    <Content Include="src\images\followUp-icon.gif" />
+    <Content Include="src\images\generateNoteToFile-icon.gif" />
+    <Content Include="src\images\header-bg.gif" />
+    <Content Include="src\images\headerBack-bg.gif" />
+    <Content Include="src\images\initialCall-icon.gif" />
+    <Content Include="src\images\login-footer-bg.png" />
+    <Content Include="src\images\logo.jpg" />
+    <Content Include="src\images\logo.png" />
+    <Content Include="src\images\logo.svg" />
+    <Content Include="src\images\mc-bg-988x352.jpg" />
+    <Content Include="src\images\panel-heading-bg.png" />
+    <Content Include="src\images\payment-icon.gif" />
+    <Content Include="src\images\payroll-icon.gif" />
+    <Content Include="src\images\performance-icon.gif" />
+    <Content Include="src\images\problemResponse-icon.gif" />
+    <Content Include="src\images\routine-icon.gif" />
+    <Content Include="src\images\workflow-icon.gif" />
+    <Content Include="src\js\bootstrap.min.js" />
+    <Content Include="src\js\html5shiv.min.js" />
+    <Content Include="src\js\jquery-2.1.4.min.js" />
+    <Content Include="src\js\jquery.validate.js" />
+    <Content Include="src\js\Libs\moment.min.js" />
+    <Content Include="src\js\Libs\ng-pdfviewer.js" />
+    <Content Include="src\js\Libs\pdf - Copy.js" />
+    <Content Include="src\js\Libs\pdf.compat.js" />
+    <Content Include="src\js\Libs\pdf.js" />
+    <Content Include="src\js\Libs\pdf.worker - Copy.js" />
+    <Content Include="src\js\Libs\pdf.worker.js" />
+    <Content Include="src\js\Libs\test.js" />
+    <Content Include="src\js\respond.min.js" />
+    <Content Include="src\js\script.js" />
+    <Content Include="systemjs.config.js" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\fonts\fontawesome-webfont.eot" />
+    <Content Include="src\fonts\fontawesome-webfont.ttf" />
+    <Content Include="src\fonts\fontawesome-webfont.woff" />
+    <Content Include="src\fonts\fontawesome-webfont.woff2" />
+    <Content Include="src\fonts\FontAwesome.otf" />
+    <Content Include="package.json" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="src\fonts\roboto-regular-webfont.eot" />
+    <Content Include="src\fonts\roboto-regular-webfont.ttf" />
+    <Content Include="src\fonts\roboto-regular-webfont.woff" />
+    <Content Include="src\fonts\roboto-regular-webfont.woff2" />
+    <Content Include="src\fonts\roboto-light-webfont.eot" />
+    <Content Include="src\fonts\roboto-light-webfont.ttf" />
+    <Content Include="src\fonts\roboto-light-webfont.woff" />
+    <Content Include="src\fonts\roboto-light-webfont.woff2" />
+    <Content Include="src\fonts\opensans-regular-webfont.eot" />
+    <Content Include="src\fonts\opensans-regular-webfont.ttf" />
+    <Content Include="src\fonts\opensans-regular-webfont.woff" />
+    <Content Include="src\fonts\opensans-regular-webfont.woff2" />
+    <Content Include="typings.json" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\css\font-awesome\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="dev\accountProfile\account-profile.component.ts" />
+    <TypeScriptCompile Include="dev\accountProfile\account-profile.model.ts" />
+    <TypeScriptCompile Include="dev\accountProfile\account-profile.service.ts" />
+    <TypeScriptCompile Include="dev\app-config.ts" />
+    <TypeScriptCompile Include="dev\app.component.ts" />
+    <TypeScriptCompile Include="dev\changePassword\change-password.component.ts" />
+    <TypeScriptCompile Include="dev\changePassword\change-password.model.ts" />
+    <TypeScriptCompile Include="dev\changePassword\change-password.service.ts" />
+    <TypeScriptCompile Include="dev\common\accordion.component.ts" />
+    <TypeScriptCompile Include="dev\common\constants.ts" />
+    <TypeScriptCompile Include="dev\common\cookie.ts" />
+    <TypeScriptCompile Include="dev\common\clientStorage.ts" />
+    <TypeScriptCompile Include="dev\common\encryption.ts" />
+    <TypeScriptCompile Include="dev\common\enumerations.ts" />
+    <TypeScriptCompile Include="dev\common\header-detail.component.ts" />
+    <TypeScriptCompile Include="dev\common\header-detail.service.ts" />
+    <TypeScriptCompile Include="dev\common\httpInterceptor.ts" />
+    <TypeScriptCompile Include="dev\common\item-checklist.component.ts" />
+    <TypeScriptCompile Include="dev\common\item-checklist.service.ts" />
+    <TypeScriptCompile Include="dev\common\left-navigation.component.ts" />
+    <TypeScriptCompile Include="dev\common\logging.ts" />
+    <TypeScriptCompile Include="dev\common\main-header.component.ts" />
+    <TypeScriptCompile Include="dev\common\milestone-tracker.component.ts" />
+    <TypeScriptCompile Include="dev\common\milestone-tracker.service.ts" />
+    <TypeScriptCompile Include="dev\common\reCaptchaComponent.ts" />
+    <TypeScriptCompile Include="dev\common\utility.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityControl\security-control.component.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityControl\security-control.model.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityControl\security-control.service.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityFormControlConfig\security-form-control-config.component.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityFormControlConfig\security-form-control-config.model.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityFormControlConfig\security-form-control-config.service.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityFormControl\security-form-control.component.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityFormControl\security-form-control.model.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityFormControl\security-form-control.service.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityForm\security-form.component.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityForm\security-form.model.ts" />
+    <TypeScriptCompile Include="dev\configuration\securityForm\security-form.service.ts" />
+    <TypeScriptCompile Include="dev\dashBoard\dashboard.component.ts" />
+    <TypeScriptCompile Include="dev\dashBoard\dashboard.model.ts" />
+    <TypeScriptCompile Include="dev\dashBoard\dashboard.service.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\city\city.component.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\city\city.service.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\city\city.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\county\county.component.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\county\county.service.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\county\county.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\state\state.component.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\state\state.service.ts" />
+    <TypeScriptCompile Include="dev\dropDowns\state\states.ts" />
+    <TypeScriptCompile Include="dev\editableGrid\column.ts" />
+    <TypeScriptCompile Include="dev\editableGrid\editable-grid.component.ts" />
+    <TypeScriptCompile Include="dev\editableGrid\sorter.ts" />
+    <TypeScriptCompile Include="dev\forgotPassword\forgot-password.component.ts" />
+    <TypeScriptCompile Include="dev\forgotPassword\forgot-password.model.ts" />
+    <TypeScriptCompile Include="dev\forgotPassword\forgot-password.service.ts" />
+    <TypeScriptCompile Include="dev\grid\column.ts" />
+    <TypeScriptCompile Include="dev\grid\grid-demo.component.ts" />
+    <TypeScriptCompile Include="dev\grid\grid.component.ts" />
+    <TypeScriptCompile Include="dev\grid\sorter.ts" />
+    <TypeScriptCompile Include="dev\login\login.component.ts" />
+    <TypeScriptCompile Include="dev\login\login.model.ts" />
+    <TypeScriptCompile Include="dev\login\login.service.ts" />
+    <TypeScriptCompile Include="dev\main.ts" />
+    <TypeScriptCompile Include="dev\menu\menu.model.ts" />
+    <TypeScriptCompile Include="dev\menu\menu.service.ts" />
+    <TypeScriptCompile Include="dev\multiSelect\column.ts" />
+    <TypeScriptCompile Include="dev\multiSelect\multi-select.component.ts" />
+    <TypeScriptCompile Include="dev\notifications\notifications.component.ts" />
+    <TypeScriptCompile Include="dev\orderDetail\order-detail.component.ts" />
+    <TypeScriptCompile Include="dev\orderDetail\order-detail.model.ts" />
+    <TypeScriptCompile Include="dev\orderDetail\order-detail.service.ts" />
+    <TypeScriptCompile Include="dev\orderDocument\order-document.model.ts" />
+    <TypeScriptCompile Include="dev\orderDocument\order-document.service.ts" />
+    <TypeScriptCompile Include="dev\orderEntry\order-entry.component.ts" />
+    <TypeScriptCompile Include="dev\orderEntry\order-entry.model.ts" />
+    <TypeScriptCompile Include="dev\orderEntry\order-entry.service.ts" />
+    <TypeScriptCompile Include="dev\orderNotes\order-notes.component.ts" />
+    <TypeScriptCompile Include="dev\orderNotes\order-notes.model.ts" />
+    <TypeScriptCompile Include="dev\orderNotes\order-notes.service.ts" />
+    <TypeScriptCompile Include="dev\orderSummary\order-summary.component.ts" />
+    <TypeScriptCompile Include="dev\orderSummary\order-summary.model.ts" />
+    <TypeScriptCompile Include="dev\orderSummary\order-summary.service.ts" />
+    <TypeScriptCompile Include="dev\orderTitle\order-title.component.ts" />
+    <TypeScriptCompile Include="dev\orderTitle\order-title.model.ts" />
+    <TypeScriptCompile Include="dev\orderTitle\order-title.service.ts" />
+    <TypeScriptCompile Include="dev\passwordReset\password-reset.component.ts" />
+    <TypeScriptCompile Include="dev\passwordReset\password-reset.service.ts" />
+    <TypeScriptCompile Include="dev\pdfViewer\pdf-viewer.component.ts" />
+    <TypeScriptCompile Include="dev\titleClearance\title-clearance.component.ts" />
+    <TypeScriptCompile Include="dev\titleClearance\title-clearance.model.ts" />
+    <TypeScriptCompile Include="dev\titleClearance\title-clearance.service.ts" />
+    <TypeScriptCompile Include="dev\preClose\pre-close.component.ts" />
+    <TypeScriptCompile Include="dev\preClose\pre-close.model.ts" />
+    <TypeScriptCompile Include="dev\preClose\pre-close.service.ts" />
+    <TypeScriptCompile Include="dev\postClose\post-close.component.ts" />
+    <TypeScriptCompile Include="dev\postClose\post-close.model.ts" />
+    <TypeScriptCompile Include="dev\postClose\post-close.service.ts" />
+    <TypeScriptCompile Include="dev\propertyDetail\property-detail.component.ts" />
+    <TypeScriptCompile Include="dev\propertyDetail\property-detail.model.ts" />
+    <TypeScriptCompile Include="dev\propertyDetail\property-detail.service.ts" />
+    <TypeScriptCompile Include="dev\referenceData\reference-data.service.ts" />
+    <TypeScriptCompile Include="dev\register\register.component.ts" />
+    <TypeScriptCompile Include="dev\register\register.model.ts" />
+    <TypeScriptCompile Include="dev\register\register.service.ts" />
+    <TypeScriptCompile Include="dev\treeView\mock-node.model.ts" />
+    <TypeScriptCompile Include="dev\treeView\tree-node.model.ts" />
+    <TypeScriptCompile Include="dev\treeView\tree-view.component.ts" />
+    <TypeScriptCompile Include="dev\orderDocument\mock-documentNode.ts" />
+    <TypeScriptCompile Include="dev\orderDocument\order-document.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>MC.ClientPortal.UI</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5374</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59292/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir>./app</TypeScriptOutDir>
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot>
+    </TypeScriptSourceRoot>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

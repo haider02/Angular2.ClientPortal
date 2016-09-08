@@ -1,0 +1,2763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebApiDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WebApiDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="WebApiDataModel.Cities" />
+    <EntitySet Name="ComboEntries" EntityType="WebApiDataModel.ComboEntries" />
+    <EntitySet Name="ComboIds" EntityType="WebApiDataModel.ComboIds" />
+    <EntitySet Name="Counties" EntityType="WebApiDataModel.Counties" />
+    <EntitySet Name="Products" EntityType="WebApiDataModel.Products" />
+    <EntitySet Name="sysMenu" EntityType="WebApiDataModel.sysMenu" />
+    <EntitySet Name="UserId" EntityType="WebApiDataModel.UserId" />
+    <EntitySet Name="ZipCodes" EntityType="WebApiDataModel.ZipCodes" />
+    <AssociationSet Name="FK_ComboEntries_CBOID" Association="WebApiDataModel.FK_ComboEntries_CBOID">
+      <End Role="ComboIds" EntitySet="ComboIds" />
+      <End Role="ComboEntries" EntitySet="ComboEntries" />
+    </AssociationSet>
+    <FunctionImport Name="BusinessRuleSelectAllByCategoryName" ReturnType="Collection(WebApiDataModel.BusinessRuleSelectAllByCategoryName_Result)">
+      <Parameter Name="CategoryName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ContactsSelectType" ReturnType="Collection(WebApiDataModel.ContactsSelectType_Result)">
+      <Parameter Name="XRefID" Mode="In" Type="Int32" />
+      <Parameter Name="Suffix" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DocumentTypesSelectAllByProdCat" ReturnType="Collection(WebApiDataModel.DocumentTypesSelectAllByProdCat_Result)">
+      <Parameter Name="ProductCategory" Mode="In" Type="String" />
+      <Parameter Name="IsAvailableExternal" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="GetStateCountyFromZip" ReturnType="Collection(WebApiDataModel.GetStateCountyFromZip_Result)">
+      <Parameter Name="Zipcode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DocumentsInsert">
+      <Parameter Name="ID1" Mode="In" Type="Int32" />
+      <Parameter Name="ID2" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="String" />
+      <Parameter Name="DocPath" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="DiscRefNo" Mode="In" Type="String" />
+      <Parameter Name="ClientViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="DocSource" Mode="In" Type="String" />
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="EnteredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EventID" Mode="In" Type="Int32" />
+      <Parameter Name="VendorViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="BorrowerViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="DocTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentFolder" Mode="In" Type="String" />
+      <Parameter Name="uidHUDLine" Mode="In" Type="String" />
+      <Parameter Name="uidDisbursement" Mode="In" Type="String" />
+      <Parameter Name="LockOtherDocs" Mode="In" Type="Boolean" />
+      <Parameter Name="S3KeyName" Mode="In" Type="String" />
+      <Parameter Name="TCD_RowId" Mode="In" Type="Int32" />
+      <Parameter Name="RowId" Mode="InOut" Type="Int32" />
+      <Parameter Name="DisbursementId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Notes" EntityType="WebApiDataModel.Notes" />
+    <FunctionImport Name="GetAssociateCertification" ReturnType="Collection(WebApiDataModel.GetAssociateCertification_Result)">
+      <Parameter Name="ContactId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddressesDelete">
+      <Parameter Name="AddressId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeactivateAreaTypeForVendor">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ImagingSystemSelect">
+      <Parameter Name="ID" Mode="InOut" Type="Int32" />
+      <Parameter Name="Name" Mode="InOut" Type="String" />
+      <Parameter Name="DisplayName" Mode="InOut" Type="String" />
+      <Parameter Name="Path" Mode="InOut" Type="String" />
+      <Parameter Name="URL" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="EmailType" EntityType="WebApiDataModel.EmailType" />
+    <FunctionImport Name="DelaySeveritySelectAll" />
+    <FunctionImport Name="FeedbackPartySelectAll" ReturnType="Collection(WebApiDataModel.FeedbackPartySelectAll_Result)" />
+    <FunctionImport Name="SearchVendorNotes">
+      <Parameter Name="XRefId" Mode="In" Type="Int32" />
+      <Parameter Name="NoteType" Mode="In" Type="String" />
+      <Parameter Name="ClientViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="VendorViewable" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="GetExpirationDetail" ReturnType="Collection(WebApiDataModel.GetExpirationDetail_Result)">
+      <Parameter Name="AssignedUser" Mode="In" Type="String" />
+      <Parameter Name="FollowUpDate" Mode="In" Type="String" />
+      <Parameter Name="ExpirationDate" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="VendorType" Mode="In" Type="String" />
+      <Parameter Name="CurrentDate" Mode="In" Type="String" />
+      <Parameter Name="ThresholdDate" Mode="In" Type="String" />
+      <Parameter Name="HighAlertExpiration" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetInternalContacts" ReturnType="Collection(WebApiDataModel.GetInternalContacts_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="ItemNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DocumentsDelete">
+      <Parameter Name="RowID" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DocumentsLock">
+      <Parameter Name="RowId" Mode="In" Type="Int32" />
+      <Parameter Name="IsLocked" Mode="In" Type="Boolean" />
+      <Parameter Name="LockedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteVendorCountyFees">
+      <Parameter Name="vendorCountyFeesId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetChildLvlClients" ReturnType="Collection(WebApiDataModel.GetChildLvlClients_Result)">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="xml" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCompanyGroupCodes" ReturnType="Collection(WebApiDataModel.GetCompanyGroupCodes_Result)">
+      <Parameter Name="vendorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetParentClients" ReturnType="Collection(WebApiDataModel.GetParentClients_Result)">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyGroupCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetRPClientsByTransId">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="transId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetRPClientsParentsByTransId">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="transId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteCPRClientsByParentsIds">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="xml" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetRPClientsByParentId" ReturnType="Collection(Int32)">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="xml" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteClientRestrictionsByCompanyGroupCode">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="CGC" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteClientRestrictionsByTransId">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="TransId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteCPRClientsByIds">
+      <Parameter Name="vendorID" Mode="In" Type="Int32" />
+      <Parameter Name="xml" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InterfaceInsertRequest">
+      <Parameter Name="InterfaceTransactionType" Mode="In" Type="Int32" />
+      <Parameter Name="Parameter1" Mode="In" Type="String" />
+      <Parameter Name="Parameter2" Mode="In" Type="String" />
+      <Parameter Name="Parameter3" Mode="In" Type="String" />
+      <Parameter Name="Parameter4" Mode="In" Type="String" />
+      <Parameter Name="Parameter5" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PasswordResetGetThemeUrl">
+      <Parameter Name="ContactId" Mode="In" Type="Int32" />
+      <Parameter Name="ResetUrl" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ClientBundlesSelectOE" ReturnType="Collection(WebApiDataModel.ClientBundlesSelectOE_Result)">
+      <Parameter Name="ClientID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ContactsSelectAll" ReturnType="Collection(WebApiDataModel.ContactsSelectAll_Result)">
+      <Parameter Name="XRefID" Mode="In" Type="Int32" />
+      <Parameter Name="Suffix" Mode="In" Type="String" />
+      <Parameter Name="ShowMultiLevels" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="OrderDetailsInsertAppraisal">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="BranchID" Mode="In" Type="String" />
+      <Parameter Name="ProcessRowId" Mode="In" Type="Int32" />
+      <Parameter Name="LockOverride" Mode="In" Type="Boolean" />
+      <Parameter Name="ProductCode" Mode="In" Type="String" />
+      <Parameter Name="ClientRefNo" Mode="In" Type="String" />
+      <Parameter Name="PaymentMtd" Mode="In" Type="String" />
+      <Parameter Name="CODAmtDue" Mode="In" Type="Decimal" />
+      <Parameter Name="ResponseMtd" Mode="In" Type="String" />
+      <Parameter Name="ResponseTo" Mode="In" Type="String" />
+      <Parameter Name="Contact" Mode="In" Type="String" />
+      <Parameter Name="ContactExt" Mode="In" Type="String" />
+      <Parameter Name="ClientContactId" Mode="In" Type="Int32" />
+      <Parameter Name="CompPhotos" Mode="In" Type="Boolean" />
+      <Parameter Name="InteriorPhotos" Mode="In" Type="Boolean" />
+      <Parameter Name="DigitalPhotos" Mode="In" Type="Boolean" />
+      <Parameter Name="HardcopyCnt" Mode="In" Type="Int32" />
+      <Parameter Name="HardcopyDlvyMtd" Mode="In" Type="String" />
+      <Parameter Name="VendorInstructions" Mode="In" Type="String" />
+      <Parameter Name="InternalInstructions" Mode="In" Type="String" />
+      <Parameter Name="AcresAbove5" Mode="In" Type="String" />
+      <Parameter Name="ClientBundleID" Mode="In" Type="Int32" />
+      <Parameter Name="BundleDetailsID" Mode="In" Type="Int32" />
+      <Parameter Name="MIS_OrderNo" Mode="In" Type="String" />
+      <Parameter Name="MIS_Branch" Mode="In" Type="String" />
+      <Parameter Name="MIS_DeptID" Mode="In" Type="String" />
+      <Parameter Name="MIS_TeamID" Mode="In" Type="String" />
+      <Parameter Name="MIS_XWingID" Mode="In" Type="String" />
+      <Parameter Name="ItemNo" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderDetailsInsertClosing">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="BranchID" Mode="In" Type="String" />
+      <Parameter Name="ProcessRowId" Mode="In" Type="Int32" />
+      <Parameter Name="LockOverride" Mode="In" Type="Boolean" />
+      <Parameter Name="ProductCode" Mode="In" Type="String" />
+      <Parameter Name="ClientRefNo" Mode="In" Type="String" />
+      <Parameter Name="NoOfClosings" Mode="In" Type="Int32" />
+      <Parameter Name="Contact" Mode="In" Type="String" />
+      <Parameter Name="ContactExt" Mode="In" Type="String" />
+      <Parameter Name="ClientContactId" Mode="In" Type="Int32" />
+      <Parameter Name="DocPrepReq" Mode="In" Type="Boolean" />
+      <Parameter Name="DocPrepDeed" Mode="In" Type="Boolean" />
+      <Parameter Name="DocPrepSub" Mode="In" Type="Boolean" />
+      <Parameter Name="DocPrepOther" Mode="In" Type="Boolean" />
+      <Parameter Name="ClsAddresses" Mode="In" Type="String" />
+      <Parameter Name="DisburseFunds" Mode="In" Type="Boolean" />
+      <Parameter Name="Accomodation" Mode="In" Type="Boolean" />
+      <Parameter Name="VendorInstructions" Mode="In" Type="String" />
+      <Parameter Name="INTernalInstructions" Mode="In" Type="String" />
+      <Parameter Name="InitClsLoc" Mode="In" Type="String" />
+      <Parameter Name="InitSchedReq" Mode="In" Type="DateTime" />
+      <Parameter Name="LienPosition" Mode="In" Type="String" />
+      <Parameter Name="InterestRate" Mode="In" Type="Decimal" />
+      <Parameter Name="LoanType" Mode="In" Type="Int32" />
+      <Parameter Name="PiggyInterestRate" Mode="In" Type="Decimal" />
+      <Parameter Name="PiggyLoanType" Mode="In" Type="Int32" />
+      <Parameter Name="TaxesInEscrow" Mode="In" Type="Boolean" />
+      <Parameter Name="ClientBundleID" Mode="In" Type="Int32" />
+      <Parameter Name="BundleDetailsID" Mode="In" Type="Int32" />
+      <Parameter Name="MIS_OrderNo" Mode="In" Type="String" />
+      <Parameter Name="MIS_Branch" Mode="In" Type="String" />
+      <Parameter Name="MIS_DeptID" Mode="In" Type="String" />
+      <Parameter Name="MIS_TeamID" Mode="In" Type="String" />
+      <Parameter Name="MIS_XWingID" Mode="In" Type="String" />
+      <Parameter Name="ItemNo" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderDetailsInsertOther">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="BranchID" Mode="In" Type="String" />
+      <Parameter Name="ProcessRowId" Mode="In" Type="Int32" />
+      <Parameter Name="LockOverride" Mode="In" Type="Boolean" />
+      <Parameter Name="ProductCode" Mode="In" Type="String" />
+      <Parameter Name="ClientRefNo" Mode="In" Type="String" />
+      <Parameter Name="Contact" Mode="In" Type="String" />
+      <Parameter Name="ContactExt" Mode="In" Type="String" />
+      <Parameter Name="ClientContactId" Mode="In" Type="Int32" />
+      <Parameter Name="VendorInstructions" Mode="In" Type="String" />
+      <Parameter Name="InternalInstructions" Mode="In" Type="String" />
+      <Parameter Name="ClientBundleID" Mode="In" Type="Int32" />
+      <Parameter Name="BundleDetailsID" Mode="In" Type="Int32" />
+      <Parameter Name="MIS_OrderNo" Mode="In" Type="String" />
+      <Parameter Name="MIS_Branch" Mode="In" Type="String" />
+      <Parameter Name="MIS_DeptID" Mode="In" Type="String" />
+      <Parameter Name="MIS_TeamID" Mode="In" Type="String" />
+      <Parameter Name="MIS_XWingID" Mode="In" Type="String" />
+      <Parameter Name="ItemNo" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderDetailsInsertTitle">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="BranchID" Mode="In" Type="String" />
+      <Parameter Name="ProcessRowId" Mode="In" Type="Int32" />
+      <Parameter Name="LockOverride" Mode="In" Type="Boolean" />
+      <Parameter Name="ProductCode" Mode="In" Type="String" />
+      <Parameter Name="ClientRefNo" Mode="In" Type="String" />
+      <Parameter Name="PiggyBackProductCode" Mode="In" Type="String" />
+      <Parameter Name="PiggyBackOverride" Mode="In" Type="Boolean" />
+      <Parameter Name="AccountNo" Mode="In" Type="String" />
+      <Parameter Name="PayOffRecv" Mode="In" Type="Boolean" />
+      <Parameter Name="DeedXfer" Mode="In" Type="Boolean" />
+      <Parameter Name="YearsLived" Mode="In" Type="Int32" />
+      <Parameter Name="MtgHolder" Mode="In" Type="String" />
+      <Parameter Name="LegalDesc" Mode="In" Type="String" />
+      <Parameter Name="Contact" Mode="In" Type="String" />
+      <Parameter Name="ContactExt" Mode="In" Type="String" />
+      <Parameter Name="ClientContactId" Mode="In" Type="Int32" />
+      <Parameter Name="DocPrepReq" Mode="In" Type="Boolean" />
+      <Parameter Name="DocPrepDeed" Mode="In" Type="Boolean" />
+      <Parameter Name="DocPrepSub" Mode="In" Type="Boolean" />
+      <Parameter Name="DocPrepOther" Mode="In" Type="Boolean" />
+      <Parameter Name="VendorInstructions" Mode="In" Type="String" />
+      <Parameter Name="InternalInstructions" Mode="In" Type="String" />
+      <Parameter Name="ClientBundleID" Mode="In" Type="Int32" />
+      <Parameter Name="BundleDetailsID" Mode="In" Type="Int32" />
+      <Parameter Name="MIS_OrderNo" Mode="In" Type="String" />
+      <Parameter Name="MIS_Branch" Mode="In" Type="String" />
+      <Parameter Name="MIS_DeptID" Mode="In" Type="String" />
+      <Parameter Name="MIS_TeamID" Mode="In" Type="String" />
+      <Parameter Name="MIS_XWingID" Mode="In" Type="String" />
+      <Parameter Name="ProposedClsDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ttlAltAddress" Mode="In" Type="Boolean" />
+      <Parameter Name="AltAddressId" Mode="In" Type="Int32" />
+      <Parameter Name="ItemNo" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="webLoginGet">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="suffix" Mode="In" Type="String" />
+      <Parameter Name="ipAddress" Mode="In" Type="String" />
+      <Parameter Name="pageTheme" Mode="In" Type="String" />
+      <Parameter Name="xrefID" Mode="InOut" Type="Int32" />
+      <Parameter Name="contactID" Mode="InOut" Type="Int32" />
+      <Parameter Name="orderNo" Mode="InOut" Type="Int32" />
+      <Parameter Name="borrowerType" Mode="InOut" Type="String" />
+      <Parameter Name="hasChildren" Mode="InOut" Type="Boolean" />
+      <Parameter Name="changePasswordReq" Mode="InOut" Type="Boolean" />
+      <Parameter Name="AccountLocked" Mode="InOut" Type="Boolean" />
+      <Parameter Name="LastPasswordChange" Mode="InOut" Type="DateTime" />
+      <Parameter Name="NextPasswordChange" Mode="InOut" Type="Int32" />
+      <Parameter Name="SecretQuestionReq" Mode="InOut" Type="Boolean" />
+      <Parameter Name="LastLogin" Mode="InOut" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetClientTransactionTypes" ReturnType="Collection(WebApiDataModel.GetClientTransactionTypes_Result)">
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="BorrowersInsert">
+      <Parameter Name="BorrowerId" Mode="InOut" Type="Int32" />
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="SequenceNo" Mode="In" Type="Int32" />
+      <Parameter Name="EnteredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="MiddleName" Mode="In" Type="String" />
+      <Parameter Name="Suffix" Mode="In" Type="String" />
+      <Parameter Name="SSN" Mode="In" Type="String" />
+      <Parameter Name="HomePhone" Mode="In" Type="String" />
+      <Parameter Name="WorkPhone" Mode="In" Type="String" />
+      <Parameter Name="CellPhone" Mode="In" Type="String" />
+      <Parameter Name="OtherPhone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="NotifyURL" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="SysTimeStamp" Mode="InOut" Type="Binary" />
+      <Parameter Name="MaritalStatusId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MaritalStatusCodesSelect" ReturnType="Collection(WebApiDataModel.MaritalStatusCodesSelect_Result)" />
+    <FunctionImport Name="OrderEntryComplete">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderMasterInsert">
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="OrderSource" Mode="In" Type="String" />
+      <Parameter Name="OrderOrigination" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="HaveAddress" Mode="In" Type="Boolean" />
+      <Parameter Name="HaveZip" Mode="In" Type="Boolean" />
+      <Parameter Name="StreetNo" Mode="In" Type="String" />
+      <Parameter Name="StreetName" Mode="In" Type="String" />
+      <Parameter Name="StreetName2" Mode="In" Type="String" />
+      <Parameter Name="StreetType" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="Zip" Mode="In" Type="String" />
+      <Parameter Name="County" Mode="In" Type="String" />
+      <Parameter Name="CountyCode" Mode="In" Type="String" />
+      <Parameter Name="LoanNo" Mode="In" Type="String" />
+      <Parameter Name="LoanAmount" Mode="In" Type="Decimal" />
+      <Parameter Name="LoanType" Mode="In" Type="String" />
+      <Parameter Name="Piggyback" Mode="In" Type="Boolean" />
+      <Parameter Name="PiggybackLoanAmt" Mode="In" Type="Decimal" />
+      <Parameter Name="SalesPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="EstimatedValue" Mode="In" Type="Decimal" />
+      <Parameter Name="ExternalLender" Mode="In" Type="Boolean" />
+      <Parameter Name="LenderId" Mode="In" Type="Int32" />
+      <Parameter Name="NonOwnerOccupied" Mode="In" Type="Boolean" />
+      <Parameter Name="ClientOrderNo" Mode="In" Type="String" />
+      <Parameter Name="FHACaseNo" Mode="In" Type="String" />
+      <Parameter Name="PropertyType" Mode="In" Type="String" />
+      <Parameter Name="OrderNo" Mode="InOut" Type="Int32" />
+      <Parameter Name="IsTrid" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="BundleDetails" EntityType="WebApiDataModel.BundleDetails" />
+    <EntitySet Name="Bundles" EntityType="WebApiDataModel.Bundles" />
+    <EntitySet Name="ClientBundles" EntityType="WebApiDataModel.ClientBundles" />
+    <EntitySet Name="OrderClientContacts" EntityType="WebApiDataModel.OrderClientContacts" />
+    <EntitySet Name="OrderDetails" EntityType="WebApiDataModel.OrderDetails" />
+    <EntitySet Name="OrderNotes" EntityType="WebApiDataModel.OrderNotes" />
+    <AssociationSet Name="FK_BundleDetails_Bundles" Association="WebApiDataModel.FK_BundleDetails_Bundles">
+      <End Role="Bundles" EntitySet="Bundles" />
+      <End Role="BundleDetails" EntitySet="BundleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientBundles_Bundles" Association="WebApiDataModel.FK_ClientBundles_Bundles">
+      <End Role="Bundles" EntitySet="Bundles" />
+      <End Role="ClientBundles" EntitySet="ClientBundles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ON_OD_OrderItem" Association="WebApiDataModel.FK_ON_OD_OrderItem">
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+      <End Role="OrderNotes" EntitySet="OrderNotes" />
+    </AssociationSet>
+    <FunctionImport Name="ContactsSetRequireUserToChangePassword">
+      <Parameter Name="ContactId" Mode="In" Type="Int32" />
+      <Parameter Name="RequireChangePassword" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="webChangePassword">
+      <Parameter Name="ContactID" Mode="In" Type="String" />
+      <Parameter Name="oldPassword" Mode="In" Type="String" />
+      <Parameter Name="newPassword" Mode="In" Type="String" />
+      <Parameter Name="success" Mode="InOut" Type="Boolean" />
+      <Parameter Name="EmailAddress" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="webChangeSecretQuestion">
+      <Parameter Name="ContactID" Mode="In" Type="String" />
+      <Parameter Name="QuestionID" Mode="In" Type="Int32" />
+      <Parameter Name="Answer" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="webSecretQuestionGetAll" />
+    <FunctionImport Name="DelaySpecificVendorsSelectAll">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="ItemNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EventTrackingDelaysCausedBySelectAll" ReturnType="Collection(WebApiDataModel.EventTrackingDelaysCausedBySelectAll_Result)">
+      <Parameter Name="ETD_RowId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllUserPermissionByPermissionCode" ReturnType="Collection(WebApiDataModel.GetAllUserPermissionByPermissionCode_Result)">
+      <Parameter Name="PermissionCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAuditLogClassAttibutes" ReturnType="Collection(WebApiDataModel.GetAuditLogClassAttibutes_Result)">
+      <Parameter Name="ModuleName" Mode="In" Type="String" />
+      <Parameter Name="ClassName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAvailableStatesForCoverageByVendor" ReturnType="Collection(WebApiDataModel.GetAvailableStatesForCoverageByVendor_Result)">
+      <Parameter Name="vendorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserPermissionByUserIdAndPermissionCode" ReturnType="Collection(WebApiDataModel.GetUserPermissionByUserIdAndPermissionCode_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+      <Parameter Name="PermissionCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sysGetAuditLogs_XML_InstanceName" ReturnType="Collection(String)">
+      <Parameter Name="AuditTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="InstanceID" Mode="In" Type="Int32" />
+      <Parameter Name="InstanceName" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteInsertEventDelayCausedBy">
+      <Parameter Name="xml" Mode="In" Type="String" />
+      <Parameter Name="ET_DelayID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmailSignature" ReturnType="Collection(String)">
+      <Parameter Name="userId" Mode="In" Type="String" />
+      <Parameter Name="branchId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sysSaveAuditLog_XML_InstanceLevel">
+      <Parameter Name="AuditLogXML" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="AuditTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="EntityPK" Mode="In" Type="Int32" />
+      <Parameter Name="InstanceName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="OrderSearch">
+      <Parameter Name="branchId" Mode="In" Type="String" />
+      <Parameter Name="minClientId" Mode="In" Type="Int32" />
+      <Parameter Name="maxClientId" Mode="In" Type="Int32" />
+      <Parameter Name="minOrderDate" Mode="In" Type="DateTime" />
+      <Parameter Name="maxOrderDate" Mode="In" Type="DateTime" />
+      <Parameter Name="borrowerLast" Mode="In" Type="String" />
+      <Parameter Name="LoanNo" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="String" />
+      <Parameter Name="county" Mode="In" Type="String" />
+      <Parameter Name="prodCode" Mode="In" Type="String" />
+      <Parameter Name="appraisal" Mode="In" Type="Boolean" />
+      <Parameter Name="title" Mode="In" Type="Boolean" />
+      <Parameter Name="closing" Mode="In" Type="Boolean" />
+      <Parameter Name="other" Mode="In" Type="Boolean" />
+      <Parameter Name="streetNo" Mode="In" Type="String" />
+      <Parameter Name="streetName" Mode="In" Type="String" />
+      <Parameter Name="policyNo" Mode="In" Type="String" />
+      <Parameter Name="parentId" Mode="In" Type="Int32" />
+      <Parameter Name="ContactID" Mode="In" Type="Int32" />
+      <Parameter Name="OnlyMyClient" Mode="In" Type="Boolean" />
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetClientList" ReturnType="Collection(WebApiDataModel.GetClientList_Result)">
+      <Parameter Name="ParentId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ContractOrderSearch" ReturnType="Collection(WebApiDataModel.ContractOrderSearch_Result)">
+      <Parameter Name="MinOrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="MaxOrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="LoanNo" Mode="In" Type="String" />
+      <Parameter Name="AssignedUser" Mode="In" Type="String" />
+      <Parameter Name="DisbursedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="BorrowerName" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="Zip" Mode="In" Type="String" />
+      <Parameter Name="ProductCode" Mode="In" Type="String" />
+      <Parameter Name="Appraisal" Mode="In" Type="Boolean" />
+      <Parameter Name="Title" Mode="In" Type="Boolean" />
+      <Parameter Name="Closing" Mode="In" Type="Boolean" />
+      <Parameter Name="Other" Mode="In" Type="Boolean" />
+      <Parameter Name="LoanOfficer" Mode="In" Type="String" />
+      <Parameter Name="TransactionType" Mode="In" Type="String" />
+      <Parameter Name="ShowAllClients" Mode="In" Type="Int32" />
+      <Parameter Name="ShowAllChildrens" Mode="In" Type="Int32" />
+      <Parameter Name="IsDefaultView" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetClientList" ReturnType="Collection(WebApiDataModel.CPGetClientList_Result)">
+      <Parameter Name="ParentId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Addresses" EntityType="WebApiDataModel.Addresses" />
+    <AssociationSet Name="FK_OrderDetails_Addresses_AddressId" Association="WebApiDataModel.FK_OrderDetails_Addresses_AddressId">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <EntitySet Name="Documents" EntityType="WebApiDataModel.Documents" />
+    <FunctionImport Name="CPDocumentsInsert">
+      <Parameter Name="ID1" Mode="In" Type="Int32" />
+      <Parameter Name="ID2" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="String" />
+      <Parameter Name="DocPath" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="DiscRefNo" Mode="In" Type="String" />
+      <Parameter Name="ClientViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="DocSource" Mode="In" Type="String" />
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="EnteredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EventID" Mode="In" Type="Int32" />
+      <Parameter Name="VendorViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="BorrowerViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="DocTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentFolder" Mode="In" Type="String" />
+      <Parameter Name="uidHUDLine" Mode="In" Type="String" />
+      <Parameter Name="uidDisbursement" Mode="In" Type="String" />
+      <Parameter Name="LockOtherDocs" Mode="In" Type="Boolean" />
+      <Parameter Name="S3KeyName" Mode="In" Type="String" />
+      <Parameter Name="TCD_RowId" Mode="In" Type="Int32" />
+      <Parameter Name="RowId" Mode="InOut" Type="Int32" />
+      <Parameter Name="DisbursementId" Mode="In" Type="Int32" />
+      <Parameter Name="UploadfromWeb" Mode="In" Type="Boolean" />
+      <Parameter Name="UploadBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPSaveOrderDetails">
+      <Parameter Name="rvcOrderNumber" Mode="In" Type="String" />
+      <Parameter Name="rvcLoanNumber" Mode="In" Type="String" />
+      <Parameter Name="rvcPropertyType" Mode="In" Type="String" />
+      <Parameter Name="rbResidentType" Mode="In" Type="Boolean" />
+      <Parameter Name="riNumberOfUnits" Mode="In" Type="Int32" />
+      <Parameter Name="rdPropertyAcquiredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="riMortgageType" Mode="In" Type="Int32" />
+      <Parameter Name="rmLoanAmount" Mode="In" Type="Decimal" />
+      <Parameter Name="rvcLoanRate" Mode="In" Type="String" />
+      <Parameter Name="rvcLoanTerms" Mode="In" Type="String" />
+      <Parameter Name="rvcLoanPurpose" Mode="In" Type="String" />
+      <Parameter Name="rvcLoanProductType" Mode="In" Type="String" />
+      <Parameter Name="rdRateLockDate" Mode="In" Type="DateTime" />
+      <Parameter Name="rdAnticipatedSettlementDate" Mode="In" Type="DateTime" />
+      <Parameter Name="xmlBorrowerXML" Mode="In" Type="String" />
+      <Parameter Name="rvcEnteredBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetCOOPMileStone" ReturnType="Collection(WebApiDataModel.CPGetCOOPMileStone_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetProductCodeByOrder">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="ProductCode" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetPurchaseMileStone" ReturnType="Collection(WebApiDataModel.CPGetPurchaseMileStone_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetTitleMileStone" ReturnType="Collection(WebApiDataModel.CPGetTitleMileStone_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetCOOPCheckList" ReturnType="Collection(WebApiDataModel.CPGetCOOPCheckList_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetPurchaseCheckList" ReturnType="Collection(WebApiDataModel.CPGetPurchaseCheckList_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetTitleCheckList" ReturnType="Collection(WebApiDataModel.CPGetTitleCheckList_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetClientDetails" ReturnType="Collection(WebApiDataModel.GetClientDetails_Result)">
+      <Parameter Name="riContactId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCompanyDetails" ReturnType="Collection(WebApiDataModel.GetCompanyDetails_Result)">
+      <Parameter Name="riClientID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPSaveOrderStatus">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetLoanPolicyDetails" ReturnType="Collection(WebApiDataModel.CPGetLoanPolicyDetails_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetRecordingDetails" ReturnType="Collection(WebApiDataModel.CPGetRecordingDetails_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPAddTitleBillReqEvent">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPAddTitleProduct">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetLeinsDetail" ReturnType="Collection(WebApiDataModel.CPGetLeinsDetail_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetTitleDocumentsSelectAll" ReturnType="Collection(WebApiDataModel.CPGetTitleDocumentsSelectAll_Result)">
+      <Parameter Name="ID1" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetTitleOrderDetails" ReturnType="Collection(WebApiDataModel.CPGetTitleOrderDetails_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Borrowers" EntityType="WebApiDataModel.Borrowers" />
+    <FunctionImport Name="CPAddOrderNoteInEmailQueue">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="NoteType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetPreCloseDetails" ReturnType="Collection(WebApiDataModel.CPGetPreCloseDetails_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetPreCloseDocuments" ReturnType="Collection(WebApiDataModel.CPGetPreCloseDocuments_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetSignatureRequirement" ReturnType="Collection(String)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetPostCloseDocuments" ReturnType="Collection(WebApiDataModel.CPGetPostCloseDocuments_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPSavePreCloseDetail">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Client" Mode="In" Type="String" />
+      <Parameter Name="ScheduleDate" Mode="In" Type="DateTime" />
+      <Parameter Name="AnticipatedCloseDate" Mode="In" Type="DateTime" />
+      <Parameter Name="AnticipatedCloseBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetPermissionsAgainstRole" ReturnType="Collection(WebApiDataModel.CPGetPermissionsAgainstRole_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int32" />
+      <Parameter Name="ScreenName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TCDetailsSelectAll" ReturnType="Collection(WebApiDataModel.TCDetailsSelectAll_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPSaveNewYorkAttorneyItem">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="ClearedBy" Mode="In" Type="String" />
+      <Parameter Name="RowId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="WebRoles" EntityType="WebApiDataModel.WebRoles" />
+    <FunctionImport Name="CPGetTCCleartoCloseDetail" ReturnType="Collection(WebApiDataModel.CPGetTCCleartoCloseDetail_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetSecurityFormControls" ReturnType="Collection(WebApiDataModel.CPGetSecurityFormControls_Result)">
+      <Parameter Name="ApplicationId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPDeleteSecurityControl">
+      <Parameter Name="SecurityControlId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPDeleteSecurityForm">
+      <Parameter Name="SecurityFormId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPDeleteSecurityFormControl">
+      <Parameter Name="SecurityFormControlId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetDownloadDocumentList" ReturnType="Collection(WebApiDataModel.CPGetDownloadDocumentList_Result)" />
+    <FunctionImport Name="EmailQueueInsert">
+      <Parameter Name="RowId" Mode="InOut" Type="Int32" />
+      <Parameter Name="MailFrom" Mode="In" Type="String" />
+      <Parameter Name="MailTo" Mode="In" Type="String" />
+      <Parameter Name="MailSubject" Mode="In" Type="String" />
+      <Parameter Name="MailBody" Mode="In" Type="String" />
+      <Parameter Name="AttachmentFileName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="webUserRolesUpdate">
+      <Parameter Name="contactID" Mode="In" Type="Int32" />
+      <Parameter Name="roleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetRegisterUserDetails">
+      <Parameter Name="InvitationCode" Mode="In" Type="String" />
+      <Parameter Name="XRefId" Mode="In" Type="Int32" />
+      <Parameter Name="suffix" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="InOut" Type="Int32" />
+      <Parameter Name="WebRoleId" Mode="InOut" Type="Int32" />
+      <Parameter Name="SequenceNo" Mode="InOut" Type="Int32" />
+      <Parameter Name="ContactId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPVaidateUserEmail">
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="oiContactId" Mode="InOut" Type="Int32" />
+      <Parameter Name="obSuccess" Mode="InOut" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="CPSaveFileClearanceRequested">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="ApprovalBy" Mode="In" Type="String" />
+      <Parameter Name="EmailFrom" Mode="In" Type="String" />
+      <Parameter Name="EmailTo" Mode="In" Type="String" />
+      <Parameter Name="EmailSubject" Mode="In" Type="String" />
+      <Parameter Name="EmailBody" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="OrderDetailsItemsSelect" ReturnType="Collection(WebApiDataModel.OrderDetailsItemsSelect_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="TitleOnly" Mode="In" Type="Boolean" />
+      <Parameter Name="ClosingOnly" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="CPOrderSummary" ReturnType="Collection(WebApiDataModel.CPOrderSummary_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetOrderHeader" ReturnType="Collection(WebApiDataModel.CPGetOrderHeader_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetAccountProfile" ReturnType="Collection(WebApiDataModel.CPGetAccountProfile_Result)">
+      <Parameter Name="ContactId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetOrderDetails" ReturnType="Collection(WebApiDataModel.CPGetOrderDetails_Result)">
+      <Parameter Name="rvcOrderNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetOrderPartyDetails" ReturnType="Collection(WebApiDataModel.CPGetOrderPartyDetails_Result)">
+      <Parameter Name="rvcOrderNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPRegisterClient">
+      <Parameter Name="InvitationCode" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="InOut" Type="String" />
+      <Parameter Name="Url" Mode="InOut" Type="String" />
+      <Parameter Name="ContactId" Mode="InOut" Type="Int32" />
+      <Parameter Name="WebRoleId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPSearchOrderNotesByOrderNo" ReturnType="Collection(WebApiDataModel.CPSearchOrderNotesByOrderNo_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="States" EntityType="WebApiDataModel.States" />
+    <AssociationSet Name="FK_Counties_State" Association="WebApiDataModel.FK_Counties_State">
+      <End Role="States" EntitySet="States" />
+      <End Role="Counties" EntitySet="Counties" />
+    </AssociationSet>
+    <EntitySet Name="OrderMaster" EntityType="WebApiDataModel.OrderMaster" />
+    <AssociationSet Name="FK_BRWR_OM_OrderNo" Association="WebApiDataModel.FK_BRWR_OM_OrderNo">
+      <End Role="OrderMaster" EntitySet="OrderMaster" />
+      <End Role="Borrowers" EntitySet="Borrowers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderMaster_CountyCode" Association="WebApiDataModel.FK_OrderMaster_CountyCode">
+      <End Role="Counties" EntitySet="Counties" />
+      <End Role="OrderMaster" EntitySet="OrderMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderMaster_State" Association="WebApiDataModel.FK_OrderMaster_State">
+      <End Role="States" EntitySet="States" />
+      <End Role="OrderMaster" EntitySet="OrderMaster" />
+    </AssociationSet>
+    <EntitySet Name="SecurityControl" EntityType="WebApiDataModel.SecurityControl" />
+    <EntitySet Name="SecurityForm" EntityType="WebApiDataModel.SecurityForm" />
+    <EntitySet Name="SecurityFormControl" EntityType="WebApiDataModel.SecurityFormControl" />
+    <EntitySet Name="SecurityFormControlConfig" EntityType="WebApiDataModel.SecurityFormControlConfig" />
+    <AssociationSet Name="FK_SecurityFormControl_SecurityControl" Association="WebApiDataModel.FK_SecurityFormControl_SecurityControl">
+      <End Role="SecurityControl" EntitySet="SecurityControl" />
+      <End Role="SecurityFormControl" EntitySet="SecurityFormControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecurityFormControl_SecurityForm" Association="WebApiDataModel.FK_SecurityFormControl_SecurityForm">
+      <End Role="SecurityForm" EntitySet="SecurityForm" />
+      <End Role="SecurityFormControl" EntitySet="SecurityFormControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecurityFormControlConfig_SecurityFormControl" Association="WebApiDataModel.FK_SecurityFormControlConfig_SecurityFormControl">
+      <End Role="SecurityFormControl" EntitySet="SecurityFormControl" />
+      <End Role="SecurityFormControlConfig" EntitySet="SecurityFormControlConfig" />
+    </AssociationSet>
+    <FunctionImport Name="CPGetOrderAssignedUserDetails">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="AssignedUser" Mode="InOut" Type="String" />
+      <Parameter Name="EmailAddress" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderDetailByOrderNo" ReturnType="Collection(WebApiDataModel.GetOrderDetailByOrderNo_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DocumentsSelectAll" ReturnType="Collection(WebApiDataModel.DocumentsSelectAll_Result)">
+      <Parameter Name="ID1" Mode="In" Type="Int32" />
+      <Parameter Name="ID2" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="String" />
+      <Parameter Name="VendorViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="ClientViewable" Mode="In" Type="Boolean" />
+      <Parameter Name="BorrowerViewable" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetContactNames" ReturnType="Collection(WebApiDataModel.CPGetContactNames_Result)">
+      <Parameter Name="LenderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPSavePropertyDetail">
+      <Parameter Name="PropertyType" Mode="In" Type="String" />
+      <Parameter Name="Address1" Mode="In" Type="String" />
+      <Parameter Name="Address1Name" Mode="In" Type="String" />
+      <Parameter Name="Address2" Mode="In" Type="String" />
+      <Parameter Name="zip" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="county" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="String" />
+      <Parameter Name="PropertyDetail" Mode="In" Type="String" />
+      <Parameter Name="XRefId" Mode="In" Type="Int32" />
+      <Parameter Name="InformationName" Mode="In" Type="String" />
+      <Parameter Name="ManagingAgentName" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Cell" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="StockCertificateNumber" Mode="In" Type="String" />
+      <Parameter Name="SharesCount" Mode="In" Type="String" />
+      <Parameter Name="IsLeaseAssigned" Mode="In" Type="Boolean" />
+      <Parameter Name="LeaseDate" Mode="In" Type="String" />
+      <Parameter Name="PropertyAddressSuffix" Mode="In" Type="String" />
+      <Parameter Name="PropertyAddressType" Mode="In" Type="String" />
+      <Parameter Name="PropertyAddress1" Mode="In" Type="String" />
+      <Parameter Name="PropertyAddress2" Mode="In" Type="String" />
+      <Parameter Name="PropertyCity" Mode="In" Type="String" />
+      <Parameter Name="PropertyState" Mode="In" Type="String" />
+      <Parameter Name="PropertyZip" Mode="In" Type="String" />
+      <Parameter Name="PropertyCounty" Mode="In" Type="String" />
+      <Parameter Name="PropertyDetailXml" Mode="In" Type="String" />
+      <Parameter Name="ExpirationDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPSaveOrderEntry">
+      <Parameter Name="EnteredBy" Mode="In" Type="String" />
+      <Parameter Name="OrderSource" Mode="In" Type="String" />
+      <Parameter Name="OrderOrigination" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="HaveAddress" Mode="In" Type="Boolean" />
+      <Parameter Name="HaveZip" Mode="In" Type="Boolean" />
+      <Parameter Name="StreetNo" Mode="In" Type="String" />
+      <Parameter Name="StreetName" Mode="In" Type="String" />
+      <Parameter Name="Address2" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="Zip" Mode="In" Type="String" />
+      <Parameter Name="County" Mode="In" Type="String" />
+      <Parameter Name="LoanNo" Mode="In" Type="String" />
+      <Parameter Name="LoanAmount" Mode="In" Type="Decimal" />
+      <Parameter Name="LoanType" Mode="In" Type="String" />
+      <Parameter Name="PropertyType" Mode="In" Type="String" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="ContactType" Mode="In" Type="String" />
+      <Parameter Name="ContactName" Mode="In" Type="String" />
+      <Parameter Name="TransactionTypesXml" Mode="In" Type="String" />
+      <Parameter Name="BorrowersXml" Mode="In" Type="String" />
+      <Parameter Name="OrderNo" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPTCRequestQuestionsAnswered" ReturnType="Collection(WebApiDataModel.CPTCRequestQuestionsAnswered_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="RequestType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetSecurityFormControlsConfig" ReturnType="Collection(WebApiDataModel.CPGetSecurityFormControlsConfig_Result)">
+      <Parameter Name="ApplicationId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPOrderSearch" ReturnType="Collection(WebApiDataModel.CPOrderSearch_Result)">
+      <Parameter Name="BorrowerName" Mode="In" Type="String" />
+      <Parameter Name="LoanNo" Mode="In" Type="String" />
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+      <Parameter Name="LoanOfficer" Mode="In" Type="String" />
+      <Parameter Name="TransactionType" Mode="In" Type="String" />
+      <Parameter Name="OrderStatus" Mode="In" Type="String" />
+      <Parameter Name="ClientFilterVal" Mode="In" Type="Int32" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="ShowSubClients" Mode="In" Type="Boolean" />
+      <Parameter Name="DefaultPastDays" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CPGetPropertyDetail" ReturnType="Collection(WebApiDataModel.CPGetPropertyDetail_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="ZipCode" />
+      <PropertyRef Name="City" />
+    </Key>
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="28" FixedLength="false" Unicode="false" />
+    <Property Name="CityType" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="StateAbbr" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="RateJurisdictionID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ComboEntries">
+    <Key>
+      <PropertyRef Name="cboId" />
+      <PropertyRef Name="cboEntry" />
+    </Key>
+    <Property Name="cboId" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="cboEntry" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="cboBehavior" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Internal" Type="Boolean" Nullable="false" />
+    <Property Name="EnteredDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EnteredBy" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="ComboIds" Relationship="WebApiDataModel.FK_ComboEntries_CBOID" FromRole="ComboEntries" ToRole="ComboIds" />
+  </EntityType>
+  <EntityType Name="ComboIds">
+    <Key>
+      <PropertyRef Name="cboId" />
+    </Key>
+    <Property Name="cboId" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="cboDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="entryLength" Type="Int32" Nullable="false" />
+    <Property Name="DefaultEntry" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="BehaviorLabel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="ComboEntries" Relationship="WebApiDataModel.FK_ComboEntries_CBOID" FromRole="ComboIds" ToRole="ComboEntries" />
+  </EntityType>
+  <EntityType Name="Counties">
+    <Key>
+      <PropertyRef Name="CountyCode" />
+    </Key>
+    <Property Name="StateAbbr" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="CountyCode" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="CountyName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="AppraisalArea" Type="Int32" />
+    <Property Name="TitleArea" Type="Int32" />
+    <Property Name="ClosingArea" Type="Int32" />
+    <Property Name="DeedPrepAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SubPrepAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SatPrepAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="OtherPrepAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MortBaseAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MortBasePages" Type="Int32" />
+    <Property Name="MortXtraAmt1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MortXtraAmt2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DeedBaseAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DeedBasePages" Type="Int32" />
+    <Property Name="DeedXtraAmt1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DeedXtraAmt2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TransTaxAmt1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TransTaxAmt2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MortTax" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="RateJurisdictionID" Type="Int32" />
+    <Property Name="OtherTax" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="TitleEscrowTemplate" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="IsSimplifile" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeed" Type="Boolean" Nullable="false" />
+    <Property Name="IsMtg_DOT" Type="Boolean" Nullable="false" />
+    <Property Name="IsSub" Type="Boolean" Nullable="false" />
+    <Property Name="IsRelease" Type="Boolean" Nullable="false" />
+    <Property Name="IsAssignment" Type="Boolean" Nullable="false" />
+    <Property Name="IsPOA" Type="Boolean" Nullable="false" />
+    <Property Name="IsModification" Type="Boolean" Nullable="false" />
+    <Property Name="ERecordingSite" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ClosingLocRestriction" Type="Boolean" />
+    <Property Name="StateCountyCode" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="CountySpecificInstructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="States" Relationship="WebApiDataModel.FK_Counties_State" FromRole="Counties" ToRole="States" />
+    <NavigationProperty Name="OrderMaster" Relationship="WebApiDataModel.FK_OrderMaster_CountyCode" FromRole="Counties" ToRole="OrderMaster" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Service" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Group" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Internal" Type="Boolean" Nullable="false" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="Instructions" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="ALTA" Type="Boolean" Nullable="false" />
+    <Property Name="COD" Type="Boolean" Nullable="false" />
+    <Property Name="Recording" Type="Boolean" Nullable="false" />
+    <Property Name="RecordingRequired" Type="Boolean" Nullable="false" />
+    <Property Name="GPMPercent" Type="Int32" Nullable="false" />
+    <Property Name="PiggyBack" Type="Boolean" Nullable="false" />
+    <Property Name="Purchase" Type="Boolean" Nullable="false" />
+    <Property Name="UsageNotes" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="GLAccount" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="GLAccount2" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="HUDLine" Type="Int32" />
+    <Property Name="PayeeCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="TaskCode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="AccountingOnly" Type="Boolean" Nullable="false" />
+    <Property Name="DefaultProduct" Type="Boolean" Nullable="false" />
+    <Property Name="DefaultCls" Type="Boolean" Nullable="false" />
+    <Property Name="DefaultClsPiggy" Type="Boolean" Nullable="false" />
+    <Property Name="ReportType" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="TSMainTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSCommitTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSFeesTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSTaxTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSDeedsTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSMtgsTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSLiensTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSLegalTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSReqsTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSExceptsTab" Type="Boolean" Nullable="false" />
+    <Property Name="TSEnforceReqFields" Type="Boolean" Nullable="false" />
+    <Property Name="IncludeEndorsements" Type="Boolean" Nullable="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="WeightPrice" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="WeightTurnTime" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="WeightQuality" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Uninsured" Type="Boolean" Nullable="false" />
+    <Property Name="TitleEscrowCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="BPO" Type="Boolean" Nullable="false" />
+    <Property Name="DisplayOnWeb" Type="Boolean" />
+    <Property Name="AutoAssign" Type="Boolean" />
+    <Property Name="AutoSend" Type="Boolean" />
+    <Property Name="TitleOnlyPropClsDate" Type="Boolean" />
+    <Property Name="DisplayOnDashboard" Type="Boolean" />
+    <Property Name="SendNewOrderMsg" Type="Boolean" />
+    <Property Name="ExcludeFromHUD" Type="Boolean" />
+    <Property Name="EClosingProd" Type="Boolean" />
+    <Property Name="AssociatedECloseProd" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ARClientId" Type="Int32" />
+    <Property Name="AllowLoanPolicyChange" Type="Boolean" />
+    <Property Name="AllowOwnerPolicyChange" Type="Boolean" />
+    <Property Name="ReissueAvailable" Type="Boolean" />
+    <Property Name="PolicyProduct" Type="Boolean" />
+    <Property Name="TitleDecision" Type="Boolean" />
+    <Property Name="VendorAssignAs" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultSearchType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="IgnoreTitleClearance" Type="Boolean" />
+    <Property Name="IsSchedulingProduct" Type="Boolean" Nullable="false" />
+    <Property Name="IsCEMA" Type="Boolean" Nullable="false" />
+    <Property Name="ExcludeFromAutoHold" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysMenu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RefDataId" Type="Int32" Nullable="false" />
+    <Property Name="Caption" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="RouterLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MenuRank" Type="Int32" />
+    <Property Name="ParentMenuId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="cssClass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserId">
+    <Key>
+      <PropertyRef Name="UserId1" />
+    </Key>
+    <Property Name="UserId1" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SysAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="Extension" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Alias" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastName2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BranchId" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ManagerNo" Type="Int32" Nullable="false" />
+    <Property Name="FaxServer" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="EmailMethod" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="SMTPServer" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="AccountRep" Type="Boolean" Nullable="false" />
+    <Property Name="LastLogin" Type="DateTime" Precision="3" />
+    <Property Name="LoginCount" Type="Int32" Nullable="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Employee" Type="Boolean" Nullable="false" />
+    <Property Name="uidUser" Type="Guid" />
+    <Property Name="txtHUDPermissions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="flgTemplate" Type="Boolean" />
+    <Property Name="txtAcctPermissions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cdeAppServer" Type="Int32" />
+    <Property Name="FullNameCalc" Type="String" MaxLength="277" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="tsApprovalLimit" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="RRAccept" Type="Boolean" />
+    <Property Name="RRMaxOrders" Type="Int32" />
+    <Property Name="RRStartTime" Type="DateTime" Precision="3" />
+    <Property Name="RREndTime" Type="DateTime" Precision="3" />
+    <Property Name="CellPhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ZipCodes">
+    <Key>
+      <PropertyRef Name="ZipCode" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ZipCodeType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CountyCode" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="MSA" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="AreaCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="TimeZone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="GMTOffset" Type="Int32" />
+    <Property Name="DST" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+  </EntityType>
+  <Association Name="FK_ComboEntries_CBOID">
+    <End Type="WebApiDataModel.ComboIds" Role="ComboIds" Multiplicity="1" />
+    <End Type="WebApiDataModel.ComboEntries" Role="ComboEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboIds">
+        <PropertyRef Name="cboId" />
+      </Principal>
+      <Dependent Role="ComboEntries">
+        <PropertyRef Name="cboId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="BusinessRuleSelectAllByCategoryName_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="RuleCategoryID" Nullable="false" />
+    <Property Type="String" Name="RuleName" Nullable="false" MaxLength="255" />
+    <Property Type="Boolean" Name="Overridable" Nullable="false" />
+    <Property Type="Boolean" Name="ManagementOverridable" Nullable="false" />
+    <Property Type="String" Name="ErrorMessage" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="BusinessRuleKey" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ContactsSelectType_Result">
+    <Property Type="String" Name="ContactType" Nullable="false" MaxLength="32" />
+    <Property Type="Int32" Name="contactId" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="DocumentTypesSelectAllByProdCat_Result">
+    <Property Type="Int32" Name="RowID" Nullable="false" />
+    <Property Type="String" Name="ProductCategory" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="EvtCode" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="DocCode" Nullable="true" MaxLength="6" />
+    <Property Type="Boolean" Name="Uploads_DefaultClientViewable" Nullable="false" />
+    <Property Type="Boolean" Name="Uploads_DefaultVendorViewable" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetStateCountyFromZip_Result">
+    <Property Type="String" Name="CityName" Nullable="false" MaxLength="28" />
+    <Property Type="String" Name="StateAbbr" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="CountyName" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="CountyCode" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="RateJurisdictionId" Nullable="true" />
+    <Property Type="Boolean" Name="RefinancePrevAmtsNeeded" Nullable="false" />
+    <Property Type="Boolean" Name="RefinanceOrigAmtsNeeded" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Notes">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="XRefId" Type="Int32" Nullable="false" />
+    <Property Name="Suffix" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="NoteType" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="ClientViewable" Type="Boolean" Nullable="false" />
+    <Property Name="VendorViewable" Type="Boolean" Nullable="false" />
+    <Property Name="SentTo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Priority" Type="Boolean" Nullable="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Inactive" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="GetAssociateCertification_Result">
+    <Property Type="Int64" Name="AssociateCertificationID" Nullable="false" />
+    <Property Type="Int64" Name="AssociateID" Nullable="true" />
+    <Property Type="Boolean" Name="isAttended" Nullable="true" />
+    <Property Type="Boolean" Name="isAwarded" Nullable="true" />
+    <Property Type="Boolean" Name="isInvited" Nullable="true" />
+    <Property Type="String" Name="Score" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AttendedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="AttendedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="AwardedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="AwardedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="InvitedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="InvitedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="EmailType">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="FromEmailType" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FromEmailOther" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Subject" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastModBy" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="LastModDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="FeedbackPartySelectAll_Result">
+    <Property Type="Int32" Name="PartyId" Nullable="false" />
+    <Property Type="String" Name="PartyText" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetExpirationDetail_Result">
+    <Property Type="Int32" Name="VendorId" Nullable="false" />
+    <Property Type="String" Name="VendorName" Nullable="false" MaxLength="64" />
+    <Property Type="Int32" Name="ContactId" Nullable="false" />
+    <Property Type="String" Name="ContactName" Nullable="true" MaxLength="69" />
+    <Property Type="String" Name="Phone1" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Phone2" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="VendorRequirementID" Nullable="false" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="AssignedUser" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="FollowUpDate" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="ExpirationDate" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Requirement" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="IsShowCustomBackground" Nullable="true" />
+    <Property Type="String" Name="CssClass" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="GetInternalContacts_Result">
+    <Property Type="String" Name="BranchId" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="515" />
+    <Property Type="String" Name="UserId" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="GetChildLvlClients_Result">
+    <Property Type="Int32" Name="ClientId" Nullable="false" />
+    <Property Type="String" Name="ClientName" Nullable="true" MaxLength="97" />
+  </ComplexType>
+  <ComplexType Name="GetCompanyGroupCodes_Result">
+    <Property Type="Int32" Name="CompanyGroupCodeId" Nullable="false" />
+    <Property Type="String" Name="CompanyGroupCode" Nullable="false" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="GetParentClients_Result">
+    <Property Type="Int32" Name="ClientId" Nullable="false" />
+    <Property Type="String" Name="ClientName" Nullable="true" MaxLength="97" />
+  </ComplexType>
+  <ComplexType Name="ClientBundlesSelectOE_Result">
+    <Property Type="String" Name="BranchID" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="Branch" Nullable="true" MaxLength="55" />
+    <Property Type="Boolean" Name="Lockout" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ContactsSelectAll_Result">
+    <Property Type="String" Name="ContactType" Nullable="false" MaxLength="32" />
+    <Property Type="Int32" Name="ContactId" Nullable="false" />
+    <Property Type="Int32" Name="XRefID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="147" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="24" />
+    <Property Type="DateTime" Name="LastModDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="Inactive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetClientTransactionTypes_Result">
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="MaritalStatusCodesSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="StatusCode" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="BundleDetails">
+    <Key>
+      <PropertyRef Name="BundleDetailID" />
+    </Key>
+    <Property Name="BundleDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BundleID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="StandardPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="DiscountPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="DiscountPct" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <NavigationProperty Name="Bundles" Relationship="WebApiDataModel.FK_BundleDetails_Bundles" FromRole="BundleDetails" ToRole="Bundles" />
+  </EntityType>
+  <EntityType Name="Bundles">
+    <Key>
+      <PropertyRef Name="BundleID" />
+    </Key>
+    <Property Name="BundleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="BundleDescription" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BundleDetails" Relationship="WebApiDataModel.FK_BundleDetails_Bundles" FromRole="Bundles" ToRole="BundleDetails" />
+    <NavigationProperty Name="ClientBundles" Relationship="WebApiDataModel.FK_ClientBundles_Bundles" FromRole="Bundles" ToRole="ClientBundles" />
+  </EntityType>
+  <EntityType Name="ClientBundles">
+    <Key>
+      <PropertyRef Name="Rowid" />
+    </Key>
+    <Property Name="Rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchId" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="BundleID" Type="Int32" Nullable="false" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Bundles" Relationship="WebApiDataModel.FK_ClientBundles_Bundles" FromRole="ClientBundles" ToRole="Bundles" />
+  </EntityType>
+  <EntityType Name="OrderClientContacts">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="Int32" Nullable="false" />
+    <Property Name="ContactCategory" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ContactType" Type="Int32" Nullable="false" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastModBy" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="LastModDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+      <PropertyRef Name="ItemNo" />
+    </Key>
+    <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="Int32" Nullable="false" />
+    <Property Name="ItemNo" Type="Int32" Nullable="false" />
+    <Property Name="BranchId" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ProcessRowId" Type="Int32" />
+    <Property Name="EnteredDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EnteredBy" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Lockout" Type="Boolean" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="DelayLockout" Type="Boolean" Nullable="false" />
+    <Property Name="GPMLockout" Type="Boolean" Nullable="false" />
+    <Property Name="LockOverride" Type="Boolean" Nullable="false" />
+    <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ClientRefNo" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="CancelledDate" Type="DateTime" Precision="3" />
+    <Property Name="ClientPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ClientAR_RowId" Type="Int32" Nullable="false" />
+    <Property Name="GPM" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="GPMPercentage" Type="Double" />
+    <Property Name="Status" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Assigned" Type="Boolean" Nullable="false" />
+    <Property Name="FollowUpDate" Type="DateTime" Precision="3" />
+    <Property Name="HcopySentDays" Type="Int32" />
+    <Property Name="Contact" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ContactExt" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ClientContactId" Type="Int32" />
+    <Property Name="VendorInstructions" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="InternalInstructions" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentMtd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CODAmtDue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ResponseMtd" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ResponseTo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CompPhotos" Type="Boolean" Nullable="false" />
+    <Property Name="InteriorPhotos" Type="Boolean" Nullable="false" />
+    <Property Name="DigitalPhotos" Type="Boolean" Nullable="false" />
+    <Property Name="HardcopyCnt" Type="Int32" />
+    <Property Name="HardcopyDlvyMtd" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="AcresAbove5" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNo" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="PayOffRecv" Type="Boolean" Nullable="false" />
+    <Property Name="DeedXfer" Type="Boolean" Nullable="false" />
+    <Property Name="YearsLived" Type="Int32" />
+    <Property Name="MtgHolder" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="LegalDesc" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfClosings" Type="Int32" />
+    <Property Name="DocPrepReq" Type="Boolean" Nullable="false" />
+    <Property Name="DocPrepDeed" Type="Boolean" Nullable="false" />
+    <Property Name="DocPrepSub" Type="Boolean" Nullable="false" />
+    <Property Name="DocPrepOther" Type="Boolean" Nullable="false" />
+    <Property Name="ClsAddresses" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DisburseFunds" Type="Boolean" Nullable="false" />
+    <Property Name="Accomodation" Type="Boolean" Nullable="false" />
+    <Property Name="InitClsLoc" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="InitSchedReq" Type="DateTime" Precision="3" />
+    <Property Name="LienPosition" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TaxesInEscrow" Type="Boolean" Nullable="false" />
+    <Property Name="LastDelay_RowId" Type="Int32" />
+    <Property Name="PiggybackCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PiggyBackOverride" Type="Boolean" Nullable="false" />
+    <Property Name="EDIReference" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessTurnTime" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CalendarTurnTime" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ManualAssignEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="MIS_OrderNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MIS_Branch" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="MIS_DeptID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="MIS_TeamID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="MIS_XWingID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="VendorOrderNo" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="ShowOnOrderWIP" Type="Boolean" Nullable="false" />
+    <Property Name="ClientBundleID" Type="Int32" />
+    <Property Name="BundleDetailsID" Type="Int32" />
+    <Property Name="UpgradeDowngrade" Type="Boolean" Nullable="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LoanType" Type="Int32" />
+    <Property Name="InterestRate" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="PiggyLoanType" Type="Int32" />
+    <Property Name="PiggyInterestRate" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="ProposedClsDate" Type="DateTime" Precision="3" />
+    <Property Name="GfeId" Type="Int32" />
+    <Property Name="ttlAltAddress" Type="Boolean" Nullable="false" />
+    <Property Name="AltAddressId" Type="Int32" />
+    <Property Name="InstantTitle" Type="Boolean" />
+    <Property Name="Ordered" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="OrderNotes" Relationship="WebApiDataModel.FK_ON_OD_OrderItem" FromRole="OrderDetails" ToRole="OrderNotes" />
+    <NavigationProperty Name="Addresses" Relationship="WebApiDataModel.FK_OrderDetails_Addresses_AddressId" FromRole="OrderDetails" ToRole="Addresses" />
+  </EntityType>
+  <EntityType Name="OrderNotes">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="Int32" Nullable="false" />
+    <Property Name="ItemNo" Type="Int32" Nullable="false" />
+    <Property Name="Xref_RowId" Type="Int32" />
+    <Property Name="Suffix" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="NoteSource" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EventId" Type="Int32" />
+    <Property Name="NoteType" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="SentTo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Priority" Type="Boolean" Nullable="false" />
+    <Property Name="ClientViewable" Type="Boolean" Nullable="false" />
+    <Property Name="VendorViewable" Type="Boolean" Nullable="false" />
+    <Property Name="BorrowerViewable" Type="Boolean" Nullable="false" />
+    <Property Name="ClientActionReq" Type="Boolean" Nullable="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Inactive" Type="Boolean" />
+    <NavigationProperty Name="OrderDetails" Relationship="WebApiDataModel.FK_ON_OD_OrderItem" FromRole="OrderNotes" ToRole="OrderDetails" />
+  </EntityType>
+  <Association Name="FK_BundleDetails_Bundles">
+    <End Type="WebApiDataModel.Bundles" Role="Bundles" Multiplicity="1" />
+    <End Type="WebApiDataModel.BundleDetails" Role="BundleDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bundles">
+        <PropertyRef Name="BundleID" />
+      </Principal>
+      <Dependent Role="BundleDetails">
+        <PropertyRef Name="BundleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientBundles_Bundles">
+    <End Type="WebApiDataModel.Bundles" Role="Bundles" Multiplicity="1" />
+    <End Type="WebApiDataModel.ClientBundles" Role="ClientBundles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bundles">
+        <PropertyRef Name="BundleID" />
+      </Principal>
+      <Dependent Role="ClientBundles">
+        <PropertyRef Name="BundleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ON_OD_OrderItem">
+    <End Type="WebApiDataModel.OrderDetails" Role="OrderDetails" Multiplicity="1" />
+    <End Type="WebApiDataModel.OrderNotes" Role="OrderNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderDetails">
+        <PropertyRef Name="OrderNo" />
+        <PropertyRef Name="ItemNo" />
+      </Principal>
+      <Dependent Role="OrderNotes">
+        <PropertyRef Name="OrderNo" />
+        <PropertyRef Name="ItemNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="EventTrackingDelaysCausedBySelectAll_Result">
+    <Property Type="Int32" Name="CausedById" Nullable="false" />
+    <Property Type="String" Name="CausedByText" Nullable="false" MaxLength="32" />
+    <Property Type="Int32" Name="Selected" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetAllUserPermissionByPermissionCode_Result">
+    <Property Type="String" Name="UserId" Nullable="false" MaxLength="16" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="PermissionID" Nullable="false" />
+    <Property Type="String" Name="PermissionCode" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="GetAuditLogClassAttibutes_Result">
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="String" Name="ModuleName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="ClassName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="PropertyName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="PropertyDisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="isActive" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="ModifieDate" Nullable="true" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAvailableStatesForCoverageByVendor_Result">
+    <Property Type="String" Name="StateCode" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="StateAbbr" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="32" />
+    <Property Type="Int32" Name="StateExhausted" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetUserPermissionByUserIdAndPermissionCode_Result">
+    <Property Type="String" Name="UserId" Nullable="false" MaxLength="16" />
+    <Property Type="Int32" Name="PermissionID" Nullable="false" />
+    <Property Type="String" Name="PermissionCode" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="GetClientList_Result">
+    <Property Type="Int32" Name="ClientId" Nullable="false" />
+    <Property Type="String" Name="ClientName" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Alias" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="NameAliasCalc" Nullable="true" MaxLength="133" />
+    <Property Type="String" Name="ClientType" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="16" />
+    <Property Type="Int32" Name="MainAddressId" Nullable="true" />
+    <Property Type="Boolean" Name="SvcAppraisals" Nullable="false" />
+    <Property Type="Boolean" Name="SvcTitles" Nullable="false" />
+    <Property Type="Boolean" Name="SvcClosings" Nullable="false" />
+    <Property Type="Boolean" Name="SvcOther" Nullable="false" />
+    <Property Type="Boolean" Name="Inactive" Nullable="false" />
+    <Property Type="DateTime" Name="InactiveDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="OutOfBusiness" Nullable="false" />
+    <Property Type="Boolean" Name="BoughtByAnother" Nullable="false" />
+    <Property Type="String" Name="NewLenderName" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="TimeZone" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="PaymentTerms" Nullable="true" MaxLength="16" />
+    <Property Type="Decimal" Name="PurchaseTotalDue" Nullable="false" Precision="19" />
+    <Property Type="String" Name="CollectionStatus" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="BillingMethod" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="StatementDelivery" Nullable="true" MaxLength="24" />
+    <Property Type="DateTime" Name="LastPurchaseDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="LastPurchaseAmount" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="YTDPurchases" Nullable="false" Precision="19" />
+    <Property Type="String" Name="PurchaseCheckNo" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="PurchaseInvoiceNo" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="LastPaymentDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="LastPaymentAmount" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="YTDPayments" Nullable="false" Precision="19" />
+    <Property Type="String" Name="PaymentCheckNo" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="PaymentInvoiceNo" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="WebURL" Nullable="true" MaxLength="64" />
+    <Property Type="Boolean" Name="RoleLender" Nullable="false" />
+    <Property Type="Boolean" Name="RoleBroker" Nullable="false" />
+    <Property Type="Boolean" Name="RoleOther" Nullable="false" />
+    <Property Type="Boolean" Name="ECommerce" Nullable="false" />
+    <Property Type="Boolean" Name="AppFull" Nullable="false" />
+    <Property Type="Boolean" Name="AppOnTheFly" Nullable="false" />
+    <Property Type="Boolean" Name="AppWorkFlow" Nullable="false" />
+    <Property Type="Boolean" Name="TtlFull" Nullable="false" />
+    <Property Type="Boolean" Name="TtlOnTheFly" Nullable="false" />
+    <Property Type="Boolean" Name="TtlWorkFlow" Nullable="false" />
+    <Property Type="Boolean" Name="ClsFull" Nullable="false" />
+    <Property Type="Boolean" Name="ClsOnTheFly" Nullable="false" />
+    <Property Type="Boolean" Name="ClsWorkFlow" Nullable="false" />
+    <Property Type="String" Name="MIS_BranchId" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="MIS_Dept" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="MIS_ClientId" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="DefAppProcId" Nullable="true" />
+    <Property Type="Int32" Name="DefTtlProcId" Nullable="true" />
+    <Property Type="Int32" Name="DefClsProcId" Nullable="true" />
+    <Property Type="Int32" Name="DefOthProcId" Nullable="true" />
+    <Property Type="Boolean" Name="TransferredToOracle" Nullable="false" />
+    <Property Type="Boolean" Name="AutoAssign" Nullable="false" />
+    <Property Type="Int32" Name="ParentId" Nullable="true" />
+    <Property Type="DateTime" Name="LastModDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="LastModBy" Nullable="false" MaxLength="16" />
+    <Property Type="Binary" Name="SysTimeStamp" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="TitleEscrowId" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="TitleEscrowTemplate" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="DefaultHUDTemplateID" Nullable="true" />
+    <Property Type="Boolean" Name="IsIsolated" Nullable="false" />
+    <Property Type="Decimal" Name="PreviousYearPurchases" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="PreviousYearPayments" Nullable="true" Precision="19" />
+    <Property Type="Boolean" Name="AllowOnlineUserRegistration" Nullable="true" />
+    <Property Type="Int32" Name="UserRegistrationRoleId" Nullable="true" />
+    <Property Type="Int32" Name="PreferredPasswordLength" Nullable="true" />
+    <Property Type="Int32" Name="MinimumNumericCharacters" Nullable="true" />
+    <Property Type="Int32" Name="MinimumSymbolCharacters" Nullable="true" />
+    <Property Type="Int32" Name="MinimumSymbolOrNumericCharacters" Nullable="true" />
+    <Property Type="Boolean" Name="RequiresUpperAndLowerCaseCharacters" Nullable="false" />
+    <Property Type="Int32" Name="FailedLoginAttemptsAllowed" Nullable="true" />
+    <Property Type="Int32" Name="PasswordExpireDays" Nullable="true" />
+    <Property Type="String" Name="RptTypeSchedConfirmation" Nullable="false" MaxLength="128" />
+    <Property Type="Boolean" Name="FlgReportToAccounting" Nullable="true" />
+    <Property Type="String" Name="PageTheme" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DefaultSubject" Nullable="true" MaxLength="1024" />
+    <Property Type="String" Name="PartyId" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IntegrationProvider" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IntegrationIsPrimary" Nullable="true" />
+    <Property Type="DateTime" Name="OpenTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CloseTime" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="InheritTimesFromParent" Nullable="true" />
+    <Property Type="String" Name="CompanyGroupCode" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="LOB" Nullable="true" />
+    <Property Type="Int32" Name="Sage_Key" Nullable="true" />
+    <Property Type="Boolean" Name="AutoClear" Nullable="false" />
+    <Property Type="Boolean" Name="AutoClearEntireOrder" Nullable="false" />
+    <Property Type="Boolean" Name="AutoClearFamilyPayoffOnly" Nullable="false" />
+    <Property Type="Boolean" Name="AutoClearanceNote" Nullable="false" />
+    <Property Type="String" Name="SageSegmentCode" Nullable="true" MaxLength="4" />
+    <Property Type="Boolean" Name="PlatinumLoan" Nullable="true" />
+    <Property Type="Int32" Name="SchedulingSLA" Nullable="false" />
+    <Property Type="Boolean" Name="IntegratedScheduling" Nullable="true" />
+    <Property Type="Boolean" Name="IsPlatinumClient" Nullable="true" />
+    <Property Type="Int32" Name="isModulePermission" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ContractOrderSearch_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="Int32" Name="ItemNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="OrderStatus" Nullable="false" MaxLength="22" />
+    <Property Type="String" Name="OrderReceived" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="OrderReceivedImage" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="TitleComplete" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TitleCompleteImage" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="CleartoClose" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CleartoCloseImage" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PostClosetoComplete" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PostClosetoCompleteImage" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Completed" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CompletedImage" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="ClientId" Nullable="false" />
+    <Property Type="String" Name="BorrowerName" Nullable="true" MaxLength="303" />
+    <Property Type="String" Name="LoanNo" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="OrderedBy" Nullable="false" MaxLength="16" />
+    <Property Type="DateTime" Name="OpenDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="4096" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="CellPhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Zip" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="County" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="78" />
+    <Property Type="DateTime" Name="CloseDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ClosedBy" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="CPGetClientList_Result">
+    <Property Type="Int32" Name="ClientId" Nullable="false" />
+    <Property Type="String" Name="ClientName" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Alias" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="NameAliasCalc" Nullable="true" MaxLength="133" />
+    <Property Type="String" Name="ClientType" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="16" />
+    <Property Type="Int32" Name="MainAddressId" Nullable="true" />
+    <Property Type="Boolean" Name="SvcAppraisals" Nullable="false" />
+    <Property Type="Boolean" Name="SvcTitles" Nullable="false" />
+    <Property Type="Boolean" Name="SvcClosings" Nullable="false" />
+    <Property Type="Boolean" Name="SvcOther" Nullable="false" />
+    <Property Type="Boolean" Name="Inactive" Nullable="false" />
+    <Property Type="DateTime" Name="InactiveDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="OutOfBusiness" Nullable="false" />
+    <Property Type="Boolean" Name="BoughtByAnother" Nullable="false" />
+    <Property Type="String" Name="NewLenderName" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="TimeZone" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="PaymentTerms" Nullable="true" MaxLength="16" />
+    <Property Type="Decimal" Name="PurchaseTotalDue" Nullable="false" Precision="19" />
+    <Property Type="String" Name="CollectionStatus" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="BillingMethod" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="StatementDelivery" Nullable="true" MaxLength="24" />
+    <Property Type="DateTime" Name="LastPurchaseDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="LastPurchaseAmount" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="YTDPurchases" Nullable="false" Precision="19" />
+    <Property Type="String" Name="PurchaseCheckNo" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="PurchaseInvoiceNo" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="LastPaymentDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="LastPaymentAmount" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="YTDPayments" Nullable="false" Precision="19" />
+    <Property Type="String" Name="PaymentCheckNo" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="PaymentInvoiceNo" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="WebURL" Nullable="true" MaxLength="64" />
+    <Property Type="Boolean" Name="RoleLender" Nullable="false" />
+    <Property Type="Boolean" Name="RoleBroker" Nullable="false" />
+    <Property Type="Boolean" Name="RoleOther" Nullable="false" />
+    <Property Type="Boolean" Name="ECommerce" Nullable="false" />
+    <Property Type="Boolean" Name="AppFull" Nullable="false" />
+    <Property Type="Boolean" Name="AppOnTheFly" Nullable="false" />
+    <Property Type="Boolean" Name="AppWorkFlow" Nullable="false" />
+    <Property Type="Boolean" Name="TtlFull" Nullable="false" />
+    <Property Type="Boolean" Name="TtlOnTheFly" Nullable="false" />
+    <Property Type="Boolean" Name="TtlWorkFlow" Nullable="false" />
+    <Property Type="Boolean" Name="ClsFull" Nullable="false" />
+    <Property Type="Boolean" Name="ClsOnTheFly" Nullable="false" />
+    <Property Type="Boolean" Name="ClsWorkFlow" Nullable="false" />
+    <Property Type="String" Name="MIS_BranchId" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="MIS_Dept" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="MIS_ClientId" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="DefAppProcId" Nullable="true" />
+    <Property Type="Int32" Name="DefTtlProcId" Nullable="true" />
+    <Property Type="Int32" Name="DefClsProcId" Nullable="true" />
+    <Property Type="Int32" Name="DefOthProcId" Nullable="true" />
+    <Property Type="Boolean" Name="TransferredToOracle" Nullable="false" />
+    <Property Type="Boolean" Name="AutoAssign" Nullable="false" />
+    <Property Type="Int32" Name="ParentId" Nullable="true" />
+    <Property Type="DateTime" Name="LastModDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="LastModBy" Nullable="false" MaxLength="16" />
+    <Property Type="Binary" Name="SysTimeStamp" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="TitleEscrowId" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="TitleEscrowTemplate" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="DefaultHUDTemplateID" Nullable="true" />
+    <Property Type="Boolean" Name="IsIsolated" Nullable="false" />
+    <Property Type="Decimal" Name="PreviousYearPurchases" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="PreviousYearPayments" Nullable="true" Precision="19" />
+    <Property Type="Boolean" Name="AllowOnlineUserRegistration" Nullable="true" />
+    <Property Type="Int32" Name="UserRegistrationRoleId" Nullable="true" />
+    <Property Type="Int32" Name="PreferredPasswordLength" Nullable="true" />
+    <Property Type="Int32" Name="MinimumNumericCharacters" Nullable="true" />
+    <Property Type="Int32" Name="MinimumSymbolCharacters" Nullable="true" />
+    <Property Type="Int32" Name="MinimumSymbolOrNumericCharacters" Nullable="true" />
+    <Property Type="Boolean" Name="RequiresUpperAndLowerCaseCharacters" Nullable="false" />
+    <Property Type="Int32" Name="FailedLoginAttemptsAllowed" Nullable="true" />
+    <Property Type="Int32" Name="PasswordExpireDays" Nullable="true" />
+    <Property Type="String" Name="RptTypeSchedConfirmation" Nullable="false" MaxLength="128" />
+    <Property Type="Boolean" Name="FlgReportToAccounting" Nullable="true" />
+    <Property Type="String" Name="PageTheme" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DefaultSubject" Nullable="true" MaxLength="1024" />
+    <Property Type="String" Name="PartyId" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IntegrationProvider" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IntegrationIsPrimary" Nullable="true" />
+    <Property Type="DateTime" Name="OpenTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CloseTime" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="InheritTimesFromParent" Nullable="true" />
+    <Property Type="String" Name="CompanyGroupCode" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="LOB" Nullable="true" />
+    <Property Type="Int32" Name="Sage_Key" Nullable="true" />
+    <Property Type="Boolean" Name="AutoClear" Nullable="false" />
+    <Property Type="Boolean" Name="AutoClearEntireOrder" Nullable="false" />
+    <Property Type="Boolean" Name="AutoClearFamilyPayoffOnly" Nullable="false" />
+    <Property Type="Boolean" Name="AutoClearanceNote" Nullable="false" />
+    <Property Type="String" Name="SageSegmentCode" Nullable="true" MaxLength="4" />
+    <Property Type="Boolean" Name="PlatinumLoan" Nullable="true" />
+    <Property Type="Int32" Name="SchedulingSLA" Nullable="false" />
+    <Property Type="Boolean" Name="IntegratedScheduling" Nullable="true" />
+    <Property Type="Boolean" Name="IsPlatinumClient" Nullable="true" />
+    <Property Type="Int32" Name="isModulePermission" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="XRefId" Type="Int32" Nullable="false" />
+    <Property Name="Suffix" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="AddressType" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Line1" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Line2" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CountyCode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ZipPlusFour" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Attention" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="AutoAttendant" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="cdfAddressID" Type="Int32" />
+    <Property Name="Cell" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OrderDetails" Relationship="WebApiDataModel.FK_OrderDetails_Addresses_AddressId" FromRole="Addresses" ToRole="OrderDetails" />
+  </EntityType>
+  <Association Name="FK_OrderDetails_Addresses_AddressId">
+    <End Type="WebApiDataModel.Addresses" Role="Addresses" Multiplicity="0..1" />
+    <End Type="WebApiDataModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="AltAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="RowID" />
+    </Key>
+    <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID1" Type="Int32" Nullable="false" />
+    <Property Name="ID2" Type="Int32" />
+    <Property Name="DocType" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DocPath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DiscRefNo" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="EventId" Type="Int32" />
+    <Property Name="ClientViewable" Type="Boolean" Nullable="false" />
+    <Property Name="VendorViewable" Type="Boolean" Nullable="false" />
+    <Property Name="BorrowerViewable" Type="Boolean" Nullable="false" />
+    <Property Name="AccessCounter" Type="Int32" Nullable="false" />
+    <Property Name="DocSource" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DocTypeID" Type="Int32" />
+    <Property Name="EnteredBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="EnteredDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastAccessBy" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="LastAccessDate" Type="DateTime" Precision="3" />
+    <Property Name="DocumentFolder" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="IsLocked" Type="Boolean" />
+    <Property Name="LockedDate" Type="DateTime" Precision="3" />
+    <Property Name="LockedBy" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="GUID" Type="Guid" />
+    <Property Name="uidHUDLine" Type="Guid" />
+    <Property Name="uidDisbursement" Type="Guid" />
+    <Property Name="S3KeyName" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="S3eTag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TCD_RowId" Type="Int32" />
+    <Property Name="DisbursementID" Type="Int32" />
+    <Property Name="UploadfromWeb" Type="Boolean" />
+    <Property Name="UploadBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VendorId" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="CPGetCOOPMileStone_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="DateTime" Name="Opened" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="LienSearchExists" Nullable="false" />
+    <Property Type="DateTime" Name="LienSearch" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC1RequestedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC1Requested" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC1RecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC1Recorded" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC3RequestedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC3Requested" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC3RecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC3Recorded" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CPGetPurchaseMileStone_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="DateTime" Name="Opened" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DepartmentalCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="DepartmentalComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleClearedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleCleared" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleBillUpdatedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleBillUpdated" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DocumentRecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="DocumentRecorded" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="FinalPolicyIssuedExists" Nullable="false" />
+    <Property Type="DateTime" Name="FinalPolicyIssued" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CPGetTitleMileStone_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="DateTime" Name="Opened" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DepartmentalCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="DepartmentalComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleClearedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleCleared" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleBillUpdatedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleBillUpdated" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DocumentRecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="DocumentRecorded" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="FinalPolicyIssuedExists" Nullable="false" />
+    <Property Type="DateTime" Name="FinalPolicyIssued" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CPGetCOOPCheckList_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="DateTime" Name="Opened" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="LienSearchExists" Nullable="false" />
+    <Property Type="DateTime" Name="LienSearch" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ContinUpdateExists" Nullable="false" />
+    <Property Type="DateTime" Name="ContinUpdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC1RequestedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC1Requested" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC1RecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC1Recorded" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC3RequestedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC3Requested" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UCC3RecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="UCC3Recorded" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CPGetPurchaseCheckList_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="DateTime" Name="Opened" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DepartmentalCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="DepartmentalComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleClearedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleCleared" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ClearedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleUpdateExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleUpdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleTaxUpdateExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleTaxUpdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleBillUpdatedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleBillUpdated" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ScheduledClosingExists" Nullable="false" />
+    <Property Type="DateTime" Name="ScheduledClosing" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ScheduledClosingEnteredDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DocumentRecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="DocumentRecorded" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="FinalPolicyIssuedExists" Nullable="false" />
+    <Property Type="DateTime" Name="FinalPolicyIssued" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CPGetTitleCheckList_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="DateTime" Name="Opened" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DepartmentalCompleteExists" Nullable="false" />
+    <Property Type="DateTime" Name="DepartmentalComplete" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CollateralDocumentExists" Nullable="false" />
+    <Property Type="DateTime" Name="CollateralDocument" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="AttorneyCleartoCloseEnable" Nullable="true" />
+    <Property Type="DateTime" Name="AttorneyCleartoCloseDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleClearedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleCleared" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ClearedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleBillUpdatedExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleBillUpdated" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DocumentRecordedExists" Nullable="false" />
+    <Property Type="DateTime" Name="DocumentRecorded" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="FinalPolicyIssuedExists" Nullable="false" />
+    <Property Type="DateTime" Name="FinalPolicyIssued" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TitleUpdateExists" Nullable="false" />
+    <Property Type="DateTime" Name="TitleUpdate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetClientDetails_Result">
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MyRole" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Contact" Nullable="true" MaxLength="24" />
+  </ComplexType>
+  <ComplexType Name="GetCompanyDetails_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Line1" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Line2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Zip" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MainContact" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="CPGetLoanPolicyDetails_Result">
+    <Property Type="DateTime" Name="EffectiveDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LoanPolicyNo" Nullable="true" MaxLength="24" />
+  </ComplexType>
+  <ComplexType Name="CPGetRecordingDetails_Result">
+    <Property Type="String" Name="DocumentType" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="RecordingDetails" Nullable="true" MaxLength="76" />
+  </ComplexType>
+  <ComplexType Name="CPGetLeinsDetail_Result">
+    <Property Type="String" Name="Plaintiff" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="Defendant" Nullable="true" MaxLength="256" />
+    <Property Type="DateTime" Name="RecordedDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="LienAmount" Nullable="false" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="CPGetTitleDocumentsSelectAll_Result">
+    <Property Type="Int32" Name="ID1" Nullable="false" />
+    <Property Type="Int32" Name="ID2" Nullable="true" />
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="String" Name="DocSource" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="DocumentFolder" Nullable="false" MaxLength="22" />
+    <Property Type="String" Name="DocPath" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DocTypeId" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="614" />
+    <Property Type="String" Name="FullDescription" Nullable="true" MaxLength="544" />
+    <Property Type="String" Name="DocDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="RawDescription" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="EnteredDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="ClientViewable" Nullable="false" />
+    <Property Type="Boolean" Name="VendorViewable" Nullable="false" />
+    <Property Type="Boolean" Name="BorrowerViewable" Nullable="false" />
+    <Property Type="Int32" Name="EventId" Nullable="true" />
+    <Property Type="String" Name="ProductCategory" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="BranchID" Nullable="false" MaxLength="1" />
+    <Property Type="Boolean" Name="IsLocked" Nullable="true" />
+    <Property Type="String" Name="DocType" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="Ordered" Nullable="false" />
+    <Property Type="Guid" Name="uidHUDLine" Nullable="true" />
+    <Property Type="Guid" Name="uidDisbursement" Nullable="true" />
+    <Property Type="Int32" Name="DisbursementID" Nullable="true" />
+    <Property Type="Boolean" Name="UploadfromWeb" Nullable="true" />
+    <Property Type="String" Name="UploadBy" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="CPGetTitleOrderDetails_Result">
+    <Property Type="String" Name="TitleOrderDate" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TitleExpectedDate" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TitleCompletionDate" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TitleEffectiveDate" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SignatureRequirement" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProposedInsured" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="NumberofOpenMortgages" Nullable="true" />
+    <Property Type="Int32" Name="NumberofOpenJudgments" Nullable="true" />
+    <Property Type="String" Name="Emails" Nullable="false" />
+    <Property Type="Int32" Name="IsTitleBillRequestCompleteOrCancel" Nullable="true" />
+    <Property Type="Int32" Name="ItemNo" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Borrowers">
+    <Key>
+      <PropertyRef Name="BorrowerId" />
+    </Key>
+    <Property Name="BorrowerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="SequenceNo" Type="Int32" Nullable="false" />
+    <Property Name="EnteredDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EnteredBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Suffix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="SSN" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="HomePhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="OtherPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="IntegrationUID" Type="Guid" />
+    <Property Name="FullName" Type="String" MaxLength="303" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="FullName2" Type="String" MaxLength="303" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="MaritalStatusId" Type="Int32" />
+    <Property Name="CDFPartyID" Type="Int32" />
+    <NavigationProperty Name="OrderMaster" Relationship="WebApiDataModel.FK_BRWR_OM_OrderNo" FromRole="Borrowers" ToRole="OrderMaster" />
+  </EntityType>
+  <ComplexType Name="CPGetPreCloseDetails_Result">
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <Property Type="DateTime" Name="ScheduledCloseDate" Nullable="true" />
+    <Property Type="String" Name="CloserName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="CPGetPreCloseDocuments_Result">
+    <Property Type="Int32" Name="ID1" Nullable="false" />
+    <Property Type="Int32" Name="ID2" Nullable="true" />
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="String" Name="DocSource" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="DocumentFolder" Nullable="false" MaxLength="21" />
+    <Property Type="String" Name="DocPath" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DocTypeId" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="614" />
+    <Property Type="String" Name="FullDescription" Nullable="true" MaxLength="544" />
+    <Property Type="String" Name="DocDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="RawDescription" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="EnteredDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="ClientViewable" Nullable="false" />
+    <Property Type="Boolean" Name="VendorViewable" Nullable="false" />
+    <Property Type="Boolean" Name="BorrowerViewable" Nullable="false" />
+    <Property Type="Int32" Name="EventId" Nullable="true" />
+    <Property Type="String" Name="ProductCategory" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="BranchID" Nullable="false" MaxLength="1" />
+    <Property Type="Boolean" Name="IsLocked" Nullable="true" />
+    <Property Type="String" Name="DocType" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="Ordered" Nullable="false" />
+    <Property Type="Guid" Name="uidHUDLine" Nullable="true" />
+    <Property Type="Guid" Name="uidDisbursement" Nullable="true" />
+    <Property Type="Int32" Name="DisbursementID" Nullable="true" />
+    <Property Type="Boolean" Name="UploadfromWeb" Nullable="true" />
+    <Property Type="String" Name="UploadBy" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="CPGetPostCloseDocuments_Result">
+    <Property Type="Int32" Name="ID1" Nullable="false" />
+    <Property Type="Int32" Name="ID2" Nullable="true" />
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="String" Name="DocSource" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="DocumentFolder" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="DocPath" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DocTypeId" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="655" />
+    <Property Type="String" Name="FullDescription" Nullable="true" MaxLength="544" />
+    <Property Type="String" Name="DocDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="RawDescription" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="EnteredDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="ClientViewable" Nullable="false" />
+    <Property Type="Boolean" Name="VendorViewable" Nullable="false" />
+    <Property Type="Boolean" Name="BorrowerViewable" Nullable="false" />
+    <Property Type="Int32" Name="EventId" Nullable="true" />
+    <Property Type="String" Name="ProductCategory" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="BranchID" Nullable="false" MaxLength="4" />
+    <Property Type="Boolean" Name="IsLocked" Nullable="true" />
+    <Property Type="String" Name="DocType" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="Ordered" Nullable="false" />
+    <Property Type="Guid" Name="uidHUDLine" Nullable="true" />
+    <Property Type="Guid" Name="uidDisbursement" Nullable="true" />
+    <Property Type="Int32" Name="DisbursementID" Nullable="true" />
+    <Property Type="Boolean" Name="UploadfromWeb" Nullable="true" />
+    <Property Type="String" Name="UploadBy" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DocumentType" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="CPGetPermissionsAgainstRole_Result">
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="frmName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CtrlName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CtrlType" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsVisible" Nullable="false" />
+    <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+    <Property Type="String" Name="Parent" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TCDetailsSelectAll_Result">
+    <Property Type="String" Name="ClearingType" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="ClearingTypeName" Nullable="true" MaxLength="83" />
+    <Property Type="Int32" Name="DML_RowId" Nullable="false" />
+    <Property Type="String" Name="Name1" Nullable="true" MaxLength="290" />
+    <Property Type="Int32" Name="Paragraph_RowId" Nullable="false" />
+    <Property Type="Int32" Name="EL_RowId" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="17" />
+    <Property Type="String" Name="AttorneyApprovalStatus" Nullable="false" MaxLength="41" />
+    <Property Type="Boolean" Name="DisplayAttorneyStatusColumn" Nullable="true" />
+    <Property Type="String" Name="Team" Nullable="true" MaxLength="35" />
+    <Property Type="Boolean" Name="Cleared" Nullable="false" />
+    <Property Type="String" Name="ClearedBy" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="ClearedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TCD_RowId" Nullable="false" />
+    <Property Type="DateTime" Name="FollowUpDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="FollowUpAction" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="DueDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ExpectedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="RequestsTotal" Nullable="true" />
+    <Property Type="Boolean" Name="ReqApproval" Nullable="false" />
+    <Property Type="String" Name="RequestTypes" Nullable="true" />
+    <Property Type="String" Name="RequestOpen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TCMethod" Nullable="true" MaxLength="286" />
+    <Property Type="Int32" Name="SequenceNo" Nullable="true" />
+    <Property Type="Int32" Name="ExcludeAttorney" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="WebRoles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PartyType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="CPGetTCCleartoCloseDetail_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="DateTime" Name="EnteredDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="Recv" Nullable="false" />
+    <Property Type="String" Name="RecvBy" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="RecvDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="AssignedTo" Nullable="true" MaxLength="16" />
+    <Property Type="Boolean" Name="Cleared" Nullable="false" />
+    <Property Type="String" Name="ClearedBy" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="ClearedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="OnHold" Nullable="false" />
+    <Property Type="String" Name="OnHoldBy" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="OnHoldDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Cancelled" Nullable="false" />
+    <Property Type="String" Name="CancelledBy" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="CancelledDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NotifyMethod" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FaxName" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="ContactName" Nullable="true" MaxLength="48" />
+    <Property Type="DateTime" Name="RequestedClsDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ItemNoRef" Nullable="false" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="256" />
+    <Property Type="DateTime" Name="LastModDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="LastModBy" Nullable="false" MaxLength="16" />
+    <Property Type="Boolean" Name="ShowOnWIP" Nullable="false" />
+    <Property Type="String" Name="BranchID" Nullable="true" MaxLength="4" />
+    <Property Type="Binary" Name="SysTimeStamp" Nullable="false" MaxLength="8" />
+    <Property Type="Boolean" Name="ReqApproval" Nullable="false" />
+    <Property Type="String" Name="ReqApprovalBy" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="ReqApprovalDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="DeedRequired" Nullable="false" />
+    <Property Type="Boolean" Name="QuickClear" Nullable="true" />
+    <Property Type="Boolean" Name="IsVendorPayableonHUD" Nullable="false" />
+    <Property Type="Boolean" Name="Rejected" Nullable="false" />
+    <Property Type="String" Name="RejectedBy" Nullable="true" MaxLength="16" />
+    <Property Type="DateTime" Name="RejectedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="RejectedReason" Nullable="true" MaxLength="64" />
+    <Property Type="Int32" Name="AttorneyStatus" Nullable="true" />
+    <Property Type="String" Name="AttorneyRejectedReason" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="AdditionalText" Nullable="true" />
+    <Property Type="DateTime" Name="AttorneyStatusDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CPGetSecurityFormControls_Result">
+    <Property Type="Int32" Name="SecurityFormControlId" Nullable="false" />
+    <Property Type="Int32" Name="SecurityControlId" Nullable="false" />
+    <Property Type="Int32" Name="SecurityFormId" Nullable="false" />
+    <Property Type="String" Name="SecurityFormControlName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SecyrityControlType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SecurityControlDesc" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SecurityFormName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SecurityFormDesc" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ParentId" Nullable="true" />
+    <Property Type="String" Name="ParentName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="CPGetDownloadDocumentList_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="ImagingPath" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ImagingURL" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="OrderDetailsItemsSelect_Result">
+    <Property Type="String" Name="AdditionalInfo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ItemNo" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="ProductCategory" Nullable="false" MaxLength="12" />
+    <Property Type="Int32" Name="LoanCategory" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="BranchId" Nullable="false" MaxLength="4" />
+    <Property Type="Boolean" Name="Lockout" Nullable="false" />
+    <Property Type="Boolean" Name="Recording" Nullable="false" />
+    <Property Type="Boolean" Name="RecordingRequired" Nullable="false" />
+    <Property Type="Boolean" Name="Alta" Nullable="false" />
+    <Property Type="String" Name="ClientRefNo" Nullable="true" MaxLength="64" />
+    <Property Type="Boolean" Name="COD" Nullable="false" />
+    <Property Type="Boolean" Name="HasPiggyBack" Nullable="true" />
+    <Property Type="Int32" Name="ClientBundleID" Nullable="true" />
+    <Property Type="String" Name="ItemDescription" Nullable="true" MaxLength="77" />
+    <Property Type="String" Name="DisburseDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Processor" Nullable="true" MaxLength="114" />
+    <Property Type="String" Name="AssignedTitleOps" Nullable="false" MaxLength="35" />
+    <Property Type="String" Name="AssignedClosing" Nullable="false" MaxLength="35" />
+    <Property Type="String" Name="AssignedTitleRec" Nullable="false" MaxLength="35" />
+    <Property Type="String" Name="AssignedTyping" Nullable="false" MaxLength="35" />
+    <Property Type="String" Name="AssignedTC" Nullable="false" MaxLength="35" />
+    <Property Type="String" Name="AssignedTaxes" Nullable="false" MaxLength="35" />
+    <Property Type="String" Name="AssignedAppraisal" Nullable="false" MaxLength="35" />
+    <Property Type="Boolean" Name="isClosingRequestIndicator" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="CPOrderSummary_Result">
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="303" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="CellPhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Zip" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="County" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="78" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="4096" />
+    <Property Type="Decimal" Name="LoanAmount" Nullable="true" Precision="19" />
+    <Property Type="String" Name="ProviderContact" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="CPGetOrderHeader_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="LoanNo" Nullable="false" MaxLength="64" />
+    <Property Type="Decimal" Name="LoanAmount" Nullable="false" Precision="19" />
+    <Property Type="String" Name="OrderStatus" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="121" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="303" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="CellPhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="4096" />
+    <Property Type="String" Name="ProviderContact" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="CPGetAccountProfile_Result">
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MyRole" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Contact" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Line1" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Line2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Zip" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MainContact" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="CPGetOrderDetails_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="OrderSource" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="LoanNo" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="PropertyType" Nullable="true" MaxLength="64" />
+    <Property Type="Boolean" Name="NonOwnerOccupied" Nullable="false" />
+    <Property Type="Int32" Name="NumberofUnits" Nullable="true" />
+    <Property Type="DateTime" Name="PropertyAcquiredDate" Nullable="true" />
+    <Property Type="Int32" Name="LoanCategory" Nullable="true" />
+    <Property Type="Decimal" Name="LoanAmount" Nullable="true" Precision="19" />
+    <Property Type="String" Name="LoanRate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LoanProductType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LoanTerm" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LoanPurpose" Nullable="true" MaxLength="24" />
+    <Property Type="DateTime" Name="RateLockDate" Nullable="true" />
+    <Property Type="DateTime" Name="AnticipatedSettlementDate" Nullable="true" />
+    <Property Type="String" Name="EnteredBy" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="CPGetOrderPartyDetails_Result">
+    <Property Type="Int32" Name="BorrowerId" Nullable="false" />
+    <Property Type="Int32" Name="OrderNo" Nullable="true" />
+    <Property Type="Int32" Name="SequenceNo" Nullable="false" />
+    <Property Type="DateTime" Name="EnteredDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="EnteredBy" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SSN" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="CellPhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="LastModBy" Nullable="false" MaxLength="16" />
+    <Property Type="DateTime" Name="LastModDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="303" />
+    <Property Type="Int32" Name="MaritalStatusId" Nullable="true" />
+    <Property Type="String" Name="MaritalStatusText" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="CPSearchOrderNotesByOrderNo_Result">
+    <Property Type="Int32" Name="NoteId" Nullable="false" />
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="Int32" Name="ItemNo" Nullable="false" />
+    <Property Type="Int32" Name="Xref_RowId" Nullable="true" />
+    <Property Type="String" Name="Suffix" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="NoteSource" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="EventId" Nullable="true" />
+    <Property Type="String" Name="NoteType" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="4096" />
+    <Property Type="String" Name="SentTo" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="Priority" Nullable="false" />
+    <Property Type="Boolean" Name="ClientViewable" Nullable="false" />
+    <Property Type="Boolean" Name="VendorViewable" Nullable="false" />
+    <Property Type="Boolean" Name="BorrowerViewable" Nullable="false" />
+    <Property Type="Boolean" Name="ClientActionReq" Nullable="false" />
+    <Property Type="DateTime" Name="LastModDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="LastModBy" Nullable="false" MaxLength="255" />
+    <Property Type="Binary" Name="SysTimeStamp" Nullable="false" MaxLength="8" />
+    <Property Type="Boolean" Name="Inactive" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateAbbr" />
+    </Key>
+    <Property Name="StateCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="StateAbbr" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="StateName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityInstrument" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="RecordingName1" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="RecordingName2" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="TT_AppInterior" Type="Int32" Nullable="false" />
+    <Property Name="TT_AppExterior" Type="Int32" Nullable="false" />
+    <Property Name="TT_PropertyRep" Type="Int32" Nullable="false" />
+    <Property Name="TT_TitleCommit" Type="Int32" Nullable="false" />
+    <Property Name="TT_FinalPolicy" Type="Int32" Nullable="false" />
+    <Property Name="RiskRate" Type="Boolean" Nullable="false" />
+    <Property Name="AllInclusive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLicensingByState" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyLogo" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="TitleEscrowTemplate" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="WireBankName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WireBankAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WireABA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WireAccount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WireAccountName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsAttorneyClosingState" Type="Boolean" Nullable="false" />
+    <Property Name="DefaultTaxType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultTaxPeriod" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="IsRateCalcEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AdditionalInformation" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="rcRefiPrevAmtsNeeded" Type="Boolean" Nullable="false" />
+    <Property Name="rcRefiOrigAmtsNeeded" Type="Boolean" Nullable="false" />
+    <Property Name="EstimatedRecording" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="StateMessages" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Marital" Type="Boolean" Nullable="false" />
+    <Property Name="IsWorkshare" Type="Boolean" />
+    <Property Name="IsQuickClose" Type="Boolean" />
+    <Property Name="TimeZoneOffSet" Type="Int32" />
+    <Property Name="RequiredRecToDisb" Type="Boolean" />
+    <Property Name="AttorneyDisburseState" Type="Boolean" />
+    <Property Name="InternalDeedPrep" Type="Boolean" Nullable="false" />
+    <Property Name="IsHUDSignatureRequired" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="HUDSignatureBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="MCDeedPrep" Type="Boolean" />
+    <Property Name="BeingClause" Type="Boolean" Nullable="false" />
+    <Property Name="StateSpecificInstructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TimezoneOffSetDST" Type="Int32" />
+    <Property Name="isAttorneyDisburseState" Type="Boolean" />
+    <Property Name="AutoVendorId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Counties" Relationship="WebApiDataModel.FK_Counties_State" FromRole="States" ToRole="Counties" />
+    <NavigationProperty Name="OrderMaster" Relationship="WebApiDataModel.FK_OrderMaster_State" FromRole="States" ToRole="OrderMaster" />
+    <Property Name="IsVendorDisburseState" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_Counties_State">
+    <End Type="WebApiDataModel.States" Role="States" Multiplicity="1" />
+    <End Type="WebApiDataModel.Counties" Role="Counties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateAbbr" />
+      </Principal>
+      <Dependent Role="Counties">
+        <PropertyRef Name="StateAbbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrderMaster">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OE_RowId" Type="Int32" Nullable="false" />
+    <Property Name="EnteredDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EnteredBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="EDIReferenceNo" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="OrderSource" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="OrderOrigination" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="HaveAddress" Type="Boolean" Nullable="false" />
+    <Property Name="HaveZip" Type="Boolean" Nullable="false" />
+    <Property Name="StreetNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="StreetName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="StreetName2" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="StreetType" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="78" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="City" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="LoanNo" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="LoanAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="LoanType" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Piggyback" Type="Boolean" Nullable="false" />
+    <Property Name="PiggybackLoanAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SalesPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="EstimatedValue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ExternalLender" Type="Boolean" Nullable="false" />
+    <Property Name="LenderId" Type="Int32" />
+    <Property Name="NonOwnerOccupied" Type="Boolean" Nullable="false" />
+    <Property Name="OwnerAddressId" Type="Int32" />
+    <Property Name="CountyCode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ZipPlusFour" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="LastModBy" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="LastModDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SysTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="InterestRate" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Hide" Type="Boolean" />
+    <Property Name="ClientOrderNo" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="IntegrationTransaction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IntegrationID" Type="Int32" />
+    <Property Name="FHACaseNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyType" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="IsClosingRequestIndicator" Type="Boolean" Nullable="false" />
+    <Property Name="IntegrationClientId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LoanCategory" Type="Int32" />
+    <NavigationProperty Name="Borrowers" Relationship="WebApiDataModel.FK_BRWR_OM_OrderNo" FromRole="OrderMaster" ToRole="Borrowers" />
+    <NavigationProperty Name="Counties" Relationship="WebApiDataModel.FK_OrderMaster_CountyCode" FromRole="OrderMaster" ToRole="Counties" />
+    <NavigationProperty Name="States" Relationship="WebApiDataModel.FK_OrderMaster_State" FromRole="OrderMaster" ToRole="States" />
+  </EntityType>
+  <Association Name="FK_BRWR_OM_OrderNo">
+    <End Type="WebApiDataModel.OrderMaster" Role="OrderMaster" Multiplicity="0..1" />
+    <End Type="WebApiDataModel.Borrowers" Role="Borrowers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderMaster">
+        <PropertyRef Name="OrderNo" />
+      </Principal>
+      <Dependent Role="Borrowers">
+        <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderMaster_CountyCode">
+    <End Type="WebApiDataModel.Counties" Role="Counties" Multiplicity="0..1" />
+    <End Type="WebApiDataModel.OrderMaster" Role="OrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Counties">
+        <PropertyRef Name="CountyCode" />
+      </Principal>
+      <Dependent Role="OrderMaster">
+        <PropertyRef Name="CountyCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderMaster_State">
+    <End Type="WebApiDataModel.States" Role="States" Multiplicity="0..1" />
+    <End Type="WebApiDataModel.OrderMaster" Role="OrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateAbbr" />
+      </Principal>
+      <Dependent Role="OrderMaster">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SecurityControl">
+    <Key>
+      <PropertyRef Name="SecurityControlId" />
+    </Key>
+    <Property Name="SecurityControlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ControlType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastModBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastModDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SecurityFormControl" Relationship="WebApiDataModel.FK_SecurityFormControl_SecurityControl" FromRole="SecurityControl" ToRole="SecurityFormControl" />
+  </EntityType>
+  <EntityType Name="SecurityForm">
+    <Key>
+      <PropertyRef Name="SecurityFormId" />
+    </Key>
+    <Property Name="SecurityFormId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastModBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastModDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SecurityFormControl" Relationship="WebApiDataModel.FK_SecurityFormControl_SecurityForm" FromRole="SecurityForm" ToRole="SecurityFormControl" />
+  </EntityType>
+  <EntityType Name="SecurityFormControl">
+    <Key>
+      <PropertyRef Name="SecurityFormControlId" />
+    </Key>
+    <Property Name="SecurityFormControlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SecurityFormId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityControlId" Type="Int32" Nullable="false" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastModBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastModDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SecurityControl" Relationship="WebApiDataModel.FK_SecurityFormControl_SecurityControl" FromRole="SecurityFormControl" ToRole="SecurityControl" />
+    <NavigationProperty Name="SecurityForm" Relationship="WebApiDataModel.FK_SecurityFormControl_SecurityForm" FromRole="SecurityFormControl" ToRole="SecurityForm" />
+    <NavigationProperty Name="SecurityFormControlConfig" Relationship="WebApiDataModel.FK_SecurityFormControlConfig_SecurityFormControl" FromRole="SecurityFormControl" ToRole="SecurityFormControlConfig" />
+  </EntityType>
+  <EntityType Name="SecurityFormControlConfig">
+    <Key>
+      <PropertyRef Name="SecurityFormControlConfigId" />
+    </Key>
+    <Property Name="SecurityFormControlConfigId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SecurityFormControlId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="IsVisible" Type="Boolean" Nullable="false" />
+    <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="IsAuditEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="Inactive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastModBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastModDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SecurityFormControl" Relationship="WebApiDataModel.FK_SecurityFormControlConfig_SecurityFormControl" FromRole="SecurityFormControlConfig" ToRole="SecurityFormControl" />
+  </EntityType>
+  <Association Name="FK_SecurityFormControl_SecurityControl">
+    <End Type="WebApiDataModel.SecurityControl" Role="SecurityControl" Multiplicity="1" />
+    <End Type="WebApiDataModel.SecurityFormControl" Role="SecurityFormControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityControl">
+        <PropertyRef Name="SecurityControlId" />
+      </Principal>
+      <Dependent Role="SecurityFormControl">
+        <PropertyRef Name="SecurityControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecurityFormControl_SecurityForm">
+    <End Type="WebApiDataModel.SecurityForm" Role="SecurityForm" Multiplicity="1" />
+    <End Type="WebApiDataModel.SecurityFormControl" Role="SecurityFormControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityForm">
+        <PropertyRef Name="SecurityFormId" />
+      </Principal>
+      <Dependent Role="SecurityFormControl">
+        <PropertyRef Name="SecurityFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecurityFormControlConfig_SecurityFormControl">
+    <End Type="WebApiDataModel.SecurityFormControl" Role="SecurityFormControl" Multiplicity="1" />
+    <End Type="WebApiDataModel.SecurityFormControlConfig" Role="SecurityFormControlConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityFormControl">
+        <PropertyRef Name="SecurityFormControlId" />
+      </Principal>
+      <Dependent Role="SecurityFormControlConfig">
+        <PropertyRef Name="SecurityFormControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetOrderDetailByOrderNo_Result">
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="Int32" Name="ItemNo" Nullable="false" />
+    <Property Type="String" Name="ProductCategory" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <ComplexType Name="DocumentsSelectAll_Result">
+    <Property Type="Int32" Name="ID1" Nullable="false" />
+    <Property Type="Int32" Name="ID2" Nullable="true" />
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="String" Name="DocSource" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="DocumentFolder" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="DocPath" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DocTypeId" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="655" />
+    <Property Type="String" Name="FullDescription" Nullable="true" MaxLength="544" />
+    <Property Type="String" Name="DocDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="RawDescription" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="EnteredDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="ClientViewable" Nullable="false" />
+    <Property Type="Boolean" Name="VendorViewable" Nullable="false" />
+    <Property Type="Boolean" Name="BorrowerViewable" Nullable="false" />
+    <Property Type="Int32" Name="EventId" Nullable="true" />
+    <Property Type="String" Name="ProductCategory" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="BranchID" Nullable="false" MaxLength="4" />
+    <Property Type="Boolean" Name="IsLocked" Nullable="true" />
+    <Property Type="String" Name="DocType" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="Ordered" Nullable="false" />
+    <Property Type="Guid" Name="uidHUDLine" Nullable="true" />
+    <Property Type="Guid" Name="uidDisbursement" Nullable="true" />
+    <Property Type="Int32" Name="DisbursementID" Nullable="true" />
+    <Property Type="String" Name="UploadBy" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="UploadfromWeb" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CPGetContactNames_Result">
+    <Property Type="Int32" Name="ContactId" Nullable="false" />
+    <Property Type="Int32" Name="XRefId" Nullable="false" />
+    <Property Type="String" Name="Suffix" Nullable="false" MaxLength="2" />
+    <Property Type="Int32" Name="SequenceNo" Nullable="false" />
+    <Property Type="String" Name="ContactType" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="MiddleInit" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Generation" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Phone1" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Phone2" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Pager" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="WebSite" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="EOInsurance" Nullable="true" MaxLength="4" />
+    <Property Type="DateTime" Name="EOExpiration" Nullable="true" Precision="23" />
+    <Property Type="String" Name="MPInsurance" Nullable="true" MaxLength="4" />
+    <Property Type="DateTime" Name="MPExpiration" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LicenseNo" Nullable="true" MaxLength="32" />
+    <Property Type="DateTime" Name="LicenseExpiration" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="WrkSampReceived" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="WrkSampApproved" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="WrkSampExpiration" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="FHAApproved" Nullable="false" />
+    <Property Type="String" Name="FHANo" Nullable="true" MaxLength="32" />
+    <Property Type="Boolean" Name="AppStateCertified" Nullable="false" />
+    <Property Type="DateTime" Name="LastModDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="LastModBy" Nullable="false" MaxLength="16" />
+    <Property Type="Binary" Name="SysTimeStamp" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="FullNameCalc" Nullable="true" MaxLength="69" />
+    <Property Type="Boolean" Name="EmailValidated" Nullable="true" />
+    <Property Type="DateTime" Name="BackgroundCheckReceived" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="BackgroundCheckExpiration" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastLoginDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="LoginCount" Nullable="true" />
+    <Property Type="Int32" Name="TitleTeam" Nullable="true" />
+    <Property Type="Int32" Name="AppraisalTeam" Nullable="true" />
+    <Property Type="Int32" Name="ClosingTeam" Nullable="true" />
+    <Property Type="String" Name="MailStop" Nullable="true" MaxLength="32" />
+    <Property Type="Boolean" Name="ChangePasswordRequired" Nullable="false" />
+    <Property Type="Int32" Name="SecretQuestionId" Nullable="true" />
+    <Property Type="String" Name="SecretAnswer" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FailedLoginAttempts" Nullable="false" />
+    <Property Type="DateTime" Name="PasswordLastChanged" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="TitleProducer" Nullable="true" />
+    <Property Type="Boolean" Name="TitleProducerNA" Nullable="true" />
+    <Property Type="String" Name="TitleProducerLicenseNo" Nullable="true" MaxLength="32" />
+    <Property Type="DateTime" Name="TitleProducerLicenseExpiration" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="AcceptedTerms" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Inactive" Nullable="false" />
+    <Property Type="Boolean" Name="DoNotContact" Nullable="true" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EliminatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="isMultiLingual" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CountyID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StateID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="PasswordHash" Nullable="true" />
+    <Property Type="String" Name="SecurityStamp" Nullable="true" />
+    <Property Type="Boolean" Name="PhoneNumberConfirmed" Nullable="true" />
+    <Property Type="Boolean" Name="TwoFactorEnabled" Nullable="true" />
+    <Property Type="DateTime" Name="LockoutEndDateUtc" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="LockoutEnabled" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CPTCRequestQuestionsAnswered_Result">
+    <Property Type="String" Name="QuestionText" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Answer" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="AnswerDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CPGetSecurityFormControlsConfig_Result">
+    <Property Type="Int32" Name="SecurityFormControlId" Nullable="false" />
+    <Property Type="Int32" Name="SecurityControlId" Nullable="false" />
+    <Property Type="Int32" Name="SecurityFormId" Nullable="false" />
+    <Property Type="String" Name="SecurityFormControlName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SecyrityControlType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SecurityControlDesc" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SecurityFormName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SecurityFormDesc" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ParentId" Nullable="true" />
+    <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+    <Property Type="Boolean" Name="IsVisible" Nullable="false" />
+    <Property Type="Int32" Name="SecurityFormControlConfigId" Nullable="false" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleDescription" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="CPOrderSearch_Result">
+    <Property Type="Int32" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="BorrowerName" Nullable="true" MaxLength="303" />
+    <Property Type="String" Name="LoanNo" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="ClientName" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="LoanOfficer" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="OrderDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="OrderedBy" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="CloseDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ClosedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderReceived" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TitleComplete" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CleartoClose" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PostClosetoComplete" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Completed" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="OrderStatus" Nullable="false" MaxLength="15" />
+    <Property Type="Int32" Name="IsCustomCss" Nullable="false" />
+    <Property Type="String" Name="CustomCssName" Nullable="false" MaxLength="18" />
+    <Property Type="String" Name="ProductType" Nullable="false" MaxLength="19" />
+  </ComplexType>
+  <ComplexType Name="CPGetPropertyDetail_Result">
+    <Property Type="Int64" Name="RowId" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="PropertyDetail" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="InformationName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ManagingAgentName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PhoneWithDash" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CellWithDash" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Cell" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="StockCertificateNumber" Nullable="true" />
+    <Property Type="Int32" Name="SharesCount" Nullable="true" />
+    <Property Type="Boolean" Name="IsLeaseAssigned" Nullable="true" />
+    <Property Type="String" Name="LeaseDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="ExpirationDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="PropertyAddressSuffix" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="PropertyAddressType" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="PropertyAddress1" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="PropertyAddress1Name" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="PropertyAddress2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="PropertyCity" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="PropertyState" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="PropertyZip" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="PropertyCounty" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="BuyerAddressSuffix" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="BuyerAddressType" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="BuyerAddress1" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="BuyerAddress2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="BuyerCity" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="BuyerState" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="BuyerZip" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BuyerCounty" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="SellerAddressSuffix" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="SellerAddressType" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="SellerAddress1" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="SellerAddress2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SellerCity" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="SellerState" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="SellerZip" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="SellerCounty" Nullable="true" MaxLength="32" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,1517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebApiDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="XRefId" Type="int" Nullable="false" />
+    <Property Name="Suffix" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="AddressType" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Line1" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Line2" Type="varchar" MaxLength="64" />
+    <Property Name="city" Type="varchar" MaxLength="40" />
+    <Property Name="State" Type="char" MaxLength="2" />
+    <Property Name="County" Type="varchar" MaxLength="32" />
+    <Property Name="CountyCode" Type="char" MaxLength="5" />
+    <Property Name="Zip" Type="char" MaxLength="5" />
+    <Property Name="ZipPlusFour" Type="char" MaxLength="4" />
+    <Property Name="Attention" Type="varchar" MaxLength="32" />
+    <Property Name="Phone" Type="varchar" MaxLength="24" />
+    <Property Name="Fax" Type="varchar" MaxLength="24" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+    <Property Name="AutoAttendant" Type="varchar" MaxLength="12" />
+    <Property Name="cdfAddressID" Type="int" />
+    <Property Name="Cell" Type="nvarchar" MaxLength="24" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Borrowers">
+    <Key>
+      <PropertyRef Name="BorrowerId" />
+    </Key>
+    <Property Name="BorrowerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="SequenceNo" Type="int" Nullable="false" />
+    <Property Name="EnteredDate" Type="datetime" Nullable="false" />
+    <Property Name="EnteredBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="32" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="20" />
+    <Property Name="Suffix" Type="varchar" MaxLength="4" />
+    <Property Name="SSN" Type="varchar" MaxLength="64" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="24" />
+    <Property Name="WorkPhone" Type="varchar" MaxLength="24" />
+    <Property Name="CellPhone" Type="varchar" MaxLength="24" />
+    <Property Name="OtherPhone" Type="varchar" MaxLength="24" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="128" />
+    <Property Name="IntegrationUID" Type="uniqueidentifier" />
+    <Property Name="FullName" Type="varchar" MaxLength="303" StoreGeneratedPattern="Computed" />
+    <Property Name="FullName2" Type="varchar" MaxLength="303" StoreGeneratedPattern="Computed" />
+    <Property Name="MaritalStatusId" Type="int" />
+    <Property Name="CDFPartyID" Type="int" />
+  </EntityType>
+  <EntityType Name="BundleDetails">
+    <Key>
+      <PropertyRef Name="BundleDetailID" />
+    </Key>
+    <Property Name="BundleDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BundleID" Type="int" Nullable="false" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="StandardPrice" Type="money" Nullable="false" />
+    <Property Name="DiscountPrice" Type="money" Nullable="false" />
+    <Property Name="DiscountPct" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bundles">
+    <Key>
+      <PropertyRef Name="BundleID" />
+    </Key>
+    <Property Name="BundleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="BundleDescription" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="ZipCode" />
+      <PropertyRef Name="City" />
+    </Key>
+    <Property Name="ZipCode" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="28" Nullable="false" />
+    <Property Name="CityType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="StateAbbr" Type="char" MaxLength="2" />
+    <Property Name="RateJurisdictionID" Type="int" />
+  </EntityType>
+  <EntityType Name="ClientBundles">
+    <Key>
+      <PropertyRef Name="Rowid" />
+    </Key>
+    <Property Name="Rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchId" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="BundleID" Type="int" Nullable="false" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComboEntries">
+    <Key>
+      <PropertyRef Name="cboId" />
+      <PropertyRef Name="cboEntry" />
+    </Key>
+    <Property Name="cboId" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="cboEntry" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="cboBehavior" Type="varchar" MaxLength="255" />
+    <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Internal" Type="bit" Nullable="false" />
+    <Property Name="EnteredDate" Type="datetime" Nullable="false" />
+    <Property Name="EnteredBy" Type="varchar" MaxLength="16" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComboIds">
+    <Key>
+      <PropertyRef Name="cboId" />
+    </Key>
+    <Property Name="cboId" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="cboDesc" Type="varchar" MaxLength="64" />
+    <Property Name="entryLength" Type="int" Nullable="false" />
+    <Property Name="DefaultEntry" Type="varchar" MaxLength="64" />
+    <Property Name="BehaviorLabel" Type="varchar" MaxLength="12" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Counties">
+    <Key>
+      <PropertyRef Name="CountyCode" />
+    </Key>
+    <Property Name="StateAbbr" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CountyCode" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="CountyName" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="AppraisalArea" Type="int" />
+    <Property Name="TitleArea" Type="int" />
+    <Property Name="ClosingArea" Type="int" />
+    <Property Name="DeedPrepAmt" Type="money" />
+    <Property Name="SubPrepAmt" Type="money" />
+    <Property Name="SatPrepAmt" Type="money" />
+    <Property Name="OtherPrepAmt" Type="money" />
+    <Property Name="MortBaseAmt" Type="money" />
+    <Property Name="MortBasePages" Type="int" />
+    <Property Name="MortXtraAmt1" Type="money" />
+    <Property Name="MortXtraAmt2" Type="money" />
+    <Property Name="DeedBaseAmt" Type="money" />
+    <Property Name="DeedBasePages" Type="int" />
+    <Property Name="DeedXtraAmt1" Type="money" />
+    <Property Name="DeedXtraAmt2" Type="money" />
+    <Property Name="TransTaxAmt1" Type="money" />
+    <Property Name="TransTaxAmt2" Type="money" />
+    <Property Name="MortTax" Type="varchar" MaxLength="128" />
+    <Property Name="RateJurisdictionID" Type="int" />
+    <Property Name="OtherTax" Type="varchar" MaxLength="1024" />
+    <Property Name="TitleEscrowTemplate" Type="varchar" MaxLength="128" />
+    <Property Name="IsSimplifile" Type="bit" Nullable="false" />
+    <Property Name="IsDeed" Type="bit" Nullable="false" />
+    <Property Name="IsMtg_DOT" Type="bit" Nullable="false" />
+    <Property Name="IsSub" Type="bit" Nullable="false" />
+    <Property Name="IsRelease" Type="bit" Nullable="false" />
+    <Property Name="IsAssignment" Type="bit" Nullable="false" />
+    <Property Name="IsPOA" Type="bit" Nullable="false" />
+    <Property Name="IsModification" Type="bit" Nullable="false" />
+    <Property Name="ERecordingSite" Type="varchar" MaxLength="32" />
+    <Property Name="ClosingLocRestriction" Type="bit" />
+    <Property Name="StateCountyCode" Type="varchar" MaxLength="7" />
+    <Property Name="CountySpecificInstructions" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="RowID" />
+    </Key>
+    <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID1" Type="int" Nullable="false" />
+    <Property Name="ID2" Type="int" />
+    <Property Name="DocType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DocPath" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="DiscRefNo" Type="varchar" MaxLength="64" />
+    <Property Name="EventId" Type="int" />
+    <Property Name="ClientViewable" Type="bit" Nullable="false" />
+    <Property Name="VendorViewable" Type="bit" Nullable="false" />
+    <Property Name="BorrowerViewable" Type="bit" Nullable="false" />
+    <Property Name="AccessCounter" Type="int" Nullable="false" />
+    <Property Name="DocSource" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DocTypeID" Type="int" />
+    <Property Name="EnteredBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="EnteredDate" Type="datetime" Nullable="false" />
+    <Property Name="LastAccessBy" Type="varchar" MaxLength="16" />
+    <Property Name="LastAccessDate" Type="datetime" />
+    <Property Name="DocumentFolder" Type="varchar" MaxLength="64" />
+    <Property Name="IsLocked" Type="bit" />
+    <Property Name="LockedDate" Type="datetime" />
+    <Property Name="LockedBy" Type="varchar" MaxLength="16" />
+    <Property Name="GUID" Type="uniqueidentifier" />
+    <Property Name="uidHUDLine" Type="uniqueidentifier" />
+    <Property Name="uidDisbursement" Type="uniqueidentifier" />
+    <Property Name="S3KeyName" Type="varchar" MaxLength="1024" />
+    <Property Name="S3eTag" Type="nvarchar" MaxLength="50" />
+    <Property Name="TCD_RowId" Type="int" />
+    <Property Name="DisbursementID" Type="int" />
+    <Property Name="VendorId" Type="int" />
+    <Property Name="UploadfromWeb" Type="bit" />
+    <Property Name="UploadBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="EmailType">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailName" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="FromEmailType" Type="varchar" MaxLength="64" />
+    <Property Name="FromEmailOther" Type="varchar" MaxLength="256" />
+    <Property Name="Subject" Type="varchar" MaxLength="256" />
+    <Property Name="Body" Type="varchar(max)" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" />
+    <Property Name="LastModDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notes">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="XRefId" Type="int" Nullable="false" />
+    <Property Name="Suffix" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="NoteType" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="4096" />
+    <Property Name="ClientViewable" Type="bit" Nullable="false" />
+    <Property Name="VendorViewable" Type="bit" Nullable="false" />
+    <Property Name="SentTo" Type="varchar" MaxLength="255" />
+    <Property Name="Priority" Type="bit" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Inactive" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderClientContacts">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNo" Type="int" Nullable="false" />
+    <Property Name="ContactCategory" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="ContactType" Type="int" Nullable="false" />
+    <Property Name="ContactId" Type="int" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" />
+    <Property Name="LastModDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+      <PropertyRef Name="ItemNo" />
+    </Key>
+    <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNo" Type="int" Nullable="false" />
+    <Property Name="ItemNo" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ProcessRowId" Type="int" />
+    <Property Name="EnteredDate" Type="datetime" Nullable="false" />
+    <Property Name="EnteredBy" Type="varchar" MaxLength="16" />
+    <Property Name="Lockout" Type="bit" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="DelayLockout" Type="bit" Nullable="false" />
+    <Property Name="GPMLockout" Type="bit" Nullable="false" />
+    <Property Name="LockOverride" Type="bit" Nullable="false" />
+    <Property Name="ProductCategory" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ClientRefNo" Type="varchar" MaxLength="64" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="CancelledDate" Type="datetime" />
+    <Property Name="ClientPrice" Type="money" Nullable="false" />
+    <Property Name="ClientAR_RowId" Type="int" Nullable="false" />
+    <Property Name="GPM" Type="money" Nullable="false" />
+    <Property Name="GPMPercentage" Type="float" />
+    <Property Name="Status" Type="varchar" MaxLength="40" />
+    <Property Name="Assigned" Type="bit" Nullable="false" />
+    <Property Name="FollowUpDate" Type="datetime" />
+    <Property Name="HcopySentDays" Type="int" />
+    <Property Name="Contact" Type="varchar" MaxLength="32" />
+    <Property Name="ContactExt" Type="varchar" MaxLength="8" />
+    <Property Name="ClientContactId" Type="int" />
+    <Property Name="VendorInstructions" Type="varchar" MaxLength="4096" />
+    <Property Name="InternalInstructions" Type="varchar" MaxLength="4096" />
+    <Property Name="PaymentMtd" Type="varchar" MaxLength="20" />
+    <Property Name="CODAmtDue" Type="money" />
+    <Property Name="ResponseMtd" Type="varchar" MaxLength="64" />
+    <Property Name="ResponseTo" Type="varchar" MaxLength="8" />
+    <Property Name="CompPhotos" Type="bit" Nullable="false" />
+    <Property Name="InteriorPhotos" Type="bit" Nullable="false" />
+    <Property Name="DigitalPhotos" Type="bit" Nullable="false" />
+    <Property Name="HardcopyCnt" Type="int" />
+    <Property Name="HardcopyDlvyMtd" Type="varchar" MaxLength="64" />
+    <Property Name="AcresAbove5" Type="varchar" MaxLength="8" />
+    <Property Name="AccountNo" Type="varchar" MaxLength="24" />
+    <Property Name="PayOffRecv" Type="bit" Nullable="false" />
+    <Property Name="DeedXfer" Type="bit" Nullable="false" />
+    <Property Name="YearsLived" Type="int" />
+    <Property Name="MtgHolder" Type="varchar" MaxLength="64" />
+    <Property Name="LegalDesc" Type="varchar" MaxLength="128" />
+    <Property Name="NoOfClosings" Type="int" />
+    <Property Name="DocPrepReq" Type="bit" Nullable="false" />
+    <Property Name="DocPrepDeed" Type="bit" Nullable="false" />
+    <Property Name="DocPrepSub" Type="bit" Nullable="false" />
+    <Property Name="DocPrepOther" Type="bit" Nullable="false" />
+    <Property Name="ClsAddresses" Type="varchar" MaxLength="512" />
+    <Property Name="DisburseFunds" Type="bit" Nullable="false" />
+    <Property Name="Accomodation" Type="bit" Nullable="false" />
+    <Property Name="InitClsLoc" Type="varchar" MaxLength="16" />
+    <Property Name="InitSchedReq" Type="datetime" />
+    <Property Name="LienPosition" Type="varchar" MaxLength="4" />
+    <Property Name="TaxesInEscrow" Type="bit" Nullable="false" />
+    <Property Name="LastDelay_RowId" Type="int" />
+    <Property Name="PiggybackCode" Type="varchar" MaxLength="4" />
+    <Property Name="PiggyBackOverride" Type="bit" Nullable="false" />
+    <Property Name="EDIReference" Type="varchar" MaxLength="64" />
+    <Property Name="BusinessTurnTime" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CalendarTurnTime" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ManualAssignEnabled" Type="bit" Nullable="false" />
+    <Property Name="MIS_OrderNo" Type="varchar" MaxLength="12" />
+    <Property Name="MIS_Branch" Type="varchar" MaxLength="4" />
+    <Property Name="MIS_DeptID" Type="varchar" MaxLength="2" />
+    <Property Name="MIS_TeamID" Type="varchar" MaxLength="8" />
+    <Property Name="MIS_XWingID" Type="varchar" MaxLength="12" />
+    <Property Name="VendorOrderNo" Type="varchar" MaxLength="16" />
+    <Property Name="ShowOnOrderWIP" Type="bit" Nullable="false" />
+    <Property Name="ClientBundleID" Type="int" />
+    <Property Name="BundleDetailsID" Type="int" />
+    <Property Name="UpgradeDowngrade" Type="bit" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="LoanType" Type="int" />
+    <Property Name="InterestRate" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="PiggyLoanType" Type="int" />
+    <Property Name="PiggyInterestRate" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="ProposedClsDate" Type="datetime" />
+    <Property Name="GfeId" Type="int" />
+    <Property Name="ttlAltAddress" Type="bit" Nullable="false" />
+    <Property Name="AltAddressId" Type="int" />
+    <Property Name="InstantTitle" Type="bit" />
+    <Property Name="Ordered" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderMaster">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OE_RowId" Type="int" Nullable="false" />
+    <Property Name="EnteredDate" Type="datetime" Nullable="false" />
+    <Property Name="EnteredBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="EDIReferenceNo" Type="varchar" MaxLength="64" />
+    <Property Name="OrderSource" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="OrderOrigination" Type="varchar" MaxLength="8" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="HaveAddress" Type="bit" Nullable="false" />
+    <Property Name="HaveZip" Type="bit" Nullable="false" />
+    <Property Name="StreetNo" Type="varchar" MaxLength="32" />
+    <Property Name="StreetName" Type="varchar" MaxLength="32" />
+    <Property Name="StreetName2" Type="varchar" MaxLength="32" />
+    <Property Name="StreetType" Type="varchar" MaxLength="12" />
+    <Property Name="Address1" Type="varchar" MaxLength="78" StoreGeneratedPattern="Computed" />
+    <Property Name="City" Type="varchar" MaxLength="32" />
+    <Property Name="State" Type="char" MaxLength="2" />
+    <Property Name="Zip" Type="char" MaxLength="5" />
+    <Property Name="County" Type="varchar" MaxLength="32" />
+    <Property Name="LoanNo" Type="varchar" MaxLength="64" />
+    <Property Name="LoanAmount" Type="money" />
+    <Property Name="LoanType" Type="varchar" MaxLength="24" />
+    <Property Name="Piggyback" Type="bit" Nullable="false" />
+    <Property Name="PiggybackLoanAmt" Type="money" />
+    <Property Name="SalesPrice" Type="money" />
+    <Property Name="EstimatedValue" Type="money" />
+    <Property Name="ExternalLender" Type="bit" Nullable="false" />
+    <Property Name="LenderId" Type="int" />
+    <Property Name="NonOwnerOccupied" Type="bit" Nullable="false" />
+    <Property Name="OwnerAddressId" Type="int" />
+    <Property Name="CountyCode" Type="char" MaxLength="5" />
+    <Property Name="ZipPlusFour" Type="char" MaxLength="4" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="InterestRate" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Hide" Type="bit" />
+    <Property Name="ClientOrderNo" Type="varchar" MaxLength="64" />
+    <Property Name="Latitude" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="Longitude" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="IntegrationTransaction" Type="varchar" MaxLength="50" />
+    <Property Name="IntegrationID" Type="int" />
+    <Property Name="FHACaseNo" Type="varchar" MaxLength="15" />
+    <Property Name="PropertyType" Type="varchar" MaxLength="64" />
+    <Property Name="IsClosingRequestIndicator" Type="bit" Nullable="false" />
+    <Property Name="IntegrationClientId" Type="varchar" MaxLength="50" />
+    <Property Name="LoanCategory" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderNotes">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNo" Type="int" Nullable="false" />
+    <Property Name="ItemNo" Type="int" Nullable="false" />
+    <Property Name="Xref_RowId" Type="int" />
+    <Property Name="Suffix" Type="char" MaxLength="2" />
+    <Property Name="NoteSource" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EventId" Type="int" />
+    <Property Name="NoteType" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="4096" />
+    <Property Name="SentTo" Type="varchar" MaxLength="255" />
+    <Property Name="Priority" Type="bit" Nullable="false" />
+    <Property Name="ClientViewable" Type="bit" Nullable="false" />
+    <Property Name="VendorViewable" Type="bit" Nullable="false" />
+    <Property Name="BorrowerViewable" Type="bit" Nullable="false" />
+    <Property Name="ClientActionReq" Type="bit" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Inactive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Service" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="12" />
+    <Property Name="Group" Type="varchar" MaxLength="16" />
+    <Property Name="Description" Type="varchar" MaxLength="64" />
+    <Property Name="Internal" Type="bit" Nullable="false" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="Instructions" Type="varchar" MaxLength="4096" />
+    <Property Name="ALTA" Type="bit" Nullable="false" />
+    <Property Name="COD" Type="bit" Nullable="false" />
+    <Property Name="Recording" Type="bit" Nullable="false" />
+    <Property Name="RecordingRequired" Type="bit" Nullable="false" />
+    <Property Name="GPMPercent" Type="int" Nullable="false" />
+    <Property Name="PiggyBack" Type="bit" Nullable="false" />
+    <Property Name="Purchase" Type="bit" Nullable="false" />
+    <Property Name="UsageNotes" Type="varchar" MaxLength="1024" />
+    <Property Name="GLAccount" Type="varchar" MaxLength="24" />
+    <Property Name="GLAccount2" Type="varchar" MaxLength="24" />
+    <Property Name="HUDLine" Type="int" />
+    <Property Name="PayeeCode" Type="varchar" MaxLength="8" />
+    <Property Name="TaskCode" Type="varchar" MaxLength="12" />
+    <Property Name="AccountingOnly" Type="bit" Nullable="false" />
+    <Property Name="DefaultProduct" Type="bit" Nullable="false" />
+    <Property Name="DefaultCls" Type="bit" Nullable="false" />
+    <Property Name="DefaultClsPiggy" Type="bit" Nullable="false" />
+    <Property Name="ReportType" Type="varchar" MaxLength="128" />
+    <Property Name="TSMainTab" Type="bit" Nullable="false" />
+    <Property Name="TSCommitTab" Type="bit" Nullable="false" />
+    <Property Name="TSFeesTab" Type="bit" Nullable="false" />
+    <Property Name="TSTaxTab" Type="bit" Nullable="false" />
+    <Property Name="TSDeedsTab" Type="bit" Nullable="false" />
+    <Property Name="TSMtgsTab" Type="bit" Nullable="false" />
+    <Property Name="TSLiensTab" Type="bit" Nullable="false" />
+    <Property Name="TSLegalTab" Type="bit" Nullable="false" />
+    <Property Name="TSReqsTab" Type="bit" Nullable="false" />
+    <Property Name="TSExceptsTab" Type="bit" Nullable="false" />
+    <Property Name="TSEnforceReqFields" Type="bit" Nullable="false" />
+    <Property Name="IncludeEndorsements" Type="bit" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="WeightPrice" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="WeightTurnTime" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="WeightQuality" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Uninsured" Type="bit" Nullable="false" />
+    <Property Name="TitleEscrowCode" Type="varchar" MaxLength="8" />
+    <Property Name="BPO" Type="bit" Nullable="false" />
+    <Property Name="DisplayOnWeb" Type="bit" />
+    <Property Name="AutoAssign" Type="bit" />
+    <Property Name="AutoSend" Type="bit" />
+    <Property Name="TitleOnlyPropClsDate" Type="bit" />
+    <Property Name="DisplayOnDashboard" Type="bit" />
+    <Property Name="SendNewOrderMsg" Type="bit" />
+    <Property Name="ExcludeFromHUD" Type="bit" />
+    <Property Name="EClosingProd" Type="bit" />
+    <Property Name="AssociatedECloseProd" Type="varchar" MaxLength="4" />
+    <Property Name="ARClientId" Type="int" />
+    <Property Name="AllowLoanPolicyChange" Type="bit" />
+    <Property Name="AllowOwnerPolicyChange" Type="bit" />
+    <Property Name="ReissueAvailable" Type="bit" />
+    <Property Name="PolicyProduct" Type="bit" />
+    <Property Name="TitleDecision" Type="bit" />
+    <Property Name="VendorAssignAs" Type="varchar" MaxLength="4" />
+    <Property Name="DefaultSearchType" Type="varchar" MaxLength="4" />
+    <Property Name="IgnoreTitleClearance" Type="bit" />
+    <Property Name="IsSchedulingProduct" Type="bit" Nullable="false" />
+    <Property Name="IsCEMA" Type="bit" Nullable="false" />
+    <Property Name="ExcludeFromAutoHold" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SecurityControl">
+    <Key>
+      <PropertyRef Name="SecurityControlId" />
+    </Key>
+    <Property Name="SecurityControlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ControlType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModBy" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastModDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SecurityForm">
+    <Key>
+      <PropertyRef Name="SecurityFormId" />
+    </Key>
+    <Property Name="SecurityFormId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModBy" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastModDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SecurityFormControl">
+    <Key>
+      <PropertyRef Name="SecurityFormControlId" />
+    </Key>
+    <Property Name="SecurityFormControlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SecurityFormId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="SecurityControlId" Type="int" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModBy" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastModDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SecurityFormControlConfig">
+    <Key>
+      <PropertyRef Name="SecurityFormControlConfigId" />
+    </Key>
+    <Property Name="SecurityFormControlConfigId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SecurityFormControlId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="IsVisible" Type="bit" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsAuditEnabled" Type="bit" Nullable="false" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModBy" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastModDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateAbbr" />
+    </Key>
+    <Property Name="StateCode" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="StateAbbr" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="SecurityInstrument" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="RecordingName1" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="RecordingName2" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="TT_AppInterior" Type="int" Nullable="false" />
+    <Property Name="TT_AppExterior" Type="int" Nullable="false" />
+    <Property Name="TT_PropertyRep" Type="int" Nullable="false" />
+    <Property Name="TT_TitleCommit" Type="int" Nullable="false" />
+    <Property Name="TT_FinalPolicy" Type="int" Nullable="false" />
+    <Property Name="RiskRate" Type="bit" Nullable="false" />
+    <Property Name="AllInclusive" Type="bit" Nullable="false" />
+    <Property Name="IsLicensingByState" Type="bit" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="128" />
+    <Property Name="CompanyLogo" Type="varchar" MaxLength="16" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="TitleEscrowTemplate" Type="varchar" MaxLength="128" />
+    <Property Name="WireBankName" Type="varchar" MaxLength="255" />
+    <Property Name="WireBankAddress" Type="varchar" MaxLength="255" />
+    <Property Name="WireABA" Type="varchar" MaxLength="255" />
+    <Property Name="WireAccount" Type="varchar" MaxLength="255" />
+    <Property Name="WireAccountName" Type="varchar" MaxLength="255" />
+    <Property Name="IsAttorneyClosingState" Type="bit" Nullable="false" />
+    <Property Name="DefaultTaxType" Type="varchar" MaxLength="32" />
+    <Property Name="DefaultTaxPeriod" Type="varchar" MaxLength="32" />
+    <Property Name="IsRateCalcEnabled" Type="bit" Nullable="false" />
+    <Property Name="AdditionalInformation" Type="varchar" MaxLength="1024" />
+    <Property Name="rcRefiPrevAmtsNeeded" Type="bit" Nullable="false" />
+    <Property Name="rcRefiOrigAmtsNeeded" Type="bit" Nullable="false" />
+    <Property Name="EstimatedRecording" Type="money" Nullable="false" />
+    <Property Name="StateMessages" Type="varchar(max)" />
+    <Property Name="Marital" Type="bit" Nullable="false" />
+    <Property Name="IsWorkshare" Type="bit" />
+    <Property Name="IsQuickClose" Type="bit" />
+    <Property Name="TimeZoneOffSet" Type="int" />
+    <Property Name="RequiredRecToDisb" Type="bit" />
+    <Property Name="AttorneyDisburseState" Type="bit" />
+    <Property Name="InternalDeedPrep" Type="bit" Nullable="false" />
+    <Property Name="IsHUDSignatureRequired" Type="varchar" MaxLength="6" />
+    <Property Name="HUDSignatureBy" Type="varchar" MaxLength="64" />
+    <Property Name="MCDeedPrep" Type="bit" />
+    <Property Name="BeingClause" Type="bit" Nullable="false" />
+    <Property Name="StateSpecificInstructions" Type="varchar(max)" />
+    <Property Name="TimezoneOffSetDST" Type="int" />
+    <Property Name="isAttorneyDisburseState" Type="bit" />
+    <Property Name="AutoVendorId" Type="varchar(max)" />
+    <Property Name="IsVendorDisburseState" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysMenu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RefDataId" Type="int" Nullable="false" />
+    <Property Name="Caption" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="RouterLink" Type="nvarchar" MaxLength="250" />
+    <Property Name="MenuRank" Type="int" />
+    <Property Name="ParentMenuId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="cssClass" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserId">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="Password" Type="varchar" MaxLength="64" />
+    <Property Name="SysAdmin" Type="bit" Nullable="false" />
+    <Property Name="Extension" Type="varchar" MaxLength="8" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="FullName" Type="varchar" MaxLength="255" />
+    <Property Name="Alias" Type="varchar" MaxLength="20" />
+    <Property Name="LastName2" Type="varchar" MaxLength="255" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="BranchId" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="32" />
+    <Property Name="ManagerNo" Type="int" Nullable="false" />
+    <Property Name="FaxServer" Type="varchar" MaxLength="64" />
+    <Property Name="EmailMethod" Type="varchar" MaxLength="24" />
+    <Property Name="SMTPServer" Type="varchar" MaxLength="64" />
+    <Property Name="FaxNumber" Type="varchar" MaxLength="24" />
+    <Property Name="AccountRep" Type="bit" Nullable="false" />
+    <Property Name="LastLogin" Type="datetime" />
+    <Property Name="LoginCount" Type="int" Nullable="false" />
+    <Property Name="LastModDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModBy" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="SysTimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Employee" Type="bit" Nullable="false" />
+    <Property Name="uidUser" Type="uniqueidentifier" />
+    <Property Name="txtHUDPermissions" Type="varchar" MaxLength="255" />
+    <Property Name="flgTemplate" Type="bit" />
+    <Property Name="txtAcctPermissions" Type="varchar" MaxLength="255" />
+    <Property Name="cdeAppServer" Type="int" />
+    <Property Name="FullNameCalc" Type="varchar" MaxLength="277" StoreGeneratedPattern="Computed" />
+    <Property Name="tsApprovalLimit" Type="money" Nullable="false" />
+    <Property Name="RRAccept" Type="bit" />
+    <Property Name="RRMaxOrders" Type="int" />
+    <Property Name="RRStartTime" Type="datetime" />
+    <Property Name="RREndTime" Type="datetime" />
+    <Property Name="CellPhone" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="WebRoles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Type" Type="char" MaxLength="1" />
+    <Property Name="PartyType" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Magellan_QA.dbo.ZIPCodeDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ZipCodes">
+    <Key>
+      <PropertyRef Name="ZipCode" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ZipCode" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ZipCodeType" Type="char" MaxLength="1" />
+    <Property Name="CountyCode" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="MSA" Type="char" MaxLength="4" />
+    <Property Name="AreaCode" Type="char" MaxLength="3" />
+    <Property Name="TimeZone" Type="varchar" MaxLength="15" />
+    <Property Name="GMTOffset" Type="int" />
+    <Property Name="DST" Type="char" MaxLength="1" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+  </EntityType>
+  <Association Name="FK_BRWR_OM_OrderNo">
+    <End Role="OrderMaster" Type="Self.OrderMaster" Multiplicity="0..1" />
+    <End Role="Borrowers" Type="Self.Borrowers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderMaster">
+        <PropertyRef Name="OrderNo" />
+      </Principal>
+      <Dependent Role="Borrowers">
+        <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BundleDetails_Bundles">
+    <End Role="Bundles" Type="Self.Bundles" Multiplicity="1" />
+    <End Role="BundleDetails" Type="Self.BundleDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bundles">
+        <PropertyRef Name="BundleID" />
+      </Principal>
+      <Dependent Role="BundleDetails">
+        <PropertyRef Name="BundleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientBundles_Bundles">
+    <End Role="Bundles" Type="Self.Bundles" Multiplicity="1" />
+    <End Role="ClientBundles" Type="Self.ClientBundles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bundles">
+        <PropertyRef Name="BundleID" />
+      </Principal>
+      <Dependent Role="ClientBundles">
+        <PropertyRef Name="BundleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComboEntries_CBOID">
+    <End Role="ComboIds" Type="Self.ComboIds" Multiplicity="1" />
+    <End Role="ComboEntries" Type="Self.ComboEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboIds">
+        <PropertyRef Name="cboId" />
+      </Principal>
+      <Dependent Role="ComboEntries">
+        <PropertyRef Name="cboId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Counties_State">
+    <End Role="States" Type="Self.States" Multiplicity="1" />
+    <End Role="Counties" Type="Self.Counties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateAbbr" />
+      </Principal>
+      <Dependent Role="Counties">
+        <PropertyRef Name="StateAbbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ON_OD_OrderItem">
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="1" />
+    <End Role="OrderNotes" Type="Self.OrderNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderDetails">
+        <PropertyRef Name="OrderNo" />
+        <PropertyRef Name="ItemNo" />
+      </Principal>
+      <Dependent Role="OrderNotes">
+        <PropertyRef Name="OrderNo" />
+        <PropertyRef Name="ItemNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetails_Addresses_AddressId">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="AltAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderMaster_CountyCode">
+    <End Role="Counties" Type="Self.Counties" Multiplicity="0..1" />
+    <End Role="OrderMaster" Type="Self.OrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Counties">
+        <PropertyRef Name="CountyCode" />
+      </Principal>
+      <Dependent Role="OrderMaster">
+        <PropertyRef Name="CountyCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderMaster_State">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="OrderMaster" Type="Self.OrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateAbbr" />
+      </Principal>
+      <Dependent Role="OrderMaster">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecurityFormControl_SecurityControl">
+    <End Role="SecurityControl" Type="Self.SecurityControl" Multiplicity="1" />
+    <End Role="SecurityFormControl" Type="Self.SecurityFormControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityControl">
+        <PropertyRef Name="SecurityControlId" />
+      </Principal>
+      <Dependent Role="SecurityFormControl">
+        <PropertyRef Name="SecurityControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecurityFormControl_SecurityForm">
+    <End Role="SecurityForm" Type="Self.SecurityForm" Multiplicity="1" />
+    <End Role="SecurityFormControl" Type="Self.SecurityFormControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityForm">
+        <PropertyRef Name="SecurityFormId" />
+      </Principal>
+      <Dependent Role="SecurityFormControl">
+        <PropertyRef Name="SecurityFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecurityFormControlConfig_SecurityFormControl">
+    <End Role="SecurityFormControl" Type="Self.SecurityFormControl" Multiplicity="1" />
+    <End Role="SecurityFormControlConfig" Type="Self.SecurityFormControlConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityFormControl">
+        <PropertyRef Name="SecurityFormControlId" />
+      </Principal>
+      <Dependent Role="SecurityFormControlConfig">
+        <PropertyRef Name="SecurityFormControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddressesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="BorrowersInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BorrowerId" Type="int" Mode="InOut" />
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="SequenceNo" Type="int" Mode="In" />
+    <Parameter Name="EnteredDate" Type="datetime" Mode="In" />
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="Type" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+    <Parameter Name="Suffix" Type="varchar" Mode="In" />
+    <Parameter Name="SSN" Type="varchar" Mode="In" />
+    <Parameter Name="HomePhone" Type="varchar" Mode="In" />
+    <Parameter Name="WorkPhone" Type="varchar" Mode="In" />
+    <Parameter Name="CellPhone" Type="varchar" Mode="In" />
+    <Parameter Name="OtherPhone" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="NotifyURL" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="DateOfBirth" Type="datetime" Mode="In" />
+    <Parameter Name="SysTimeStamp" Type="timestamp" Mode="InOut" />
+    <Parameter Name="MaritalStatusId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ClientBundlesSelectOE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ContactsSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="XRefID" Type="int" Mode="In" />
+    <Parameter Name="Suffix" Type="char" Mode="In" />
+    <Parameter Name="ShowMultiLevels" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ContactsSelectType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="XRefID" Type="int" Mode="In" />
+    <Parameter Name="Suffix" Type="char" Mode="In" />
+  </Function>
+  <Function Name="ContactsSetRequireUserToChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactId" Type="int" Mode="In" />
+    <Parameter Name="RequireChangePassword" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="CPAddOrderNoteInEmailQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="NoteType" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPAddTitleBillReqEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPAddTitleProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPDeleteSecurityControl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SecurityControlId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPDeleteSecurityForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SecurityFormId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPDeleteSecurityFormControl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SecurityFormControlId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPDocumentsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID1" Type="int" Mode="In" />
+    <Parameter Name="ID2" Type="int" Mode="In" />
+    <Parameter Name="DocType" Type="char" Mode="In" />
+    <Parameter Name="DocPath" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="DiscRefNo" Type="varchar" Mode="In" />
+    <Parameter Name="ClientViewable" Type="bit" Mode="In" />
+    <Parameter Name="DocSource" Type="char" Mode="In" />
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="EnteredDate" Type="datetime" Mode="In" />
+    <Parameter Name="EventID" Type="int" Mode="In" />
+    <Parameter Name="VendorViewable" Type="bit" Mode="In" />
+    <Parameter Name="BorrowerViewable" Type="bit" Mode="In" />
+    <Parameter Name="DocTypeID" Type="int" Mode="In" />
+    <Parameter Name="DocumentFolder" Type="varchar" Mode="In" />
+    <Parameter Name="uidHUDLine" Type="varchar" Mode="In" />
+    <Parameter Name="uidDisbursement" Type="varchar" Mode="In" />
+    <Parameter Name="LockOtherDocs" Type="bit" Mode="In" />
+    <Parameter Name="S3KeyName" Type="varchar" Mode="In" />
+    <Parameter Name="TCD_RowId" Type="int" Mode="In" />
+    <Parameter Name="RowId" Type="int" Mode="InOut" />
+    <Parameter Name="DisbursementId" Type="int" Mode="In" />
+    <Parameter Name="UploadfromWeb" Type="bit" Mode="In" />
+    <Parameter Name="UploadBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPGetAccountProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetClientList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ParentId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetContactNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LenderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetCOOPCheckList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetCOOPMileStone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetDownloadDocumentList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="CPGetLeinsDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetLoanPolicyDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetOrderAssignedUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="AssignedUser" Type="varchar" Mode="InOut" />
+    <Parameter Name="EmailAddress" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="CPGetOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rvcOrderNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPGetOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetOrderPartyDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rvcOrderNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPGetPermissionsAgainstRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="ScreenName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPGetPostCloseDocuments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetPreCloseDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetPreCloseDocuments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetProductCodeByOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="ProductCode" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="CPGetPropertyDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetPurchaseCheckList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetPurchaseMileStone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetRecordingDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetRegisterUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvitationCode" Type="varchar" Mode="In" />
+    <Parameter Name="XRefId" Type="int" Mode="In" />
+    <Parameter Name="suffix" Type="varchar" Mode="In" />
+    <Parameter Name="ClientId" Type="int" Mode="InOut" />
+    <Parameter Name="WebRoleId" Type="int" Mode="InOut" />
+    <Parameter Name="SequenceNo" Type="int" Mode="InOut" />
+    <Parameter Name="ContactId" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="CPGetSecurityFormControls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicationId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetSecurityFormControlsConfig" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicationId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetSignatureRequirement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetTCCleartoCloseDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetTitleCheckList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetTitleDocumentsSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID1" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetTitleMileStone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPGetTitleOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPOrderSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BorrowerName" Type="varchar" Mode="In" />
+    <Parameter Name="LoanNo" Type="varchar" Mode="In" />
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="LoanOfficer" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionType" Type="varchar" Mode="In" />
+    <Parameter Name="OrderStatus" Type="varchar" Mode="In" />
+    <Parameter Name="ClientFilterVal" Type="int" Mode="In" />
+    <Parameter Name="ClientId" Type="int" Mode="In" />
+    <Parameter Name="ShowSubClients" Type="bit" Mode="In" />
+    <Parameter Name="DefaultPastDays" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPOrderSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPSaveFileClearanceRequested" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="ApprovalBy" Type="varchar" Mode="In" />
+    <Parameter Name="EmailFrom" Type="varchar" Mode="In" />
+    <Parameter Name="EmailTo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="EmailSubject" Type="varchar" Mode="In" />
+    <Parameter Name="EmailBody" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="CPSaveNewYorkAttorneyItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="ClearedBy" Type="varchar" Mode="In" />
+    <Parameter Name="RowId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPSaveOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rvcOrderNumber" Type="varchar" Mode="In" />
+    <Parameter Name="rvcLoanNumber" Type="varchar" Mode="In" />
+    <Parameter Name="rvcPropertyType" Type="varchar" Mode="In" />
+    <Parameter Name="rbResidentType" Type="bit" Mode="In" />
+    <Parameter Name="riNumberOfUnits" Type="int" Mode="In" />
+    <Parameter Name="rdPropertyAcquiredDate" Type="datetime" Mode="In" />
+    <Parameter Name="riMortgageType" Type="int" Mode="In" />
+    <Parameter Name="rmLoanAmount" Type="money" Mode="In" />
+    <Parameter Name="rvcLoanRate" Type="varchar" Mode="In" />
+    <Parameter Name="rvcLoanTerms" Type="varchar" Mode="In" />
+    <Parameter Name="rvcLoanPurpose" Type="varchar" Mode="In" />
+    <Parameter Name="rvcLoanProductType" Type="varchar" Mode="In" />
+    <Parameter Name="rdRateLockDate" Type="datetime" Mode="In" />
+    <Parameter Name="rdAnticipatedSettlementDate" Type="datetime" Mode="In" />
+    <Parameter Name="xmlBorrowerXML" Type="xml" Mode="In" />
+    <Parameter Name="rvcEnteredBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPSaveOrderEntry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="OrderSource" Type="varchar" Mode="In" />
+    <Parameter Name="OrderOrigination" Type="varchar" Mode="In" />
+    <Parameter Name="ClientId" Type="int" Mode="In" />
+    <Parameter Name="HaveAddress" Type="bit" Mode="In" />
+    <Parameter Name="HaveZip" Type="bit" Mode="In" />
+    <Parameter Name="StreetNo" Type="varchar" Mode="In" />
+    <Parameter Name="StreetName" Type="varchar" Mode="In" />
+    <Parameter Name="Address2" Type="varchar" Mode="In" />
+    <Parameter Name="City" Type="varchar" Mode="In" />
+    <Parameter Name="State" Type="char" Mode="In" />
+    <Parameter Name="Zip" Type="char" Mode="In" />
+    <Parameter Name="County" Type="varchar" Mode="In" />
+    <Parameter Name="LoanNo" Type="varchar" Mode="In" />
+    <Parameter Name="LoanAmount" Type="money" Mode="In" />
+    <Parameter Name="LoanType" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyType" Type="varchar" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="ContactType" Type="varchar" Mode="In" />
+    <Parameter Name="ContactName" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionTypesXml" Type="xml" Mode="In" />
+    <Parameter Name="BorrowersXml" Type="xml" Mode="In" />
+    <Parameter Name="OrderNo" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="CPSaveOrderStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPSavePreCloseDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="Client" Type="varchar" Mode="In" />
+    <Parameter Name="ScheduleDate" Type="date" Mode="In" />
+    <Parameter Name="AnticipatedCloseDate" Type="date" Mode="In" />
+    <Parameter Name="AnticipatedCloseBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPSavePropertyDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PropertyType" Type="varchar" Mode="In" />
+    <Parameter Name="Address1" Type="varchar" Mode="In" />
+    <Parameter Name="Address1Name" Type="varchar" Mode="In" />
+    <Parameter Name="Address2" Type="varchar" Mode="In" />
+    <Parameter Name="zip" Type="varchar" Mode="In" />
+    <Parameter Name="city" Type="varchar" Mode="In" />
+    <Parameter Name="county" Type="varchar" Mode="In" />
+    <Parameter Name="state" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyDetail" Type="varchar" Mode="In" />
+    <Parameter Name="XRefId" Type="int" Mode="In" />
+    <Parameter Name="InformationName" Type="varchar" Mode="In" />
+    <Parameter Name="ManagingAgentName" Type="varchar" Mode="In" />
+    <Parameter Name="Phone" Type="varchar" Mode="In" />
+    <Parameter Name="Cell" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="StockCertificateNumber" Type="varchar" Mode="In" />
+    <Parameter Name="SharesCount" Type="varchar" Mode="In" />
+    <Parameter Name="IsLeaseAssigned" Type="bit" Mode="In" />
+    <Parameter Name="LeaseDate" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyAddressSuffix" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyAddressType" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyAddress1" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyAddress2" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyCity" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyState" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyZip" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyCounty" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyDetailXml" Type="xml" Mode="In" />
+    <Parameter Name="ExpirationDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPSearchOrderNotesByOrderNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CPTCRequestQuestionsAnswered" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="RequestType" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CPVaidateUserEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+    <Parameter Name="oiContactId" Type="int" Mode="InOut" />
+    <Parameter Name="obSuccess" Type="bit" Mode="InOut" />
+  </Function>
+  <Function Name="DocumentsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RowID" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DocumentsLock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RowId" Type="int" Mode="In" />
+    <Parameter Name="IsLocked" Type="bit" Mode="In" />
+    <Parameter Name="LockedBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DocumentsSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID1" Type="int" Mode="In" />
+    <Parameter Name="ID2" Type="int" Mode="In" />
+    <Parameter Name="DocType" Type="char" Mode="In" />
+    <Parameter Name="VendorViewable" Type="bit" Mode="In" />
+    <Parameter Name="ClientViewable" Type="bit" Mode="In" />
+    <Parameter Name="BorrowerViewable" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="DocumentTypesSelectAllByProdCat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCategory" Type="varchar" Mode="In" />
+    <Parameter Name="IsAvailableExternal" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="EmailQueueInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RowId" Type="int" Mode="InOut" />
+    <Parameter Name="MailFrom" Type="varchar" Mode="In" />
+    <Parameter Name="MailTo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="MailSubject" Type="varchar" Mode="In" />
+    <Parameter Name="MailBody" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AttachmentFileName" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="EventTrackingDelaysCausedBySelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ETD_RowId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FeedbackPartySelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetOrderDetailByOrderNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetStateCountyFromZip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Zipcode" Type="char" Mode="In" />
+  </Function>
+  <Function Name="ImagingSystemSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="InOut" />
+    <Parameter Name="Name" Type="varchar" Mode="InOut" />
+    <Parameter Name="DisplayName" Type="varchar" Mode="InOut" />
+    <Parameter Name="Path" Type="varchar" Mode="InOut" />
+    <Parameter Name="URL" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="InterfaceInsertRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InterfaceTransactionType" Type="int" Mode="In" />
+    <Parameter Name="Parameter1" Type="varchar" Mode="In" />
+    <Parameter Name="Parameter2" Type="varchar" Mode="In" />
+    <Parameter Name="Parameter3" Type="varchar" Mode="In" />
+    <Parameter Name="Parameter4" Type="varchar" Mode="In" />
+    <Parameter Name="Parameter5" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="MaritalStatusCodesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="OrderDetailsInsertAppraisal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="BranchID" Type="varchar" Mode="In" />
+    <Parameter Name="ProcessRowId" Type="int" Mode="In" />
+    <Parameter Name="LockOverride" Type="bit" Mode="In" />
+    <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+    <Parameter Name="ClientRefNo" Type="varchar" Mode="In" />
+    <Parameter Name="PaymentMtd" Type="varchar" Mode="In" />
+    <Parameter Name="CODAmtDue" Type="money" Mode="In" />
+    <Parameter Name="ResponseMtd" Type="varchar" Mode="In" />
+    <Parameter Name="ResponseTo" Type="varchar" Mode="In" />
+    <Parameter Name="Contact" Type="varchar" Mode="In" />
+    <Parameter Name="ContactExt" Type="varchar" Mode="In" />
+    <Parameter Name="ClientContactId" Type="int" Mode="In" />
+    <Parameter Name="CompPhotos" Type="bit" Mode="In" />
+    <Parameter Name="InteriorPhotos" Type="bit" Mode="In" />
+    <Parameter Name="DigitalPhotos" Type="bit" Mode="In" />
+    <Parameter Name="HardcopyCnt" Type="int" Mode="In" />
+    <Parameter Name="HardcopyDlvyMtd" Type="varchar" Mode="In" />
+    <Parameter Name="VendorInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="InternalInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="AcresAbove5" Type="varchar" Mode="In" />
+    <Parameter Name="ClientBundleID" Type="int" Mode="In" />
+    <Parameter Name="BundleDetailsID" Type="int" Mode="In" />
+    <Parameter Name="MIS_OrderNo" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_Branch" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_DeptID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_TeamID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_XWingID" Type="varchar" Mode="In" />
+    <Parameter Name="ItemNo" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="OrderDetailsInsertClosing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="BranchID" Type="varchar" Mode="In" />
+    <Parameter Name="ProcessRowId" Type="int" Mode="In" />
+    <Parameter Name="LockOverride" Type="bit" Mode="In" />
+    <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+    <Parameter Name="ClientRefNo" Type="varchar" Mode="In" />
+    <Parameter Name="NoOfClosings" Type="int" Mode="In" />
+    <Parameter Name="Contact" Type="varchar" Mode="In" />
+    <Parameter Name="ContactExt" Type="varchar" Mode="In" />
+    <Parameter Name="ClientContactId" Type="int" Mode="In" />
+    <Parameter Name="DocPrepReq" Type="bit" Mode="In" />
+    <Parameter Name="DocPrepDeed" Type="bit" Mode="In" />
+    <Parameter Name="DocPrepSub" Type="bit" Mode="In" />
+    <Parameter Name="DocPrepOther" Type="bit" Mode="In" />
+    <Parameter Name="ClsAddresses" Type="varchar" Mode="In" />
+    <Parameter Name="DisburseFunds" Type="bit" Mode="In" />
+    <Parameter Name="Accomodation" Type="bit" Mode="In" />
+    <Parameter Name="VendorInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="INTernalInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="InitClsLoc" Type="varchar" Mode="In" />
+    <Parameter Name="InitSchedReq" Type="datetime" Mode="In" />
+    <Parameter Name="LienPosition" Type="varchar" Mode="In" />
+    <Parameter Name="InterestRate" Type="decimal" Mode="In" />
+    <Parameter Name="LoanType" Type="int" Mode="In" />
+    <Parameter Name="PiggyInterestRate" Type="decimal" Mode="In" />
+    <Parameter Name="PiggyLoanType" Type="int" Mode="In" />
+    <Parameter Name="TaxesInEscrow" Type="bit" Mode="In" />
+    <Parameter Name="ClientBundleID" Type="int" Mode="In" />
+    <Parameter Name="BundleDetailsID" Type="int" Mode="In" />
+    <Parameter Name="MIS_OrderNo" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_Branch" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_DeptID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_TeamID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_XWingID" Type="varchar" Mode="In" />
+    <Parameter Name="ItemNo" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="OrderDetailsInsertOther" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="BranchID" Type="varchar" Mode="In" />
+    <Parameter Name="ProcessRowId" Type="int" Mode="In" />
+    <Parameter Name="LockOverride" Type="bit" Mode="In" />
+    <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+    <Parameter Name="ClientRefNo" Type="varchar" Mode="In" />
+    <Parameter Name="Contact" Type="varchar" Mode="In" />
+    <Parameter Name="ContactExt" Type="varchar" Mode="In" />
+    <Parameter Name="ClientContactId" Type="int" Mode="In" />
+    <Parameter Name="VendorInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="InternalInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="ClientBundleID" Type="int" Mode="In" />
+    <Parameter Name="BundleDetailsID" Type="int" Mode="In" />
+    <Parameter Name="MIS_OrderNo" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_Branch" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_DeptID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_TeamID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_XWingID" Type="varchar" Mode="In" />
+    <Parameter Name="ItemNo" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="OrderDetailsInsertTitle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="BranchID" Type="varchar" Mode="In" />
+    <Parameter Name="ProcessRowId" Type="int" Mode="In" />
+    <Parameter Name="LockOverride" Type="bit" Mode="In" />
+    <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+    <Parameter Name="ClientRefNo" Type="varchar" Mode="In" />
+    <Parameter Name="PiggyBackProductCode" Type="varchar" Mode="In" />
+    <Parameter Name="PiggyBackOverride" Type="bit" Mode="In" />
+    <Parameter Name="AccountNo" Type="varchar" Mode="In" />
+    <Parameter Name="PayOffRecv" Type="bit" Mode="In" />
+    <Parameter Name="DeedXfer" Type="bit" Mode="In" />
+    <Parameter Name="YearsLived" Type="int" Mode="In" />
+    <Parameter Name="MtgHolder" Type="varchar" Mode="In" />
+    <Parameter Name="LegalDesc" Type="varchar" Mode="In" />
+    <Parameter Name="Contact" Type="varchar" Mode="In" />
+    <Parameter Name="ContactExt" Type="varchar" Mode="In" />
+    <Parameter Name="ClientContactId" Type="int" Mode="In" />
+    <Parameter Name="DocPrepReq" Type="bit" Mode="In" />
+    <Parameter Name="DocPrepDeed" Type="bit" Mode="In" />
+    <Parameter Name="DocPrepSub" Type="bit" Mode="In" />
+    <Parameter Name="DocPrepOther" Type="bit" Mode="In" />
+    <Parameter Name="VendorInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="InternalInstructions" Type="varchar" Mode="In" />
+    <Parameter Name="ClientBundleID" Type="int" Mode="In" />
+    <Parameter Name="BundleDetailsID" Type="int" Mode="In" />
+    <Parameter Name="MIS_OrderNo" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_Branch" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_DeptID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_TeamID" Type="varchar" Mode="In" />
+    <Parameter Name="MIS_XWingID" Type="varchar" Mode="In" />
+    <Parameter Name="ProposedClsDate" Type="datetime" Mode="In" />
+    <Parameter Name="ttlAltAddress" Type="bit" Mode="In" />
+    <Parameter Name="AltAddressId" Type="int" Mode="In" />
+    <Parameter Name="ItemNo" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="OrderDetailsItemsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+    <Parameter Name="TitleOnly" Type="bit" Mode="In" />
+    <Parameter Name="ClosingOnly" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="OrderEntryComplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OrderMasterInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EnteredBy" Type="varchar" Mode="In" />
+    <Parameter Name="OrderSource" Type="varchar" Mode="In" />
+    <Parameter Name="OrderOrigination" Type="varchar" Mode="In" />
+    <Parameter Name="ClientId" Type="int" Mode="In" />
+    <Parameter Name="HaveAddress" Type="bit" Mode="In" />
+    <Parameter Name="HaveZip" Type="bit" Mode="In" />
+    <Parameter Name="StreetNo" Type="varchar" Mode="In" />
+    <Parameter Name="StreetName" Type="varchar" Mode="In" />
+    <Parameter Name="StreetName2" Type="varchar" Mode="In" />
+    <Parameter Name="StreetType" Type="varchar" Mode="In" />
+    <Parameter Name="City" Type="varchar" Mode="In" />
+    <Parameter Name="State" Type="char" Mode="In" />
+    <Parameter Name="Zip" Type="char" Mode="In" />
+    <Parameter Name="County" Type="varchar" Mode="In" />
+    <Parameter Name="CountyCode" Type="char" Mode="In" />
+    <Parameter Name="LoanNo" Type="varchar" Mode="In" />
+    <Parameter Name="LoanAmount" Type="money" Mode="In" />
+    <Parameter Name="LoanType" Type="varchar" Mode="In" />
+    <Parameter Name="Piggyback" Type="bit" Mode="In" />
+    <Parameter Name="PiggybackLoanAmt" Type="money" Mode="In" />
+    <Parameter Name="SalesPrice" Type="money" Mode="In" />
+    <Parameter Name="EstimatedValue" Type="money" Mode="In" />
+    <Parameter Name="ExternalLender" Type="bit" Mode="In" />
+    <Parameter Name="LenderId" Type="int" Mode="In" />
+    <Parameter Name="NonOwnerOccupied" Type="bit" Mode="In" />
+    <Parameter Name="ClientOrderNo" Type="varchar" Mode="In" />
+    <Parameter Name="FHACaseNo" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyType" Type="varchar" Mode="In" />
+    <Parameter Name="OrderNo" Type="int" Mode="InOut" />
+    <Parameter Name="IsTrid" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="OrderSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="branchId" Type="varchar" Mode="In" />
+    <Parameter Name="minClientId" Type="int" Mode="In" />
+    <Parameter Name="maxClientId" Type="int" Mode="In" />
+    <Parameter Name="minOrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="maxOrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="borrowerLast" Type="varchar" Mode="In" />
+    <Parameter Name="LoanNo" Type="varchar" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="state" Type="varchar" Mode="In" />
+    <Parameter Name="county" Type="varchar" Mode="In" />
+    <Parameter Name="prodCode" Type="varchar" Mode="In" />
+    <Parameter Name="appraisal" Type="bit" Mode="In" />
+    <Parameter Name="title" Type="bit" Mode="In" />
+    <Parameter Name="closing" Type="bit" Mode="In" />
+    <Parameter Name="other" Type="bit" Mode="In" />
+    <Parameter Name="streetNo" Type="varchar" Mode="In" />
+    <Parameter Name="streetName" Type="varchar" Mode="In" />
+    <Parameter Name="policyNo" Type="varchar" Mode="In" />
+    <Parameter Name="parentId" Type="int" Mode="In" />
+    <Parameter Name="ContactID" Type="int" Mode="In" />
+    <Parameter Name="OnlyMyClient" Type="bit" Mode="In" />
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="PasswordResetGetThemeUrl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactId" Type="int" Mode="In" />
+    <Parameter Name="ResetUrl" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="TCDetailsSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="webChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactID" Type="varchar" Mode="In" />
+    <Parameter Name="oldPassword" Type="varchar" Mode="In" />
+    <Parameter Name="newPassword" Type="varchar" Mode="In" />
+    <Parameter Name="success" Type="bit" Mode="InOut" />
+    <Parameter Name="EmailAddress" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="webChangeSecretQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactID" Type="varchar" Mode="In" />
+    <Parameter Name="QuestionID" Type="int" Mode="In" />
+    <Parameter Name="Answer" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="webLoginGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="suffix" Type="char" Mode="In" />
+    <Parameter Name="ipAddress" Type="char" Mode="In" />
+    <Parameter Name="pageTheme" Type="varchar" Mode="In" />
+    <Parameter Name="xrefID" Type="int" Mode="InOut" />
+    <Parameter Name="contactID" Type="int" Mode="InOut" />
+    <Parameter Name="orderNo" Type="int" Mode="InOut" />
+    <Parameter Name="borrowerType" Type="varchar" Mode="InOut" />
+    <Parameter Name="hasChildren" Type="bit" Mode="InOut" />
+    <Parameter Name="changePasswordReq" Type="bit" Mode="InOut" />
+    <Parameter Name="AccountLocked" Type="bit" Mode="InOut" />
+    <Parameter Name="LastPasswordChange" Type="datetime" Mode="InOut" />
+    <Parameter Name="NextPasswordChange" Type="int" Mode="InOut" />
+    <Parameter Name="SecretQuestionReq" Type="bit" Mode="InOut" />
+    <Parameter Name="LastLogin" Type="datetime" Mode="InOut" />
+  </Function>
+  <Function Name="webSecretQuestionGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="webUserRolesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="contactID" Type="int" Mode="In" />
+    <Parameter Name="roleID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="WebApiDataModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Borrowers" EntityType="Self.Borrowers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BundleDetails" EntityType="Self.BundleDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bundles" EntityType="Self.Bundles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientBundles" EntityType="Self.ClientBundles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComboEntries" EntityType="Self.ComboEntries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComboIds" EntityType="Self.ComboIds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Counties" EntityType="Self.Counties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailType" EntityType="Self.EmailType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderClientContacts" EntityType="Self.OrderClientContacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderMaster" EntityType="Self.OrderMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderNotes" EntityType="Self.OrderNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SecurityControl" EntityType="Self.SecurityControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SecurityForm" EntityType="Self.SecurityForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SecurityFormControl" EntityType="Self.SecurityFormControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SecurityFormControlConfig" EntityType="Self.SecurityFormControlConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysMenu" EntityType="Self.sysMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserId" EntityType="Self.UserId" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WebRoles" EntityType="Self.WebRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZipCodes" EntityType="Self.ZipCodes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BRWR_OM_OrderNo" Association="Self.FK_BRWR_OM_OrderNo">
+      <End Role="OrderMaster" EntitySet="OrderMaster" />
+      <End Role="Borrowers" EntitySet="Borrowers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BundleDetails_Bundles" Association="Self.FK_BundleDetails_Bundles">
+      <End Role="Bundles" EntitySet="Bundles" />
+      <End Role="BundleDetails" EntitySet="BundleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientBundles_Bundles" Association="Self.FK_ClientBundles_Bundles">
+      <End Role="Bundles" EntitySet="Bundles" />
+      <End Role="ClientBundles" EntitySet="ClientBundles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComboEntries_CBOID" Association="Self.FK_ComboEntries_CBOID">
+      <End Role="ComboIds" EntitySet="ComboIds" />
+      <End Role="ComboEntries" EntitySet="ComboEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Counties_State" Association="Self.FK_Counties_State">
+      <End Role="States" EntitySet="States" />
+      <End Role="Counties" EntitySet="Counties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ON_OD_OrderItem" Association="Self.FK_ON_OD_OrderItem">
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+      <End Role="OrderNotes" EntitySet="OrderNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Addresses_AddressId" Association="Self.FK_OrderDetails_Addresses_AddressId">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderMaster_CountyCode" Association="Self.FK_OrderMaster_CountyCode">
+      <End Role="Counties" EntitySet="Counties" />
+      <End Role="OrderMaster" EntitySet="OrderMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderMaster_State" Association="Self.FK_OrderMaster_State">
+      <End Role="States" EntitySet="States" />
+      <End Role="OrderMaster" EntitySet="OrderMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecurityFormControl_SecurityControl" Association="Self.FK_SecurityFormControl_SecurityControl">
+      <End Role="SecurityControl" EntitySet="SecurityControl" />
+      <End Role="SecurityFormControl" EntitySet="SecurityFormControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecurityFormControl_SecurityForm" Association="Self.FK_SecurityFormControl_SecurityForm">
+      <End Role="SecurityForm" EntitySet="SecurityForm" />
+      <End Role="SecurityFormControl" EntitySet="SecurityFormControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecurityFormControlConfig_SecurityFormControl" Association="Self.FK_SecurityFormControlConfig_SecurityFormControl">
+      <End Role="SecurityFormControl" EntitySet="SecurityFormControl" />
+      <End Role="SecurityFormControlConfig" EntitySet="SecurityFormControlConfig" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

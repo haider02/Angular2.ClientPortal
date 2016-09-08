@@ -1,0 +1,101 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content pB30">
+            <form role="form" *ngIf="active" (ngSubmit)="onSave()" #preCloseForm="ngForm">
+
+                <div class="row">
+                    <div class="col-md-12" id="PreCloseSection">
+                        <div class="panel panel-default db-panel">
+                            <div class="panel-heading" role="tab" id="preClose">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#preCloseD" aria-expanded="true" aria-controls="collapseOne">
+                                        Pre Close <span></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="preCloseD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="preClose">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="main-heading">Signature Requirements</h5>
+                                            <p>{{model.SignatureRequirements}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div id="PreCloseScheduleDateCntrl" class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="mR10">Scheduled Close Date</label>
+                                                <input type="date" class="form-control inline-block" [disabled]="model.Status == '1' || model.Status == '4'"
+                                                       required [(ngModel)]="model.ScheduledCloseDate" name="ScheduledCloseDate" #ScheduledCloseDate="ngModel">
+                                            </div>
+                                        </div>
+
+                                        <div id="PreCloseCloserNameCntrl" class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="mR10">Closer Name</label>
+                                                <input type="text" class="form-control inline-block" [disabled]="model.Status == '1' || model.Status == '4'"
+                                                       required maxlength="32" [(ngModel)]="model.CloserName" name="CloserName" #CloserName="ngModel">
+                                            </div>
+                                        </div>
+
+                                        <div id="PreCloseCloserSaveCntrl" class="col-md-12 mB10 text-right">
+                                            <button type="submit" class="btn btn-primary" [disabled]="model.Status == '1' || model.Status == '4'">
+                                                <span class="fa fa-floppy-o"></span> Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="DocumentsSection">
+                        <div class="panel panel-default db-panel">
+                            <div class="panel-heading" role="tab" id="attorneyWorkflow">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#attorneyWorkflowD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                        Documents <span></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="attorneyWorkflowD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="attorneyWorkflow">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="col-md-3 document-tree-wrapper" *ngIf="!visibleMergeAllIcon">
+                                            <label *ngIf="!visibleMergeAllIcon"> No Documents Available</label>
+                                        </div>
+                                        <div id="PreCloseTreeView" class="col-md-3 document-tree-wrapper" *ngIf="visibleMergeAllIcon">
+                                            <div>
+                                                <a (click)="docMerge_Click()" class="doc-print fa fa-print"></a>
+                                                <a href="" download id="download" hidden></a>
+                                            </div>
+
+                                            <directory-view [treeViewList]="treeViewList"
+                                                            (editSelectedRow)="nodeSelection_Clicked($event)"
+                                                            [isCheckboxEnabled]="1"></directory-view>
+
+
+
+                                        </div>
+                                        <div id="PreClosePdfViewer" class="col-md-9 document-view">
+                                            <div *ngIf="SelectedViewEnum==1">
+                                                <pdf-viewer [pdfPath]="nodeSelected.FilePath"
+                                                            (ViewPDF)="ViewPDF($event)"></pdf-viewer>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

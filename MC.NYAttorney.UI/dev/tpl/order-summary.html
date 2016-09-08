@@ -1,0 +1,40 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <left-navigation [selectedTab]="clientTab"></left-navigation>
+    <div id="rightContent">
+        <header-detail></header-detail>
+        <div class="content pB30">
+            <div class="row">
+                <form role="form" *ngIf="active" (ngSubmit)="onSave()" #orderSummaryForm="ngForm">
+                    <div>
+                        <div class="col-md-12" id="MileStoneSection">
+                            <milestone-tracker></milestone-tracker>
+                        </div>
+                    </div>
+                    <div id="CheckListSection">
+                        <div id="partyInformation">
+                            <div class="col-md-12" id="PartyCheckList">
+                                <div class="panel panel-default db-panel db-panel-content">
+                                    <div class="panel-heading" role="tab" id="attorneyWorkflow">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" href="#attorneyWorkflowD" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                                Order Status <span></span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="attorneyWorkflowD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="attorneyWorkflow">
+                                        <div class="panel-body">
+                                            <div class="col-md-12">
+                                                <item-checklist></item-checklist>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

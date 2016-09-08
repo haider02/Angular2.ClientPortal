@@ -1,0 +1,23 @@
+﻿<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="btn-group pdfBtnBkg">
+        <button class="btn" (click)="loadPageNumber(-(currentPage-1))" [disabled]="currentPage==1 ">|&lt;</button>
+        <button class="btn" (click)="loadPageNumber(-1)" [disabled]="currentPage<=1 || currentPage>totalPages">&lt;</button>
+        <button class="btn" (click)="loadPageNumber(1)" [disabled]="currentPage>=totalPages || currentPage<1 ">&gt;</button>
+        <button class="btn" (click)="loadPageNumber(totalPages-currentPage)" [disabled]="currentPage==totalPages">&gt;|</button>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <label class="fLeft mT7 mR5">Pg No</label>
+            <input type="number" class="pdfinput fLeft mT5 mR5" [(ngModel)]="currentPage" required />
+            <div class="mT7 fLeft">/<span class="PDFnumber">{{totalPages}}</span></div>
+            <button type="button" class="btn btn-xs btn-default fLeft mT5 mL10" (click)="gotopage()" [disabled]="currentPage>totalPages || currentPage<1">Go To</button>
+        </div>
+        <a href="{{pdfPath}}" download data-toggle="tooltip"
+           title="Download document"
+           class="btn btn-sq-xs btn-default">
+            <i class="fa fa-download fa-1x"></i>
+            Download document
+        </a>
+    </div>
+    <div class="row">
+        <canvas class="pdfpage" id="pdfviewerconvas"></canvas>
+    </div>
+</div>

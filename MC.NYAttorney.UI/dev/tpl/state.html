@@ -1,0 +1,5 @@
+﻿
+<label for="State">State</label>
+<select class="form-control" (change)="onStateChange($event)" [(ngModel)]="stateInput">
+    <option *ngFor="let t of states" [value]="t.StateAbbr">{{t.StateAbbr}}</option>
+</select>

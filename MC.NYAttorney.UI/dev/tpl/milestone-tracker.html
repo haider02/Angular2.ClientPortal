@@ -1,0 +1,68 @@
+﻿<div class="orders-status-wrapper" id="ordersStatus">
+    <div id="OrderSummaryStatus">
+        <ul class="order-status-list">
+
+            <li class="item done">
+                <div class="opened">
+                    <span class="time-completed">{{model.OpenedDate}}</span>
+                    <div class="circle"><span class="icon"></span></div>
+                    <div class="title">{{model.OpenedText}}</div>
+                    <div class="bar"></div>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="departmentalComplete">
+                    <span class="time-completed">{{model.DepartmentalCompleteDate}}</span>
+                    <div class="circle"><span class="icon"></span></div>
+                    <div class="title">{{model.DepartmentalCompleteText}}</div>
+                    <div class="bar"></div>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="titleComplete">
+                    <span class="time-completed">{{model.TitleCompleteDate}}</span>
+                    <div class="circle"><span class="icon"></span></div>
+                    <div class="title">{{model.TitleCompleteText}}</div>
+                    <div class="bar"></div>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="titleCleared">
+                    <span class="time-completed">{{model.TitleClearedDate}}</span>
+                    <div class="circle"><span class="icon"></span></div>
+                    <div class="title">{{model.TitleClearedText}}</div>
+                    <div class="bar"></div>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="titleBillUpdate">
+                    <span class="time-completed">{{model.TitleBillUpdateDate}}</span>
+                    <div class="circle"><span class="icon"></span></div>
+                    <div class="title">{{model.TitleBillUpdateText}}</div>
+                    <div class="bar"></div>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="documentRecorded">
+                    <span class="time-completed">{{model.DocumentRecordedDate}}</span>
+                    <div class="circle"><span class="icon"></span></div>
+                    <div class="title">{{model.DocumentRecordedText}}</div>
+                    <div class="bar"></div>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="finalPolicyIssued">
+                    <span class="time-completed">{{model.FinalPolicyIssuedDate}}</span>
+                    <div class="circle"><span class="icon"></span></div>
+                    <div class="title">{{model.FinalPolicyIssuedText}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

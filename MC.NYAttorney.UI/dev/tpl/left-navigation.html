@@ -1,0 +1,13 @@
+﻿<div id="leftNav">
+    <a (click)="hideShowLeftMenu()" class="close"><span class="fa fa-caret-left"></span></a>
+    <ul class="nav-list">
+        <li *ngFor="let t of menuList"  [class.active]="selectedTab == t.MenuRank">
+            <span id="{{t.RouterLink}}">
+                <a (click)="routeNavigator(t)">
+                    <span [ngClass]="t.cssClass"></span>
+                    {{t.Caption}}
+                </a>
+            </span>
+        </li>
+    </ul>
+</div>

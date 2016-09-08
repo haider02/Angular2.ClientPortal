@@ -1,0 +1,98 @@
+﻿<div id="orderSummary" class="clearfixDiv">
+    <notification-msg #notificationcomponent></notification-msg>
+    <div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form" (ngSubmit)="onSave()" #securityFormControlConfigEntryForm="ngForm">
+                        <div class="panel panel-default db-panel">
+                            <div class="panel-heading" role="tab" id="formControConfig">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="" aria-expanded="true" aria-controls="collapseOne">
+                                        Security Form Control
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="odderDetailD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="odderDetail">
+                                <div class="panel-body row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Role Id</label>
+                                            <select class="form-control" required [(ngModel)]="model.RoleId" ngModel="role" #role="ngModel" name="RoleId"
+                                                    (change)="onChangeRole($event)" [disabled]="!isRoleEnable">
+                                                <option value="0" selected>Please Select</option>
+                                                <option *ngFor="let t of WebRolesList" value="{{t.RoleID}}">{{t.Description}}</option>
+                                            </select>
+                                            <div [hidden]="role.valid || role.pristine" class="alert alert-danger">
+                                                Please select role id
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Form</label>
+                                            <select class="form-control" required [(ngModel)]="model.SecurityFormId" ngModel="securityForm" #securityForm="ngModel"
+                                                    name="SecurityFormId" (change)="onChangeForm($event)" [disabled]="!isFormEnable">
+                                                <option value="0" selected>Please Select</option>
+                                                <option *ngFor="let t of SecurityFormList" value="{{t.SecurityFormId}}">{{t.Name}}</option>
+                                            </select>
+                                            <div [hidden]="securityForm.valid || securityForm.pristine" class="alert alert-danger">
+                                                Please select security form
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> </label>
+                                            <div>
+                                                <button class="btn btn-primary pull-right" type="button" (click)="onSearch()"><span class="fa fa-search"></span> Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearB text-right col-md-12">
+                                        <button type="button" class="btn btn-link pull-right" [disabled]="!(role.value != 0 && securityForm.value != 0 && isAddMode)" (click)="displayForm()"><span class="fa fa-plus"></span> Add Security Form</button>
+                                    </div>
+                                    <div class="grid-table mT0">
+                                        <data-grid [rows]="SecurityFormControlConfigList" [columns]="SecurityFormControlConfigColumns" (deleteSelectedRow)="deleteSecurityFormControlConfig($event)"
+                                                   (editSelectedRow)="editSecurityFormControlConfig($event)">
+                                        </data-grid>
+                                    </div>
+                                    <div *ngIf="VisibleForm">
+                                        <div class="col-md-4">
+                                        </div>
+                                        <div class="col-md-4 clearB">
+                                            <div class="form-group">
+                                                <label>Control Name</label>
+                                                <select class="form-control" required [(ngModel)]="model.SecurityFormControlId" ngModel="securityFormControlName" name="securityFormControlName"  #securityFormControlName="ngModel" (change)="model.SecurityFormControlId = $event.target.value">
+                                                    <option *ngFor="let t of SecurityFormControlList" value="{{t.SecurityFormControlId}}">{{t.SecurityFormControlName}}</option>
+                                                </select>
+                                                <div [hidden]="securityFormControlName.valid || securityFormControlName.pristine" class="alert alert-danger">
+                                                    Please select control name
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 clearB">
+                                            <div class="form-group">
+                                                <label>Is Visible</label>
+                                                <input type="checkbox" (change)="VisibleChange(isVisible.checked)" #isVisible [(ngModel)]="model.IsVisible" name="IsVisible" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Is Enabled</label>
+                                                <input type="checkbox" (change)="EnabledChange(isEnable.checked)" #isEnable [(ngModel)]="model.IsEnabled" name="IsEnabled" />
+                                            </div>
+                                        </div>
+                                        <div class="button-group text-right col-md-12">
+                                            <button type="submit" [disabled]="!securityFormControlConfigEntryForm.form.valid" class="btn btn-primary w80"><span class="fa fa-floppy-o"></span> Save</button>
+
+                                            <button (click)="reset()" type="button" class="btn btn-default w80"> <span class="fa fa-close"></span> Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

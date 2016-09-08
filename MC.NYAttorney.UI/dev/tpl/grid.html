@@ -1,0 +1,90 @@
+<div class="tableGrid">
+    <div>
+        <div class="col-lg-12 grid-table">
+            <section>
+                <div class="table-responsive top-curve">
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let col of columns">
+                                    <a (click)="sort(col.name)">{{col.desc}}</a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of rows" [ngClass]="row.IsShowCustomBackground ? 'showRed' : ''" [hidden]="row.IsActive != 'undefined' && row.IsActive == false">
+                                <td *ngFor="let col of columns">
+                                    <p *ngIf="col.name=='Action'" class="w70">
+                                        <a data-toggle="tooltip" title="Edit" (click)="editRow(row)" class="actionbtn">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a data-toggle="tooltip" title="Delete" (click)="deleteRow(row)" class="actionbtn">
+                                            <i class="fa fa-remove"></i>
+                                        </a>
+                                        <a data-toggle="tooltip" title="View" (click)="viewRow(row)" class="actionbtn">
+                                            <i class="fa fa-list"></i>
+                                        </a>
+                                    </p>
+
+                                    <p *ngIf="col.name=='ViewAndNavigateCommunication'" class="w70">
+                                        <a data-toggle="tooltip" title="View" (click)="viewRow(row)" class="actionbtn">
+                                            <i class="fa fa-list"></i>
+                                        </a>
+                                        <a data-toggle="tooltip" title="ViewCommunication" (click)="onCommunicationSelect(row)" class="actionbtn">
+                                            <i class="fa fa-commenting-o"></i>
+                                        </a>
+                                    </p>
+                                    <p *ngIf="col.name=='EditOnly'" class="w30">
+                                        <a data-toggle="tooltip" title="Edit" (click)="editRow(row)" class="actionbtn">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </p>
+                                    <p *ngIf="col.name=='DeleteOnly'" class="w30">
+                                        <a data-toggle="tooltip" title="Delete" (click)="deleteRow(row)" class="actionbtn">
+                                            <i class="fa fa-remove"></i>
+                                        </a>
+                                    </p>
+                                    <p *ngIf="col.name=='ViewOnly'" class="w30">
+                                        <a data-toggle="tooltip" title="View" (click)="viewRow(row)" class="actionbtn">
+                                            <i class="fa fa-list"></i>
+                                        </a>
+                                    </p>
+                                    <span *ngIf="col.name=='SummaryOnly'" class="w30">
+                                        <a data-toggle="tooltip" title="Summary" (click)="summaryRow(row)" class="actionbtn order-summary fa fa-file-text">
+
+                                        </a>
+                                    </span>
+                                    <span *ngIf="col.name=='DetailOnly'" class="w30">
+                                        <a data-toggle="tooltip" title="Detail" (click)="detailRow(row)" class="actionbtn order-detail fa fa-search-plus">
+
+                                        </a>
+                                    </span>
+                                    <p *ngIf="col.name=='showCheckBox'"><input type="checkbox" [(ngModel)]="row.IsChecked" (ngChecked)="row.IsChecked" #isChecked (click)="CheckRow(row,$event.target)"></p>
+                                    <p *ngIf="col.name=='ViewName'" class="underline"><a (click)="onVendorSelect(row)">{{row[col.name]}}</a></p>
+                                    <p *ngIf="col.name=='ViewId'"><a (click)="onVendorSelect(row)">{{row[col.name]}}</a></p>
+                                    <span *ngIf="col.name!='ViewOnly' &&col.name!='showCheckBox' && col.name!='Action' && col.name!='ViewName' && col.name!='ViewId' && col.name!='ViewAndNavigateCommunication'"
+                                          [ngClass]="col.name == 'OrderStatus' && row.IsCustomCss != 'undefined' && (row.IsCustomCss == '1' || row.IsCustomCss) ? row.CustomCssName : ''">
+                                        {{checkDate(row[col.name])}}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pager">
+                        <li>
+                            <button type="button" (click)="First()" [disabled]="pageNumber==1" class="btn btn-default"><span class="fa  fa-angle-double-left"></span></button>
+                            <button type="button" (click)="Previous()" [disabled]="pageNumber<=1" class="btn btn-default"><span class="fa  fa-angle-left"></span></button>
+                        </li>
+                        <li>Page {{pageNumber}} of {{totalPages}}</li>
+                        <li>
+                            <button type="button" (click)="Next()" [disabled]="pageNumber==totalPages" class="btn btn-default"><span class="fa  fa-angle-right"></span></button>
+                            <button type="button" (click)="Last()" [disabled]="pageNumber==totalPages" class="btn btn-default"><span class="fa  fa-angle-double-right"></span></button>
+                        </li>
+                        <li class="pageCounter">Total Records {{totalRows}}</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
